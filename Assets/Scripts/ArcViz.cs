@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 [RequireComponent(typeof(LineRenderer))]
 public class ArcViz : MonoBehaviour {
@@ -26,10 +26,14 @@ public class ArcViz : MonoBehaviour {
         var prev = start;
         for (int i = 1;; i++) {
             float t = timeStep * i;
-            if (t > maxTime) break;
+            if (t > maxTime)
+                break;
 
             var pos = PlotTrajectoryAtTime(start, StartVelocity, t);
-            if (Physics.Linecast(prev, pos)) break;
+
+            if (Physics.Linecast(prev, pos))
+                break;
+
             Debug.DrawLine(prev, pos, Color.red);
             prev = pos;
         }
