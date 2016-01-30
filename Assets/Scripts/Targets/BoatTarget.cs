@@ -59,6 +59,11 @@ public class BoatTarget : MonoBehaviour {
 
 		// Did we collide with an arrow
 		if (other.gameObject.layer == 9) {
+			// start a fire
+			fireStarted = true;
+			fireSystem.Play ();
+
+			// sink the ship
 			SinkShip ();
 		}
 
@@ -69,7 +74,7 @@ public class BoatTarget : MonoBehaviour {
 	}
 
 	void SpawnDemon () {
-		
+		SinkShip ();
 	}
 
 	void SinkShip () {
@@ -77,8 +82,5 @@ public class BoatTarget : MonoBehaviour {
 		boatDeathTimer = 0;
 		boatInitSinkSpeed = boatSpeed;
 		boatSinkTimer = boatSinkDuration;
-
-		fireStarted = true;
-		fireSystem.Play ();
 	}
 }
