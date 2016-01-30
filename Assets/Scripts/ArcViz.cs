@@ -1,10 +1,12 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Security.Policy;
 using UnityEngine;
 
 [RequireComponent(typeof(LineRenderer))]
 public class ArcViz : MonoBehaviour {
     private LineRenderer _renderer;
+
+    [SerializeField] private GameObject _endPoint;
 
     [Range(0f, 100f)] 
     [SerializeField] private float _power = 30f;
@@ -52,7 +54,8 @@ public class ArcViz : MonoBehaviour {
                 var ray = new Ray(prev, pos - prev);
                 var hit = new RaycastHit();
                 if (Physics.Raycast(ray, out hit)) {
-                    Debug.Log(hit.point);
+                    if (_endPoint != null)
+                        _endPoint.transform.position = hit.point;
                 }
                 break;
             }
