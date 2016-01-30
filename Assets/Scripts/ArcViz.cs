@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(LineRenderer))]
 public class ArcViz : MonoBehaviour {
     private LineRenderer _renderer;
+    [SerializeField] private GameObject _particles;
 
     [SerializeField]
     private Animator _animator;
@@ -92,9 +93,11 @@ public class ArcViz : MonoBehaviour {
         // fire
         GetComponent<ProjectileLauncher>().Fire(_power);
         _animator.SetTrigger("Release");
+        _particles.SetActive(false);
     }
 
     public void OnPull(Vector2 value) {
         _animator.SetTrigger("Touch");
+        _particles.SetActive(true);
     }
 }
