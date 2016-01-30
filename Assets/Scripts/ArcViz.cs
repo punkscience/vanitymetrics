@@ -1,18 +1,20 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 [ExecuteInEditMode]
 [RequireComponent(typeof(LineRenderer))]
 public class ArcViz : MonoBehaviour {
     private LineRenderer _renderer;
 
-    [Header("Debug Vars:")] [Range(0f, 100f)] 
+    [Range(0f, 100f)] 
     [SerializeField] private float _power = 30f;
-    [SerializeField] private bool _debug;
 
     [Header("Settings:")]
     [Range(0.01f, 1f)]
     [SerializeField] private float _timeStep = 0.5f;
     [SerializeField] private float _maxTime = 10f;
+
+    [SerializeField] private bool _debug;
 
     public float TimeStep {
         get { return _timeStep; }
@@ -54,9 +56,22 @@ public class ArcViz : MonoBehaviour {
         }
     }
 
+//    private IEnumerator FadeIn() {
+//        
+//    }
+//
+//    private IEnumerator FadeOut() {
+//        
+//    }
+
     public void DrawTrajectory(Vector3 start, Vector3 startVelocity, float power) {
         _renderer.enabled = true;
         PlotTrajectory(start, startVelocity * power, TimeStep, MaxTime);
+    }
+
+    public void DrawTrajectory(Vector2 value) {
+        Debug.Log(value.y);
+        DrawTrajectory(transform.position, transform.forward, value.y * _power);
     }
 
     [ContextMenu("Clear Debug View")]
