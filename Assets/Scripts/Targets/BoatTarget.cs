@@ -6,7 +6,7 @@ public class BoatTarget : MonoBehaviour {
 	protected float boatSpeed = 0;
 
 	void Init (float angle, float speed) {
-		transform.localPosition = 0;
+		transform.localPosition = Vector3.zero;
 		transform.eulerAngles = new Vector3 (0, angle, 0);
 		boatSpeed = speed;
 	}
