@@ -209,7 +209,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 123105101}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -646,6 +646,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 6dbced80fd01442f4a891de4619fcbed, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6dbced80fd01442f4a891de4619fcbed, type: 3}
   m_IsPrefabParent: 0
@@ -852,6 +856,14 @@ Prefab:
     - target: {fileID: 459270, guid: 05ca14c2fb040475797d4c0d25579f9c, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11495132, guid: 05ca14c2fb040475797d4c0d25579f9c, type: 2}
+      propertyPath: _collisionMask.m_Bits
+      value: 4294967039
+      objectReference: {fileID: 0}
+    - target: {fileID: 178748, guid: 05ca14c2fb040475797d4c0d25579f9c, type: 2}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 05ca14c2fb040475797d4c0d25579f9c, type: 2}
@@ -1065,7 +1077,7 @@ GameObject:
   - 81: {fileID: 1600137747}
   - 114: {fileID: 1600137753}
   - 114: {fileID: 1600137752}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -1153,7 +1165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35676a7faba99405c842f00805c49d7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxAngle: 30
+  _maxAngle: 20
 --- !u!114 &1600137753
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1377,7 +1389,7 @@ GameObject:
   - 33: {fileID: 1776725211}
   - 65: {fileID: 1776725210}
   - 23: {fileID: 1776725209}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1452,7 +1464,7 @@ GameObject:
   - 33: {fileID: 1961015246}
   - 65: {fileID: 1961015245}
   - 23: {fileID: 1961015244}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bow
   m_TagString: Untagged
   m_Icon: {fileID: 0}

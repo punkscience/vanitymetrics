@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Security.Policy;
 using UnityEngine;
 
@@ -9,6 +9,8 @@ public class ArcViz : MonoBehaviour {
 
     [Range(0f, 100f)] 
     [SerializeField] private float _power = 30f;
+
+    [SerializeField] private LayerMask _collisionMask;
 
     [Header("Settings:")]
     [Range(0.01f, 1f)]
@@ -47,7 +49,7 @@ public class ArcViz : MonoBehaviour {
 
             var pos = PlotTrajectoryAtTime(start, StartVelocity, t);
             _arcPoints.Add(pos);
-            if (Physics.Linecast(prev, pos))
+            if (Physics.Linecast(prev, pos, _collisionMask))
                 break;
             prev = pos;
         }
