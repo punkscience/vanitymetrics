@@ -9,7 +9,7 @@ public class BoatTarget : MonoBehaviour {
 	protected float boatSinkTimer = 0;
 	protected float boatSinkDuration = 10.0F;
 	protected bool fireStarted = false;
-	protected float particleStopTime = 7.0F;
+	protected float particleStopTime = 4.0F;
 	protected float boatInitSinkSpeed = 0;
 
 	// Attached objects
@@ -30,13 +30,14 @@ public class BoatTarget : MonoBehaviour {
 
 		// wake system settings
 		wakeSystem.startSpeed = boatSpeed / 2;
-		wakeSystem.startLifetime = boatSpeed;
+		wakeSystem.startLifetime = boatSpeed * 4;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
-		transform.position += transform.forward * (boatSpeed * Time.deltaTime);
+
+		Vector3 newPosition = transform.position;
+		newPosition += transform.forward * (boatSpeed * Time.deltaTime);
 
 		// decrement the boat death timer
 		if (boatDeathTimer > 0.0F) {
@@ -49,10 +50,12 @@ public class BoatTarget : MonoBehaviour {
 
 		// decrement the sink timer
 		if (boatSinkTimer > 0.0F) {
-			boatSpeed -= boatInitSinkSpeed * Time.deltaTime / boatSinkDuration;
-			Vector3 height = transform.localPosition;
-			height.y -= boatHeight * Time.deltaTime / boatSinkDuration;
-			transform.localPosition = height;
+
+			if (boatSinkTimer > (boatSinkDuration * 0.5F)) {
+				boatSpeed -= boatInitSinkSpeed * (Time.deltaTime / boatSinkDuration);
+			} else {
+				newPosition.y -= 2 * boatHeight * Time.deltaTime / boatSinkDuration;
+			}
 
 			boatSinkTimer -= Time.deltaTime;
 
@@ -70,6 +73,8 @@ public class BoatTarget : MonoBehaviour {
 				Destroy (gameObject);
 			}
 		}
+
+		transform.position = newPosition;
 	}
 
 	void OnTriggerEnter (Collider other) {

@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class TitleCards : MonoBehaviour {
 
@@ -40,7 +42,7 @@ public class TitleCards : MonoBehaviour {
 
 	void NextCard() {
 		if (currentTitleCard+1 == titleCards.Length) {
-//			SceneManager.LoadScene ( 1 );
+			SceneManager.LoadScene ("FrontEnd", LoadSceneMode.Single);
 			return; // We're done.
 		}
 
