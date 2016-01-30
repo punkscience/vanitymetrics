@@ -56,8 +56,15 @@ public class BoatTarget : MonoBehaviour {
 	}
 
 	void OnTriggerEnter (Collider other) {
+
+		// Did we collide with an arrow
 		if (other.gameObject.layer == 9) {
 			SinkShip ();
+		}
+
+		// Did we collide with the boundary
+		if (other.gameObject.layer == 10) {
+			SpawnDemon ();
 		}
 	}
 
