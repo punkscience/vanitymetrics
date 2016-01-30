@@ -3,29 +3,38 @@ using System.Collections;
 using UnityEngine.Events;
 
 public class InputManager : MonoBehaviour {
+    [SerializeField] private float _inputScaling = 2f;
 
 	[SerializeField]
 	private ShowRange showRange = new ShowRange();
 
 	[SerializeField]
 	private HideRange hideRange = new HideRange();
+    private Vector3 _orgLoc;
 
-    private Vector2 _orgLoc;
-
-	void Update () {
+	private void Update () {
 	    if (Input.GetMouseButtonDown(0)) {
-	        _orgLoc = Input.mousePosition;
-            showRange.Invoke(Vector2.zero);
+	        _orgLoc.x = Input.mousePosition.x / (Screen.width / _inputScaling);
+	        _orgLoc.y = Input.mousePosition.y / (Screen.height / _inputScaling);
+	        var pos = Input.mousePosition;
+	        pos.x /= Screen.width * _inputScaling;
+	        pos.y /= Screen.height * _inputScaling;
+            var diff = pos - _orgLoc;
+            showRange.Invoke(Vector2.ClampMagnitude(diff, 1f));
 	    }
         else if (Input.GetMouseButton(0)) {
-            Vector2 pos = new Vector2(_orgLoc.x - (Input.mousePosition.x / Screen.width),
-                Input.mousePosition.y - (_orgLoc.y / Screen.height));
-            showRange.Invoke(pos);
+	        var pos = Input.mousePosition;
+            pos.x /= Screen.width / _inputScaling;
+	        pos.y /= Screen.height / _inputScaling;
+            var diff = pos - _orgLoc;
+            showRange.Invoke(Vector2.ClampMagnitude(diff, 1f));
         }
         else if (Input.GetMouseButtonUp(0)) {
-            Vector2 pos = new Vector2(_orgLoc.x - (Input.mousePosition.x / Screen.width),
-                Input.mousePosition.y - (_orgLoc.y / Screen.height));
-            showRange.Invoke(pos);
+	        var pos = Input.mousePosition;
+	        pos.x /= Screen.width / _inputScaling;
+	        pos.y /= Screen.height / _inputScaling;
+            var diff = pos - _orgLoc;
+            showRange.Invoke(Vector2.ClampMagnitude(diff, 1f));
             hideRange.Invoke();
         }
 	}

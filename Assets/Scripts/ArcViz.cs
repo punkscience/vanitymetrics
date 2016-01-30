@@ -56,14 +56,6 @@ public class ArcViz : MonoBehaviour {
         }
     }
 
-//    private IEnumerator FadeIn() {
-//        
-//    }
-//
-//    private IEnumerator FadeOut() {
-//        
-//    }
-
     public void DrawTrajectory(Vector3 start, Vector3 startVelocity, float power) {
         _renderer.enabled = true;
         PlotTrajectory(start, startVelocity * power, TimeStep, MaxTime);
