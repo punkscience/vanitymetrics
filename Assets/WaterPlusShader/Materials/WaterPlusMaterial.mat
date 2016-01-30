@@ -146,7 +146,7 @@ Material:
       data:
         first:
           name: _Shininess
-        second: 6.4952292
+        second: 1.6
       data:
         first:
           name: _Parallax
@@ -158,15 +158,15 @@ Material:
       data:
         first:
           name: _Refractivity
-        second: 1.4615384
+        second: 1.95
       data:
         first:
           name: _WaterAttenuation
-        second: 1.0384616
+        second: 0.64
       data:
         first:
           name: _Gloss
-        second: 11.538461
+        second: 11.3
       data:
         first:
           name: _Fresnel0
@@ -174,23 +174,23 @@ Material:
       data:
         first:
           name: _EdgeFoamStrength
-        second: 0.9807692
+        second: 2.91
       data:
         first:
           name: _CausticsStrength
-        second: 0.21538462
+        second: 0.217
       data:
         first:
           name: _CausticsScale
-        second: 469.23077
+        second: 88
       data:
         first:
           name: _normalStrength
-        second: 1.3534615
+        second: 1.76
       data:
         first:
           name: _refractionsWetness
-        second: 0.84615386
+        second: 0.607
       data:
         first:
           name: flowMapOffset0
