@@ -7,7 +7,7 @@ public class GameHandler : MonoBehaviour {
 	[SerializeField]
 	protected BoatHandler boatHandlerPrefab;
 	[SerializeField]
-	protected BoatHandler boatParent;
+	protected Transform boatParent;
 	[SerializeField]
 	protected DemonHandler demonHandler;
 

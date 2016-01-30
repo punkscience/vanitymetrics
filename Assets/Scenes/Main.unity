@@ -94,7 +94,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 30715926}
   - 114: {fileID: 30715928}
-  - 114: {fileID: 30715925}
   - 114: {fileID: 30715927}
   m_Layer: 0
   m_Name: GameHandler
@@ -103,19 +102,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &30715925
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 30715924}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdd33076a454242178622e919daa9a73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  boatPrefab: {fileID: 11478752, guid: b41f493866ce44b0d9f1c704e858633f, type: 2}
-  boatParent: {fileID: 1196761909}
 --- !u!4 &30715926
 Transform:
   m_ObjectHideFlags: 0
@@ -153,7 +139,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dfff05e46d424e7bbefe8f7f6373043, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boatHandler: {fileID: 30715925}
+  boatHandlerPrefab: {fileID: 11435734, guid: 83a30a2de9d504c86bb69fd6427a765b, type: 2}
+  boatParent: {fileID: 1196761909}
   demonHandler: {fileID: 30715927}
 --- !u!95 &91604413 stripped
 Animator:
@@ -331,7 +318,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1360624579}
-  - {fileID: 1196761909}
   - {fileID: 1203798532}
   m_Father: {fileID: 1580836016}
   m_RootOrder: 0
@@ -798,11 +784,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1196761908}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -5.4}
+  m_LocalPosition: {x: 0, y: -10, z: -5.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 687226198}
-  m_RootOrder: 1
+  m_Father: {fileID: 1656972048}
+  m_RootOrder: 2
 --- !u!4 &1203798532 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: e174a597dfff98d4fa6d9f1dbd099816, type: 2}
@@ -1177,6 +1163,7 @@ Transform:
   m_Children:
   - {fileID: 858593415}
   - {fileID: 1525463722}
+  - {fileID: 1196761909}
   m_Father: {fileID: 0}
   m_RootOrder: 3
 --- !u!1 &1731272129 stripped
