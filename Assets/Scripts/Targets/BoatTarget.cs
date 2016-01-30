@@ -3,6 +3,7 @@ using System.Collections;
 
 public class BoatTarget : MonoBehaviour {
 
+	public int boatIndex = 0;
 	protected float boatSpeed = 0;
 	protected float boatDeathTimer = 0;
 	protected float boatSinkTimer = 0;
@@ -19,8 +20,9 @@ public class BoatTarget : MonoBehaviour {
 	[SerializeField]
 	protected ParticleSystem wakeSystem;
 
-	public void Init (float angle, float speed, float deathTimer) {
+	public void Init (int index, float angle, float speed, float deathTimer) {
 
+		boatIndex = index;
 		transform.localPosition = Vector3.zero;
 		transform.localEulerAngles = new Vector3 (0, angle, 0);
 		boatSpeed = speed;
