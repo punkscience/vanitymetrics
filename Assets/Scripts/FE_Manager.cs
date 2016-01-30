@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class FE_Manager : MonoBehaviour {
@@ -11,5 +13,11 @@ public class FE_Manager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
+	}
+
+	public void EnterGame() {
+
+		SceneManager.LoadScene (1);
+
 	}
 }
