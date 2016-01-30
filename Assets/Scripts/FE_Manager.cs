@@ -57,6 +57,12 @@ public class FE_Manager : MonoBehaviour {
 		ToggleMenuPanel (Credits, true);
 	}
 
+
+	public void ShowOptions() {
+		ToggleMenuPanel (MainMenu, false);
+		ToggleMenuPanel (Credits, false);
+	}
+
 	public void ShowMainMenu() {
 		ToggleMenuPanel (MainMenu, true);
 		ToggleMenuPanel (Credits, false);
