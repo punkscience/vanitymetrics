@@ -4,6 +4,9 @@ using UnityEngine.Events;
 public class InputManager : MonoBehaviour {
     [SerializeField] private float _inputScaling = 2f;
 
+    [SerializeField]
+    private ShowRange onTouch = new ShowRange();
+
 	[SerializeField]
 	private ShowRange showRange = new ShowRange();
 
@@ -22,6 +25,7 @@ public class InputManager : MonoBehaviour {
             diff.x = Mathf.Clamp(diff.x, -1f, 1f);
             diff.y = Mathf.Clamp(diff.y, -1f, 1f);
             showRange.Invoke(diff);
+            onTouch.Invoke(diff);
 	    }
         else if (Input.GetMouseButton(0)) {
 	        var pos = Input.mousePosition;
