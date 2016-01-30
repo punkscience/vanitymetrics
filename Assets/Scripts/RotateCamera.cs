@@ -17,11 +17,17 @@ public class RotateCamera : MonoBehaviour {
     }
 
     public void Release() {
-        transform.rotation = _startRotation;
-//        StartCoroutine(LerpCamera());
+        StartCoroutine(LerpCamera(transform.rotation, _startRotation, 0.3f));
     }
 
-    private IEnumerator LerpCamera(Quaternion from, Quaternion to) {
-        
+    private IEnumerator LerpCamera(Quaternion from, Quaternion to, float time) {
+        var elaspedTime = 0f;
+        while (elaspedTime < time) {
+            var easedTime = Easing.Quadratic.Out(elaspedTime / time);
+            transform.rotation = Quaternion.Slerp(from, to, easedTime);
+            elaspedTime += Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+        transform.rotation = _startRotation;
     }
 }
