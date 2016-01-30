@@ -9,8 +9,6 @@ public class TitleCards : MonoBehaviour {
 	public uint[] cardDelays;
 	public AudioSource[] sources;
 	private uint currentTitleCard = 0;
-	private AudioSource audio;
-
 
 	// Use this for initialization
 	void Start () {
@@ -31,8 +29,8 @@ public class TitleCards : MonoBehaviour {
 	void DisplayCard() {
 		// Play the audio
 		if( sources[currentTitleCard] != null ) {
-			audio = sources[currentTitleCard];
-			audio.Play ();
+			AudioSource clip = sources[currentTitleCard];
+			clip.Play ();
 		}
 
 		// Fade out this card after the delay
