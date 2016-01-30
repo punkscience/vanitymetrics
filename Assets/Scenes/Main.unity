@@ -611,7 +611,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b995d739b58742cd8f81237a0935d73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boatHeight: 2
+  boatHeight: 1
   fireSystem: {fileID: 1327393575}
 --- !u!65 &945784807
 BoxCollider:
