@@ -836,6 +836,34 @@ Prefab:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 19844970, guid: 18367096ef150464a9845586ba6d32bd, type: 2}
+      propertyPath: VelocityModule.inWorldSpace
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19844970, guid: 18367096ef150464a9845586ba6d32bd, type: 2}
+      propertyPath: VelocityModule.x.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19844970, guid: 18367096ef150464a9845586ba6d32bd, type: 2}
+      propertyPath: VelocityModule.y.scalar
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19844970, guid: 18367096ef150464a9845586ba6d32bd, type: 2}
+      propertyPath: ShapeModule.radius
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19844970, guid: 18367096ef150464a9845586ba6d32bd, type: 2}
+      propertyPath: ShapeModule.angle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19844970, guid: 18367096ef150464a9845586ba6d32bd, type: 2}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19844970, guid: 18367096ef150464a9845586ba6d32bd, type: 2}
+      propertyPath: EmissionModule.rate.scalar
+      value: 75
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 18367096ef150464a9845586ba6d32bd, type: 2}
   m_IsPrefabParent: 0
