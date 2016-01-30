@@ -155,6 +155,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boatHandler: {fileID: 30715925}
   demonHandler: {fileID: 30715927}
+--- !u!95 &91604413 stripped
+Animator:
+  m_PrefabParentObject: {fileID: 9515478, guid: 18367096ef150464a9845586ba6d32bd,
+    type: 2}
+  m_PrefabInternal: {fileID: 1354139025}
 --- !u!1 &112876296
 GameObject:
   m_ObjectHideFlags: 0
@@ -296,6 +301,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e174a597dfff98d4fa6d9f1dbd099816, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &551984736 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 134072, guid: 18367096ef150464a9845586ba6d32bd, type: 2}
+  m_PrefabInternal: {fileID: 1354139025}
 --- !u!1 &687226197
 GameObject:
   m_ObjectHideFlags: 0
@@ -756,6 +765,14 @@ Prefab:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 11495132, guid: 05ca14c2fb040475797d4c0d25579f9c, type: 2}
+      propertyPath: _particles
+      value: 
+      objectReference: {fileID: 551984736}
+    - target: {fileID: 11495132, guid: 05ca14c2fb040475797d4c0d25579f9c, type: 2}
+      propertyPath: _animator
+      value: 
+      objectReference: {fileID: 91604413}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 05ca14c2fb040475797d4c0d25579f9c, type: 2}
   m_IsPrefabParent: 0
@@ -790,6 +807,52 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: e174a597dfff98d4fa6d9f1dbd099816, type: 2}
   m_PrefabInternal: {fileID: 248075511}
+--- !u!1001 &1354139025
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 400896, guid: 18367096ef150464a9845586ba6d32bd, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400896, guid: 18367096ef150464a9845586ba6d32bd, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400896, guid: 18367096ef150464a9845586ba6d32bd, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400896, guid: 18367096ef150464a9845586ba6d32bd, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0.25881907
+      objectReference: {fileID: 0}
+    - target: {fileID: 400896, guid: 18367096ef150464a9845586ba6d32bd, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400896, guid: 18367096ef150464a9845586ba6d32bd, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400896, guid: 18367096ef150464a9845586ba6d32bd, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.9659258
+      objectReference: {fileID: 0}
+    - target: {fileID: 400896, guid: 18367096ef150464a9845586ba6d32bd, type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 151120, guid: 18367096ef150464a9845586ba6d32bd, type: 2}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 18367096ef150464a9845586ba6d32bd, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1360624578
 GameObject:
   m_ObjectHideFlags: 0
@@ -971,7 +1034,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 4294965247
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -1007,6 +1070,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxAngleX: 20
   _maxAngleY: 30
+  _lerpTime: 0.6
 --- !u!114 &1600137753
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1019,6 +1083,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _inputScaling: 2
+  onTouch:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1731272130}
+        m_MethodName: OnPull
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: ShowRange, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   showRange:
     m_PersistentCalls:
       m_Calls:
