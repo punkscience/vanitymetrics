@@ -1,4 +1,4 @@
-Shader "Ghost" {
+﻿Shader "Ghost" {
 	Properties{
 		_MainTex("Diffuse", 2D) = "white" {}
 	_ShakeDisplacement("Displacement", Range(0, 1.0)) = 1.0
