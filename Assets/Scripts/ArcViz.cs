@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(LineRenderer))]
 public class ArcViz : MonoBehaviour {
@@ -23,7 +23,11 @@ public class ArcViz : MonoBehaviour {
     }
 
     public void PlotTrajectory(Vector3 start, Vector3 StartVelocity, float timeStep, float maxTime) {
+        var length = Mathf.RoundToInt(maxTime / timeStep);
+        _renderer.SetVertexCount(length + 1);
+
         var prev = start;
+        _renderer.SetPosition(0, start);
         for (int i = 1;; i++) {
             float t = timeStep * i;
             if (t > maxTime)
@@ -35,6 +39,7 @@ public class ArcViz : MonoBehaviour {
                 break;
 
             Debug.DrawLine(prev, pos, Color.red);
+            _renderer.SetPosition(i, pos);
             prev = pos;
         }
     }
