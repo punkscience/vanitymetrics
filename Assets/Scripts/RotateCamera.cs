@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class RotateCamera : MonoBehaviour {
     [SerializeField] private float _maxAngleX = 30f;
@@ -17,5 +18,10 @@ public class RotateCamera : MonoBehaviour {
 
     public void Release() {
         transform.rotation = _startRotation;
+//        StartCoroutine(LerpCamera());
+    }
+
+    private IEnumerator LerpCamera(Quaternion from, Quaternion to) {
+        
     }
 }
