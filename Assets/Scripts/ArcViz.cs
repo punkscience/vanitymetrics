@@ -66,8 +66,8 @@ public class ArcViz : MonoBehaviour {
     }
 
     public void DrawTrajectory(Vector2 value) {
-        var clampedY = -Mathf.Clamp(value.y, -1f, 0f);
-        DrawTrajectory(transform.position, transform.forward, clampedY * _power);
+//        var clampedY = -Mathf.Clamp(value.y, -1f, 0f);
+        DrawTrajectory(transform.position, transform.forward, _power);
     }
 
     [ContextMenu("Clear Debug View")]
