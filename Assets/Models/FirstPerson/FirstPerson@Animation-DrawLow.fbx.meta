@@ -1,0 +1,199 @@
+fileFormatVersion: 2
+guid: fa5294e5da3bb49c58d698c0d637fe21
+timeCreated: 1454180209
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Arrow_Jnt
+    100002: Bow_jnt
+    100004: //RootNode
+    100006: L_BowArm_jnt
+    100008: L_BowArmTip_jnt
+    100010: L_Elbow_jnt
+    100012: L_Hand_jnt
+    100014: L_Index01_jnt
+    100016: L_Index02_jnt
+    100018: L_Index03_jnt
+    100020: L_IndexTip_jnt
+    100022: L_Middle01_jnt
+    100024: L_Middle02_jnt
+    100026: L_Middle03_jnt
+    100028: L_MiddleTip_jnt
+    100030: L_Pinky01_jnt
+    100032: L_Pinky02_jnt
+    100034: L_Pinky03_jnt
+    100036: L_PinkyTip_jnt
+    100038: L_Radial01_jnt
+    100040: L_Radial02_jnt
+    100042: L_Ring01_jnt
+    100044: L_Ring02_jnt
+    100046: L_Ring03_jnt
+    100048: L_RingTip_jnt
+    100050: L_Shoulder_jnt
+    100052: L_Thumb01_jnt
+    100054: L_Thumb02_jnt
+    100056: L_Thumb03_jnt
+    100058: L_Thumb04_jnt
+    100060: L_ThumbTip_jnt
+    100062: L_Wrist_jnt
+    100064: R_BowArm_jnt
+    100066: R_BowArmTip_jnt
+    100068: R_Elbow_jnt
+    100070: R_Hand_jnt
+    100072: R_Index01_jnt
+    100074: R_Index02_jnt
+    100076: R_Index03_jnt
+    100078: R_IndexTip_jnt
+    100080: R_Middle01_jnt
+    100082: R_Middle02_jnt
+    100084: R_Middle03_jnt
+    100086: R_MiddleTip_jnt
+    100088: R_Pinky01_jnt
+    100090: R_Pinky02_jnt
+    100092: R_Pinky03_jnt
+    100094: R_PinkyTip_jnt
+    100096: R_Radial01_jnt
+    100098: R_Radial02_jnt
+    100100: R_Ring01_jnt
+    100102: R_Ring02_jnt
+    100104: R_Ring03_jnt
+    100106: R_RingTip_jnt
+    100108: R_Shoulder_jnt
+    100110: R_Thumb01_jnt
+    100112: R_Thumb02_jnt
+    100114: R_Thumb03_jnt
+    100116: R_Thumb04_jnt
+    100118: R_ThumbTip_jnt
+    100120: R_Wrist_jnt
+    100122: ROOT_jnt
+    100124: StringMount_jnt
+    400000: Arrow_Jnt
+    400002: Bow_jnt
+    400004: //RootNode
+    400006: L_BowArm_jnt
+    400008: L_BowArmTip_jnt
+    400010: L_Elbow_jnt
+    400012: L_Hand_jnt
+    400014: L_Index01_jnt
+    400016: L_Index02_jnt
+    400018: L_Index03_jnt
+    400020: L_IndexTip_jnt
+    400022: L_Middle01_jnt
+    400024: L_Middle02_jnt
+    400026: L_Middle03_jnt
+    400028: L_MiddleTip_jnt
+    400030: L_Pinky01_jnt
+    400032: L_Pinky02_jnt
+    400034: L_Pinky03_jnt
+    400036: L_PinkyTip_jnt
+    400038: L_Radial01_jnt
+    400040: L_Radial02_jnt
+    400042: L_Ring01_jnt
+    400044: L_Ring02_jnt
+    400046: L_Ring03_jnt
+    400048: L_RingTip_jnt
+    400050: L_Shoulder_jnt
+    400052: L_Thumb01_jnt
+    400054: L_Thumb02_jnt
+    400056: L_Thumb03_jnt
+    400058: L_Thumb04_jnt
+    400060: L_ThumbTip_jnt
+    400062: L_Wrist_jnt
+    400064: R_BowArm_jnt
+    400066: R_BowArmTip_jnt
+    400068: R_Elbow_jnt
+    400070: R_Hand_jnt
+    400072: R_Index01_jnt
+    400074: R_Index02_jnt
+    400076: R_Index03_jnt
+    400078: R_IndexTip_jnt
+    400080: R_Middle01_jnt
+    400082: R_Middle02_jnt
+    400084: R_Middle03_jnt
+    400086: R_MiddleTip_jnt
+    400088: R_Pinky01_jnt
+    400090: R_Pinky02_jnt
+    400092: R_Pinky03_jnt
+    400094: R_PinkyTip_jnt
+    400096: R_Radial01_jnt
+    400098: R_Radial02_jnt
+    400100: R_Ring01_jnt
+    400102: R_Ring02_jnt
+    400104: R_Ring03_jnt
+    400106: R_RingTip_jnt
+    400108: R_Shoulder_jnt
+    400110: R_Thumb01_jnt
+    400112: R_Thumb02_jnt
+    400114: R_Thumb03_jnt
+    400116: R_Thumb04_jnt
+    400118: R_ThumbTip_jnt
+    400120: R_Wrist_jnt
+    400122: ROOT_jnt
+    400124: StringMount_jnt
+    7400000: Take 001
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
