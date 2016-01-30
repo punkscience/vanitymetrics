@@ -74,5 +74,8 @@ public class ArcViz : MonoBehaviour {
     public void ClearTrajectory() {
         _renderer.enabled = false;
         _renderer.SetVertexCount(0);
+
+        // fire
+        GetComponent<ProjectileLauncher>().Fire(_power);
     }
 }
