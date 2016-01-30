@@ -13,6 +13,6 @@ public class BoatTarget : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		transform.forward += Vector3.forward * (boatSpeed * Time.deltaTime);
 	}
 }
