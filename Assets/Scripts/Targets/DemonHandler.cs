@@ -7,6 +7,8 @@ public class DemonHandler : MonoBehaviour {
 	protected DemonTarget[] demonPrefabs;
 	[SerializeField]
 	protected Transform demonTarget;
+	[SerializeField]
+	protected Transform demonParent;
 
 	// demon statistics
 	protected Vector2 demonHealthMultiplierRange;
@@ -26,6 +28,7 @@ public class DemonHandler : MonoBehaviour {
 
 		// create a demon
 		DemonTarget newDemon = Instantiate (demonPrefabs [demonIndex]);
+		newDemon.transform.SetParent (demonParent);
 
 		// initialize the demon
 		newDemon.Init (

@@ -9,6 +9,7 @@ public class BoatHandler : MonoBehaviour {
 	protected Transform boatParent;
 
 	// wave variables
+	public bool isCurrentWave;
 	protected int boatsToRelease = 0;
 	protected Vector2 boatReleaseTimerRange;
 	protected float boatReleaseTimer;
@@ -44,6 +45,7 @@ public class BoatHandler : MonoBehaviour {
 				boats.Add (newBoat);
 				currentBoatIndex++;
 
+				// 
 				boatReleaseTimer = Random.Range (boatReleaseTimerRange.x, boatReleaseTimerRange.y);
 			}
 		}
@@ -63,10 +65,20 @@ public class BoatHandler : MonoBehaviour {
 		boats = new List<BoatTarget> ();
 	}
 
-	public void DestroyBoat (BoatTarget boat) {
-
-		Destroy (boats [boat.boatIndex].gameObject);
+	public void BoatDestroyed (BoatTarget boat) {
+		
+		// increment the destroyed boat counter
 		destroyedBoatCount++;
 
+		if (boatsToRelease <= 0 && destroyedBoatCount >= boats.Count) {
+
+			// if it's the most recent wave, tell GameHandler to start a new wave
+			if (isCurrentWave) {
+				GameHandler.Instance.StartWave ();
+			}
+
+			Destroy (gameObject);
+
+		}
 	}
 }
