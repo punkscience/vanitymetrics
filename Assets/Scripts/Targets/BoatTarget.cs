@@ -3,14 +3,15 @@ using System.Collections;
 
 public class BoatTarget : MonoBehaviour {
 
-	public int boatIndex = 0;
+	protected BoatHandler boatHandler;
 	protected float boatSpeed = 0;
 	protected float boatDeathTimer = 0;
 	protected float boatSinkTimer = 0;
 	protected float boatSinkDuration = 10.0F;
 	protected bool fireStarted = false;
-	protected float particleStopTime = 4.0F;
+	protected float particleStopTime = 6.0F;
 	protected float boatInitSinkSpeed = 0;
+	protected float sinkRate = 0;
 
 	// Attached objects
 	[SerializeField]
@@ -20,13 +21,13 @@ public class BoatTarget : MonoBehaviour {
 	[SerializeField]
 	protected ParticleSystem wakeSystem;
 
-	public void Init (int index, float angle, float speed, float deathTimer) {
+	public void Init (BoatHandler handler, float angle, float speed) {
 
-		boatIndex = index;
+		boatHandler = handler;
 		transform.localPosition = Vector3.zero;
 		transform.localEulerAngles = new Vector3 (0, angle, 0);
 		boatSpeed = speed;
-		boatDeathTimer = deathTimer;
+		boatDeathTimer = 0;
 
 		// wake system settings
 		wakeSystem.startSpeed = boatSpeed / 2;
@@ -51,10 +52,10 @@ public class BoatTarget : MonoBehaviour {
 		// decrement the sink timer
 		if (boatSinkTimer > 0.0F) {
 
-			if (boatSinkTimer > (boatSinkDuration * 0.5F)) {
-				boatSpeed -= boatInitSinkSpeed * (Time.deltaTime / boatSinkDuration);
-			} else {
-				newPosition.y -= 2 * boatHeight * Time.deltaTime / boatSinkDuration;
+			boatSpeed -= boatInitSinkSpeed * (Time.deltaTime / boatSinkDuration);
+			if (boatSinkTimer < (boatSinkDuration * 0.75F)) {
+				sinkRate += (Time.deltaTime / boatSinkDuration) * (0.2F / boatSinkDuration);
+				newPosition.y -= sinkRate;
 			}
 
 			boatSinkTimer -= Time.deltaTime;
@@ -66,7 +67,7 @@ public class BoatTarget : MonoBehaviour {
 			if (fireStarted && boatSinkTimer <= particleStopTime) {
 				fireStarted = false;
 				fireSystem.Stop ();
-				wakeSystem.Stop ();
+//				wakeSystem.Stop ();
 			}
 
 			if (boatSinkTimer <= 0) {
@@ -86,7 +87,7 @@ public class BoatTarget : MonoBehaviour {
 			fireSystem.Play ();
 
 			// sink the ship
-			SinkShip ();
+			Sink ();
 		}
 
 		// Did we collide with the boundary
@@ -99,16 +100,20 @@ public class BoatTarget : MonoBehaviour {
 
 		// sink the ship
 		boatDeathTimer = 0;
-		SinkShip ();
+		Sink ();
 
 		// spawn a demon
 		GameHandler.Instance.SpawnDemon (transform);
 	}
 
-	void SinkShip () {
+	void Sink () {
+		
 		// stop the boat death timer so that a demon doesn't spawn
 		boatDeathTimer = 0;
 		boatInitSinkSpeed = boatSpeed;
 		boatSinkTimer = boatSinkDuration;
+
+		// tell boat handler the boat is sinking
+		boatHandler.BoatSinked ();
 	}
 }

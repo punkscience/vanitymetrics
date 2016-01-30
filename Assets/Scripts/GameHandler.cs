@@ -12,7 +12,12 @@ public class GameHandler : MonoBehaviour {
 	protected DemonHandler demonHandler;
 
 	// Waves
-	protected List<BoatHandler> waves;
+	protected int waveCount = 0;
+	protected BoatHandler currentWave;
+	protected float waveIntervalTimer = 0;
+	protected bool waveIntervalStart;
+
+	// wave effects
 
 	// Instance
 	public static GameHandler Instance;
@@ -25,18 +30,66 @@ public class GameHandler : MonoBehaviour {
 		}
 		Instance = this;
 
-		BoatHandler boatHandler = Instantiate (boatHandlerPrefab);
-		boatHandler.StartWave (boatParent, 50, 2, new Vector2 (20.0F, 20.0F));
-		demonHandler.StartWave (new Vector2 (1.0F, 4.0F), new Vector2 (0.5F, 1.0F));
+		Reset ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+
+		if (waveIntervalStart) {
+			waveIntervalTimer -= Time.deltaTime;
+
+			if (waveIntervalTimer <= 0.0F) {
+				StartWave ();
+			}
+		}
+	}
+
+	public void StartWave () {
+
+		Debug.Log ("Starting Wave " + waveCount);
+
+		waveCount++;
+
+		// remove the current wave
+		if (currentWave != null) {
+			currentWave.isCurrentWave = false;
+		}
+
+		// start a new boat wave
+		currentWave = null;
+		currentWave = Instantiate (boatHandlerPrefab);
+		currentWave.transform.SetParent (transform);
+		currentWave.StartWave (boatParent, 5, 2);
+		currentWave.isCurrentWave = true;
+		demonHandler.StartWave (new Vector2 (1.0F, 4.0F), new Vector2 (0.5F, 1.0F));
+
+		// set the wave interval
+		waveIntervalTimer = 20.0F;
+		waveIntervalStart = false;
+	}
+
+	public void FinishedSendingWave () {
+		
+		waveIntervalStart = true;
 	}
 
 	public void SpawnDemon (Transform startPosition) {
 
 		demonHandler.SpawnDemon (startPosition);
+	}
+
+	public void Reset () {
+
+		waveCount = 0;
+
+		foreach (Transform child in boatParent) {
+			Destroy (child.gameObject);
+		}
+		foreach (Transform child in transform) {
+			Destroy (child.gameObject);
+		}
+
+		StartWave ();
 	}
 }

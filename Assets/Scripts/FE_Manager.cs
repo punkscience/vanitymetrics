@@ -32,9 +32,14 @@ public class FE_Manager : MonoBehaviour {
 		ToggleMenuPanel (HUD, false);
 
 		am.StartMainMenuMusic ();
+
+		Invoke ("TurnOnFire", 1f);
 	
 	}
 	
+	void TurnOnFire () {
+		GameObject.Find ("FE_Fire").GetComponent<ParticleSystem> ().Play ();
+	}
 	// Update is called once per frame
 	void Update () {
 
