@@ -1,8 +1,7 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Security.Policy;
 using UnityEngine;
 
-[ExecuteInEditMode]
 [RequireComponent(typeof(LineRenderer))]
 public class ArcViz : MonoBehaviour {
     private LineRenderer _renderer;
@@ -49,8 +48,14 @@ public class ArcViz : MonoBehaviour {
 
             var pos = PlotTrajectoryAtTime(start, StartVelocity, t);
             _arcPoints.Add(pos);
-            if (Physics.Linecast(prev, pos, _collisionMask))
+            if (Physics.Linecast(prev, pos, _collisionMask)) {
+                var ray = new Ray(prev, pos - prev);
+                var hit = new RaycastHit();
+                if (Physics.Raycast(ray, out hit)) {
+                    Debug.Log(hit.point);
+                }
                 break;
+            }
             prev = pos;
         }
     }
