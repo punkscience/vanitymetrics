@@ -17,10 +17,10 @@ public class BoatTarget : MonoBehaviour {
 
 	public void Init (float angle, float speed, float deathTimer) {
 
-		boatDeathTimer = deathTimer;
 		transform.localPosition = Vector3.zero;
 		transform.localEulerAngles = new Vector3 (0, angle, 0);
 		boatSpeed = speed;
+		boatDeathTimer = deathTimer;
 	}
 	
 	// Update is called once per frame
@@ -68,6 +68,8 @@ public class BoatTarget : MonoBehaviour {
 			// sink the ship
 			SinkShip ();
 		}
+
+		Debug.Log ("hit something. Death Timer: " + boatDeathTimer, gameObject);
 
 		// Did we collide with the boundary
 		if (boatDeathTimer > 0.0F && other.gameObject.layer == 10) {

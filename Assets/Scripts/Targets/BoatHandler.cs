@@ -55,6 +55,7 @@ public class BoatHandler : MonoBehaviour {
 		boatSpeed = speed;
 		float intervalSpeed = 1 / speed;
 		boatReleaseTimerRange = new Vector2 (intervalSpeed + 2.5F, (intervalSpeed * 10.5F) + 2.5F);
+		boatDeathRange = deathRange;
 
 		boatReleaseTimer = 0;
 	}
