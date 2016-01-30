@@ -8,12 +8,16 @@ public class BoatTarget : MonoBehaviour {
 	protected float boatSinkTimer = 0;
 	protected float boatSinkDuration = 10.0F;
 	protected bool fireStarted = false;
-	protected float fireStopTime = 5.0F;
+	protected float particleStopTime = 7.0F;
 	protected float boatInitSinkSpeed = 0;
+
+	// Attached objects
 	[SerializeField]
 	protected float boatHeight = 0;
 	[SerializeField]
 	protected ParticleSystem fireSystem;
+	[SerializeField]
+	protected ParticleSystem wakeSystem;
 
 	public void Init (float angle, float speed, float deathTimer) {
 
@@ -21,6 +25,10 @@ public class BoatTarget : MonoBehaviour {
 		transform.localEulerAngles = new Vector3 (0, angle, 0);
 		boatSpeed = speed;
 		boatDeathTimer = deathTimer;
+
+		// wake system settings
+		wakeSystem.startSpeed = boatSpeed / 2;
+		wakeSystem.startLifetime = boatSpeed;
 	}
 	
 	// Update is called once per frame
@@ -46,9 +54,14 @@ public class BoatTarget : MonoBehaviour {
 
 			boatSinkTimer -= Time.deltaTime;
 
-			if (fireStarted && boatSinkTimer <= fireStopTime) {
+			// wake system settings
+			wakeSystem.startSpeed = boatSpeed / 2;
+			wakeSystem.startLifetime = boatSpeed;
+
+			if (fireStarted && boatSinkTimer <= particleStopTime) {
 				fireStarted = false;
 				fireSystem.Stop ();
+				wakeSystem.Stop ();
 			}
 
 			if (boatSinkTimer <= 0) {
