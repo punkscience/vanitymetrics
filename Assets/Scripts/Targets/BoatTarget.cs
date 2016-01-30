@@ -89,8 +89,13 @@ public class BoatTarget : MonoBehaviour {
 	}
 
 	void SpawnDemon () {
+
+		// sink the ship
 		boatDeathTimer = 0;
 		SinkShip ();
+
+		// spawn a demon
+		GameHandler.Instance.SpawnDemon (transform);
 	}
 
 	void SinkShip () {

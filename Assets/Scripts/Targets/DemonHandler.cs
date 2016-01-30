@@ -3,13 +3,35 @@ using System.Collections;
 
 public class DemonHandler : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
+	[SerializeField]
+	protected DemonTarget[] demonPrefabs;
+	[SerializeField]
+	protected Transform demonTarget;
+
+	// demon statistics
+	protected Vector2 demonHealthMultiplierRange;
+	protected Vector2 demonSpeedMultiplierRange;
+
+
+	public void StartWave (Vector2 health, Vector2 speed) {
+		
+		demonHealthMultiplierRange = health;
+		demonSpeedMultiplierRange = speed;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+
+	public void SpawnDemon (Transform boatStartPoint) {
+
+		// choose a demon
+		int demonIndex = Random.Range (0, demonPrefabs.Length);
+
+		// create a demon
+		DemonTarget newDemon = Instantiate (demonPrefabs [demonIndex]);
+
+		// initialize the demon
+		newDemon.Init (
+			Random.Range (demonHealthMultiplierRange.x, demonHealthMultiplierRange.y),
+			Random.Range (demonSpeedMultiplierRange.x, demonSpeedMultiplierRange.y),
+			boatStartPoint.position, 
+			demonTarget.position);
 	}
 }

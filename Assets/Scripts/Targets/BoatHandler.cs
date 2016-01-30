@@ -16,11 +16,6 @@ public class BoatHandler : MonoBehaviour {
 	protected float lastAngle = 0;
 	protected Vector2 boatDeathRange;
 
-	// Use this for initialization
-	void Start () {
-		StartWave (50, 2, new Vector2 (20.0F, 20.0F));
-	}
-
 	void Update () {
 
 		if (boatsToRelease > 0.0F) {

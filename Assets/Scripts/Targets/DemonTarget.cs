@@ -3,6 +3,12 @@ using System.Collections;
 
 public class DemonTarget : MonoBehaviour {
 
+	// demon Base Statistics
+	[SerializeField]
+	protected float demonBaseHealth = 1;
+	[SerializeField]
+	protected float demonBaseSpeed = 1;
+
 	// demon statistics
 	protected float demonHealth;
 	protected float demonSpeed;
@@ -14,7 +20,7 @@ public class DemonTarget : MonoBehaviour {
 	// demon death variables
 	protected float deathTimer;
 
-	public void Init (float health, float speed, Vector3 startPosition, Vector3 endPosition) {
+	public void Init (float healthMultiplier, float speedMultiplier, Vector3 startPosition, Vector3 endPosition) {
 
 		// set the demon's position
 		transform.position = startPosition;
@@ -23,8 +29,8 @@ public class DemonTarget : MonoBehaviour {
 		// set demon variables
 		demonStartPoint = startPosition;
 		demonEndPoint = endPosition;
-		demonHealth = health;
-		demonSpeed = speed;
+		demonHealth = demonBaseHealth * healthMultiplier;
+		demonSpeed = demonBaseSpeed * speedMultiplier;
 	}
 
 	void OnTriggerEnter (Collider other) {
