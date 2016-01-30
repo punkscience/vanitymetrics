@@ -6,6 +6,9 @@ using UnityEngine;
 public class ArcViz : MonoBehaviour {
     private LineRenderer _renderer;
 
+    [SerializeField]
+    private Animator _animator;
+
     [SerializeField] private GameObject _endPoint;
 
     [Range(0f, 100f)] 
@@ -68,13 +71,16 @@ public class ArcViz : MonoBehaviour {
         _renderer.SetPositions(_arcPoints.ToArray());
     }
 
+    private void Update() {
+    }
+
     public void DrawTrajectory(Vector3 start, Vector3 startVelocity, float power) {
         _renderer.enabled = true;
         PlotTrajectory(start, startVelocity * power, TimeStep, MaxTime);
     }
 
     public void DrawTrajectory(Vector2 value) {
-//        var clampedY = -Mathf.Clamp(value.y, -1f, 0f);
+        _animator.SetFloat("Blend", -value.y);
         DrawTrajectory(transform.position, transform.forward, _power);
     }
 
@@ -85,5 +91,10 @@ public class ArcViz : MonoBehaviour {
 
         // fire
         GetComponent<ProjectileLauncher>().Fire(_power);
+        _animator.SetTrigger("Release");
+    }
+
+    public void OnPull(Vector2 value) {
+        _animator.SetTrigger("Touch");
     }
 }

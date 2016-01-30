@@ -6,6 +6,8 @@ public class RotateCamera : MonoBehaviour {
     [SerializeField] private float _maxAngleY = 30f;
     private Quaternion _startRotation;
 
+    [SerializeField] private float _lerpTime = 0.6f;
+
     private void Awake() {
         _startRotation = transform.rotation;
     }
@@ -17,7 +19,7 @@ public class RotateCamera : MonoBehaviour {
     }
 
     public void Release() {
-        StartCoroutine(LerpCamera(transform.rotation, _startRotation, 0.3f));
+        StartCoroutine(LerpCamera(transform.rotation, _startRotation, _lerpTime));
     }
 
     private IEnumerator LerpCamera(Quaternion from, Quaternion to, float time) {
