@@ -2,17 +2,18 @@
 using System.Collections;
 
 public class BoatTarget : MonoBehaviour {
-	
+
+	[SerializeField]
 	protected float boatSpeed = 0;
 
-	void Init (float angle, float speed) {
+	public void Init (float angle, float speed) {
 		transform.localPosition = Vector3.zero;
-		transform.eulerAngles = new Vector3 (0, angle, 0);
+		transform.localEulerAngles = new Vector3 (0, angle, 0);
 		boatSpeed = speed;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		transform.forward += Vector3.forward * (boatSpeed * Time.deltaTime);
+		transform.position += transform.forward * (boatSpeed * Time.deltaTime);
 	}
 }
