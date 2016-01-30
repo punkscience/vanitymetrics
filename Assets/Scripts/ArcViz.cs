@@ -59,7 +59,9 @@ public class ArcViz : MonoBehaviour {
         PlotTrajectory(start, startVelocity * power, TimeStep, MaxTime);
     }
 
+    [ContextMenu("Clear Debug View")]
     public void ClearTrajectory() {
         _renderer.enabled = false;
+        _renderer.SetVertexCount(0);
     }
 }
