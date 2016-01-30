@@ -7,9 +7,13 @@ public class BoatTarget : MonoBehaviour {
 	protected float boatDeathTimer = 0;
 	protected float boatSinkTimer = 0;
 	protected float boatSinkDuration = 10.0F;
+	protected bool fireStarted = false;
+	protected float fireStopTime = 5.0F;
 	protected float boatInitSinkSpeed = 0;
 	[SerializeField]
 	protected float boatHeight = 0;
+	[SerializeField]
+	protected ParticleSystem fireSystem;
 
 	public void Init (float angle, float speed) {
 		transform.localPosition = Vector3.zero;
@@ -39,6 +43,12 @@ public class BoatTarget : MonoBehaviour {
 			transform.localPosition = height;
 
 			boatSinkTimer -= Time.deltaTime;
+
+			if (fireStarted && boatSinkTimer <= fireStopTime) {
+				fireStarted = false;
+				fireSystem.Stop ();
+			}
+
 			if (boatSinkTimer <= 0) {
 				Destroy (gameObject);
 			}
@@ -60,5 +70,8 @@ public class BoatTarget : MonoBehaviour {
 		boatDeathTimer = 0;
 		boatInitSinkSpeed = boatSpeed;
 		boatSinkTimer = boatSinkDuration;
+
+		fireStarted = true;
+		fireSystem.Play ();
 	}
 }
