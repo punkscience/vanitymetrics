@@ -17,6 +17,8 @@ public class GameHandler : MonoBehaviour {
 	protected float waveIntervalTimer = 0;
 	protected bool waveIntervalStart;
 
+	// wave effects
+
 	// Instance
 	public static GameHandler Instance;
 
@@ -45,6 +47,8 @@ public class GameHandler : MonoBehaviour {
 
 	public void StartWave () {
 
+		Debug.Log ("Starting Wave " + waveCount);
+
 		waveCount++;
 
 		// remove the current wave
@@ -56,7 +60,7 @@ public class GameHandler : MonoBehaviour {
 		currentWave = null;
 		currentWave = Instantiate (boatHandlerPrefab);
 		currentWave.transform.SetParent (transform);
-		currentWave.StartWave (boatParent, 5, 2, new Vector2 (20.0F, 20.0F));
+		currentWave.StartWave (boatParent, 5, 2);
 		currentWave.isCurrentWave = true;
 		demonHandler.StartWave (new Vector2 (1.0F, 4.0F), new Vector2 (0.5F, 1.0F));
 

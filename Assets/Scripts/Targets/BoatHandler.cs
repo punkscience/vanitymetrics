@@ -11,18 +11,17 @@ public class BoatHandler : MonoBehaviour {
 	// wave variables
 	public bool isCurrentWave;
 	protected int boatsToRelease = 0;
+	protected int releasedBoatsCounter = 0;
 	protected Vector2 boatReleaseTimerRange;
 	protected float boatReleaseTimer;
 	protected float boatSpeed = 0;
 	protected float lastAngle = 0;
 	protected int currentBoatIndex = 0;
-	protected Vector2 boatDeathRange;
-	protected List<BoatTarget> boats;
 	protected int destroyedBoatCount;
 
 	void Update () {
 
-		if (boatsToRelease > 0) {
+		if (releasedBoatsCounter < boatsToRelease) {
 
 			// decrement boat release timer
 			boatReleaseTimer -= Time.deltaTime;
@@ -35,42 +34,41 @@ public class BoatHandler : MonoBehaviour {
 				} while (angle == lastAngle);
 				lastAngle = angle;
 
-				// death range
-				float deathTime = Random.Range (boatDeathRange.x, boatDeathRange.y);
-
 				// create a boat
 				BoatTarget newBoat = (BoatTarget) Instantiate (boatPrefab);
 				newBoat.transform.SetParent (boatParent);
-				newBoat.Init (currentBoatIndex, angle, boatSpeed, deathTime);
-				boats.Add (newBoat);
-				currentBoatIndex++;
+				newBoat.Init (this, angle, boatSpeed);
 
-				// 
+				// start a new release interval
 				boatReleaseTimer = Random.Range (boatReleaseTimerRange.x, boatReleaseTimerRange.y);
+
+				// increment the released boats counter
+				releasedBoatsCounter++;
+
+				if (isCurrentWave && releasedBoatsCounter >= boatsToRelease) {
+					GameHandler.Instance.FinishedSendingWave ();
+				}
+
 			}
 		}
 	}
 	
-	public void StartWave (Transform boatStartLoc, int boatCount, float speed, Vector2 deathRange) {
+	public void StartWave (Transform boatStartLoc, int boatCount, float speed) {
 
 		boatParent = boatStartLoc;
 		boatsToRelease = boatCount;
 		boatSpeed = speed;
 		float intervalSpeed = 1 / speed;
 		boatReleaseTimerRange = new Vector2 (intervalSpeed + 2.5F, (intervalSpeed * 10.5F) + 2.5F);
-		boatDeathRange = deathRange;
-		currentBoatIndex = 0;
 		boatReleaseTimer = 0;
-
-		boats = new List<BoatTarget> ();
 	}
 
-	public void BoatDestroyed (BoatTarget boat) {
+	public void BoatSinked () {
 		
 		// increment the destroyed boat counter
 		destroyedBoatCount++;
 
-		if (boatsToRelease <= 0 && destroyedBoatCount >= boats.Count) {
+		if (destroyedBoatCount >= boatsToRelease) {
 
 			// if it's the most recent wave, tell GameHandler to start a new wave
 			if (isCurrentWave) {
@@ -78,7 +76,6 @@ public class BoatHandler : MonoBehaviour {
 			}
 
 			Destroy (gameObject);
-
 		}
 	}
 }

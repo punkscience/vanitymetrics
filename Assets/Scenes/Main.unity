@@ -128,6 +128,7 @@ MonoBehaviour:
   demonPrefabs:
   - {fileID: 11433064, guid: e8236b5dae0da41e382a59804e65b256, type: 2}
   demonTarget: {fileID: 1525463722}
+  demonParent: {fileID: 1196761909}
 --- !u!114 &30715928
 MonoBehaviour:
   m_ObjectHideFlags: 0
