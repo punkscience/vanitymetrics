@@ -14,8 +14,6 @@ public class ArcViz : MonoBehaviour {
     [SerializeField] private float _timeStep = 0.5f;
     [SerializeField] private float _maxTime = 10f;
 
-    [SerializeField] private bool _debug;
-
     public float TimeStep {
         get { return _timeStep; }
         set { _timeStep = value; }
@@ -28,11 +26,6 @@ public class ArcViz : MonoBehaviour {
 
     private void Awake() {
         _renderer = GetComponent<LineRenderer>();
-    }
-
-    private void Update() {
-        if (_debug)
-            DrawTrajectory(transform.position, transform.forward, _power);
     }
 
     private Vector3 PlotTrajectoryAtTime(Vector3 start, Vector3 startVelocity, float time) {
@@ -62,8 +55,8 @@ public class ArcViz : MonoBehaviour {
     }
 
     public void DrawTrajectory(Vector2 value) {
-        Debug.Log(value.y);
-        DrawTrajectory(transform.position, transform.forward, value.y * _power);
+        var clampedY = -Mathf.Clamp(value.y, -1f, 0f);
+        DrawTrajectory(transform.position, transform.forward, clampedY * _power);
     }
 
     [ContextMenu("Clear Debug View")]

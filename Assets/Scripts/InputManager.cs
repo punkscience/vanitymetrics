@@ -19,21 +19,27 @@ public class InputManager : MonoBehaviour {
 	        pos.x /= Screen.width * _inputScaling;
 	        pos.y /= Screen.height * _inputScaling;
             var diff = pos - _orgLoc;
-            showRange.Invoke(Vector2.ClampMagnitude(diff, 1f));
+            diff.x = Mathf.Clamp(diff.x, -1f, 1f);
+            diff.y = Mathf.Clamp(diff.y, -1f, 1f);
+            showRange.Invoke(diff);
 	    }
         else if (Input.GetMouseButton(0)) {
 	        var pos = Input.mousePosition;
             pos.x /= Screen.width / _inputScaling;
 	        pos.y /= Screen.height / _inputScaling;
             var diff = pos - _orgLoc;
-            showRange.Invoke(Vector2.ClampMagnitude(diff, 1f));
+            diff.x = Mathf.Clamp(diff.x, -1f, 1f);
+            diff.y = Mathf.Clamp(diff.y, -1f, 1f);
+            showRange.Invoke(diff);
         }
         else if (Input.GetMouseButtonUp(0)) {
 	        var pos = Input.mousePosition;
 	        pos.x /= Screen.width / _inputScaling;
 	        pos.y /= Screen.height / _inputScaling;
             var diff = pos - _orgLoc;
-            showRange.Invoke(Vector2.ClampMagnitude(diff, 1f));
+            diff.x = Mathf.Clamp(diff.x, -1f, 1f);
+            diff.y = Mathf.Clamp(diff.y, -1f, 1f);
+            showRange.Invoke(diff);
             hideRange.Invoke();
         }
 	}
