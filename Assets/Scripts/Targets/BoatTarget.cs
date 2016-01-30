@@ -5,6 +5,11 @@ public class BoatTarget : MonoBehaviour {
 
 	protected float boatSpeed = 0;
 	protected float boatDeathTimer = 0;
+	protected float boatSinkTimer = 0;
+	protected float boatSinkDuration = 10.0F;
+	protected float boatInitSinkSpeed = 0;
+	[SerializeField]
+	protected float boatHeight = 0;
 
 	public void Init (float angle, float speed) {
 		transform.localPosition = Vector3.zero;
@@ -25,10 +30,22 @@ public class BoatTarget : MonoBehaviour {
 				SpawnDemon ();
 			}
 		}
+
+		// decrement the sink timer
+		if (boatSinkTimer > 0) {
+			boatSpeed -= boatInitSinkSpeed * Time.deltaTime / boatSinkDuration;
+			Vector3 height = transform.localPosition;
+			height.y -= boatHeight * Time.deltaTime / boatSinkDuration;
+			transform.localPosition = height;
+
+			boatSinkTimer -= Time.deltaTime;
+			if (boatSinkTimer <= 0) {
+				Destroy (gameObject);
+			}
+		}
 	}
 
 	void OnTriggerEnter (Collider other) {
-		Debug.Log ("Collided!", gameObject);
 		if (other.gameObject.layer == 9) {
 			SinkShip ();
 		}
@@ -41,6 +58,7 @@ public class BoatTarget : MonoBehaviour {
 	void SinkShip () {
 		// stop the boat death timer so that a demon doesn't spawn
 		boatDeathTimer = 0;
-		Destroy (gameObject);
+		boatInitSinkSpeed = boatSpeed;
+		boatSinkTimer = boatSinkDuration;
 	}
 }
