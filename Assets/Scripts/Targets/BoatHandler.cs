@@ -16,7 +16,7 @@ public class BoatHandler : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		StartWave (50, 2, new Vector2 (2, 8));
+		StartWave (50, 1);
 	}
 
 	void Update () {
@@ -28,7 +28,7 @@ public class BoatHandler : MonoBehaviour {
 			if (boatReleaseTimer <= 0.0F) {
 
 				// choose an angle
-				float angle = -10F * Random.Range (-2, 2);
+				float angle = -10F * Random.Range (-2, 3);
 
 				// create a boat
 				BoatTarget newBoat = (BoatTarget) Instantiate (boatPrefab);
@@ -40,11 +40,12 @@ public class BoatHandler : MonoBehaviour {
 		}
 	}
 	
-	public void StartWave (int boatCount, float speed, Vector2 boatReleaseIntervalRange) {
+	public void StartWave (int boatCount, float speed) {
 
 		boatsToRelease = boatCount;
 		boatSpeed = speed;
-		boatReleaseTimerRange = boatReleaseIntervalRange;
+		float intervalSpeed = 1 / speed;
+		boatReleaseTimerRange = new Vector2 (intervalSpeed + 1.5F, (intervalSpeed * 10.5F));
 
 		boatReleaseTimer = 0;
 	}
