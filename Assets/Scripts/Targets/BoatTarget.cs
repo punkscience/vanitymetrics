@@ -41,13 +41,13 @@ public class BoatTarget : MonoBehaviour {
 		newPosition += transform.forward * (boatSpeed * Time.deltaTime);
 
 		// decrement the boat death timer
-		if (boatDeathTimer > 0.0F) {
-			boatDeathTimer -= Time.deltaTime;
-
-			if (boatDeathTimer <= 0.0F) {
-				SpawnDemon ();
-			}
-		}
+//		if (boatDeathTimer > 0.0F) {
+//			boatDeathTimer -= Time.deltaTime;
+//
+//			if (boatDeathTimer <= 0.0F) {
+//				SpawnDemon ();
+//			}
+//		}
 
 		// decrement the sink timer
 		if (boatSinkTimer > 0.0F) {
@@ -91,7 +91,7 @@ public class BoatTarget : MonoBehaviour {
 		}
 
 		// Did we collide with the boundary
-		if (boatDeathTimer > 0.0F && other.gameObject.layer == 10) {
+		if (other.gameObject.layer == 10) {
 			SpawnDemon ();
 		}
 	}
@@ -99,7 +99,7 @@ public class BoatTarget : MonoBehaviour {
 	void SpawnDemon () {
 
 		// sink the ship
-		boatDeathTimer = 0;
+//		boatDeathTimer = 0;
 		Sink ();
 
 		// spawn a demon
@@ -109,7 +109,7 @@ public class BoatTarget : MonoBehaviour {
 	void Sink () {
 		
 		// stop the boat death timer so that a demon doesn't spawn
-		boatDeathTimer = 0;
+//		boatDeathTimer = 0;
 		boatInitSinkSpeed = boatSpeed;
 		boatSinkTimer = boatSinkDuration;
 
