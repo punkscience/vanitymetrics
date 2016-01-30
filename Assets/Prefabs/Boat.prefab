@@ -476,7 +476,7 @@ Animator:
   m_GameObject: {fileID: 190140}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 35b563fb2f01940359a9441112a02b2d, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4abfe3fa905424e6eb73fb08a40cfd3a, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -545,7 +545,7 @@ ParticleSystem:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 171426}
   serializedVersion: 2
-  lengthInSec: 2
+  lengthInSec: 4
   startDelay:
     scalar: 0
     maxCurve:
@@ -583,8 +583,8 @@ ParticleSystem:
     minMaxState: 0
   speed: 1
   randomSeed: 0
-  looping: 1
-  prewarm: 1
+  looping: 0
+  prewarm: 0
   playOnAwake: 0
   moveWithTransform: 0
   scalingMode: 1
@@ -929,14 +929,14 @@ ParticleSystem:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: 0.10614525
-          inSlope: -0.048556365
-          outSlope: -0.048556365
-          tangentMode: 0
-        - time: 0.9354839
-          value: 1
+          value: 0.13407822
           inSlope: 0
           outSlope: 0
+          tangentMode: 0
+        - time: 1
+          value: 1
+          inSlope: 2
+          outSlope: 2
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
@@ -2030,7 +2030,7 @@ ParticleSystem:
     collidesWithDynamic: 1
     interiorCollisions: 1
   SubModule:
-    enabled: 1
+    enabled: 0
     subEmitterBirth: {fileID: 0}
     subEmitterBirth1: {fileID: 0}
     subEmitterCollision: {fileID: 0}

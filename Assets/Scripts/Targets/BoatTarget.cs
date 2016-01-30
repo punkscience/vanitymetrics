@@ -9,8 +9,9 @@ public class BoatTarget : MonoBehaviour {
 	protected float boatSinkTimer = 0;
 	protected float boatSinkDuration = 10.0F;
 	protected bool fireStarted = false;
-	protected float particleStopTime = 4.0F;
+	protected float particleStopTime = 6.0F;
 	protected float boatInitSinkSpeed = 0;
+	protected float sinkRate = 0;
 
 	// Attached objects
 	[SerializeField]
@@ -51,10 +52,10 @@ public class BoatTarget : MonoBehaviour {
 		// decrement the sink timer
 		if (boatSinkTimer > 0.0F) {
 
-			if (boatSinkTimer > (boatSinkDuration * 0.5F)) {
-				boatSpeed -= boatInitSinkSpeed * (Time.deltaTime / boatSinkDuration);
-			} else {
-				newPosition.y -= 2 * boatHeight * Time.deltaTime / boatSinkDuration;
+			boatSpeed -= boatInitSinkSpeed * (Time.deltaTime / boatSinkDuration);
+			if (boatSinkTimer < (boatSinkDuration * 0.75F)) {
+				sinkRate += (Time.deltaTime / boatSinkDuration) * (0.2F / boatSinkDuration);
+				newPosition.y -= sinkRate;
 			}
 
 			boatSinkTimer -= Time.deltaTime;
@@ -66,7 +67,7 @@ public class BoatTarget : MonoBehaviour {
 			if (fireStarted && boatSinkTimer <= particleStopTime) {
 				fireStarted = false;
 				fireSystem.Stop ();
-				wakeSystem.Stop ();
+//				wakeSystem.Stop ();
 			}
 
 			if (boatSinkTimer <= 0) {
