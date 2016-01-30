@@ -27,7 +27,7 @@ public class GameHandler : MonoBehaviour {
 
 		BoatHandler boatHandler = Instantiate (boatHandlerPrefab);
 		boatHandler.StartWave (boatParent, 50, 2, new Vector2 (20.0F, 20.0F));
-		demonHandler.StartWave (new Vector2 (2.0F, 4.0F), new Vector2 (1.5F, 3.5F));
+		demonHandler.StartWave (new Vector2 (1.0F, 4.0F), new Vector2 (0.5F, 1.0F));
 	}
 	
 	// Update is called once per frame
