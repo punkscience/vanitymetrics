@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
 public class RotateCamera : MonoBehaviour {
+    [SerializeField] private float _maxAngle = 30f;
     private Quaternion _startRotation;
 
     private void Awake() {
@@ -8,7 +9,7 @@ public class RotateCamera : MonoBehaviour {
     }
 
     public void Rotate(Vector2 value) {
-        transform.Rotate(Vector3.up * value.x);
+        transform.eulerAngles = new Vector3(0f, value.x * _maxAngle, 0f);
     }
 
     public void Release() {
