@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class BoatHandler : MonoBehaviour {
 
 	[SerializeField]
 	protected BoatTarget boatPrefab;
-	[SerializeField]
 	protected Transform boatParent;
 
 	// wave variables
@@ -14,11 +14,14 @@ public class BoatHandler : MonoBehaviour {
 	protected float boatReleaseTimer;
 	protected float boatSpeed = 0;
 	protected float lastAngle = 0;
+	protected int currentBoatIndex = 0;
 	protected Vector2 boatDeathRange;
+	protected List<BoatTarget> boats;
+	protected int destroyedBoatCount;
 
 	void Update () {
 
-		if (boatsToRelease > 0.0F) {
+		if (boatsToRelease > 0) {
 
 			// decrement boat release timer
 			boatReleaseTimer -= Time.deltaTime;
@@ -37,21 +40,33 @@ public class BoatHandler : MonoBehaviour {
 				// create a boat
 				BoatTarget newBoat = (BoatTarget) Instantiate (boatPrefab);
 				newBoat.transform.SetParent (boatParent);
-				newBoat.Init (angle, boatSpeed, deathTime);
+				newBoat.Init (currentBoatIndex, angle, boatSpeed, deathTime);
+				boats.Add (newBoat);
+				currentBoatIndex++;
 
 				boatReleaseTimer = Random.Range (boatReleaseTimerRange.x, boatReleaseTimerRange.y);
 			}
 		}
 	}
 	
-	public void StartWave (int boatCount, float speed, Vector2 deathRange) {
+	public void StartWave (Transform boatStartLoc, int boatCount, float speed, Vector2 deathRange) {
 
+		boatParent = boatStartLoc;
 		boatsToRelease = boatCount;
 		boatSpeed = speed;
 		float intervalSpeed = 1 / speed;
 		boatReleaseTimerRange = new Vector2 (intervalSpeed + 2.5F, (intervalSpeed * 10.5F) + 2.5F);
 		boatDeathRange = deathRange;
-
+		currentBoatIndex = 0;
 		boatReleaseTimer = 0;
+
+		boats = new List<BoatTarget> ();
+	}
+
+	public void DestroyBoat (BoatTarget boat) {
+
+		Destroy (boats [boat.boatIndex].gameObject);
+		destroyedBoatCount++;
+
 	}
 }
