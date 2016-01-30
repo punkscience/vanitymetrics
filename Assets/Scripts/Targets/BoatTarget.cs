@@ -29,7 +29,7 @@ public class BoatTarget : MonoBehaviour {
 
 	void OnTriggerEnter (Collider other) {
 
-		if (other.gameObject.layer == 8) {
+		if (other.gameObject.layer == 9) {
 			SinkShip ();
 		}
 	}
