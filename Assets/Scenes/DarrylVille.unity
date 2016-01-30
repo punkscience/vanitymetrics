@@ -169,7 +169,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1888742775}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!114 &129834000
@@ -183,6 +184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d693dd459ac8c463ea820b85a3e2700d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   showRange:
     m_PersistentCalls:
       m_Calls: []
@@ -382,6 +384,91 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
+=======
+  _inputScaling: 4
+  showRange:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1888742776}
+        m_MethodName: DrawTrajectory
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: ShowRange, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  hideRange:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1888742776}
+        m_MethodName: ClearTrajectory
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: HideRange, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+--- !u!1001 &668080866
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 129833999}
+    m_Modifications:
+    - target: {fileID: 459270, guid: 05ca14c2fb040475797d4c0d25579f9c, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.48585367
+      objectReference: {fileID: 0}
+    - target: {fileID: 459270, guid: 05ca14c2fb040475797d4c0d25579f9c, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.33748937
+      objectReference: {fileID: 0}
+    - target: {fileID: 459270, guid: 05ca14c2fb040475797d4c0d25579f9c, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 3.6675394
+      objectReference: {fileID: 0}
+    - target: {fileID: 459270, guid: 05ca14c2fb040475797d4c0d25579f9c, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 459270, guid: 05ca14c2fb040475797d4c0d25579f9c, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 459270, guid: 05ca14c2fb040475797d4c0d25579f9c, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 459270, guid: 05ca14c2fb040475797d4c0d25579f9c, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 459270, guid: 05ca14c2fb040475797d4c0d25579f9c, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 05ca14c2fb040475797d4c0d25579f9c, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &1888742775 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 459270, guid: 05ca14c2fb040475797d4c0d25579f9c, type: 2}
+  m_PrefabInternal: {fileID: 668080866}
+--- !u!114 &1888742776 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11495132, guid: 05ca14c2fb040475797d4c0d25579f9c,
+    type: 2}
+  m_PrefabInternal: {fileID: 668080866}
+  m_Script: {fileID: 11500000, guid: c9e4d1938a36d4b05addac4156f2d638, type: 3}
+>>>>>>> origin/master
 --- !u!1 &2136450619
 GameObject:
   m_ObjectHideFlags: 0
