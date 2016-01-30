@@ -10,7 +10,8 @@ GameObject:
   - 4: {fileID: 459270}
   - 120: {fileID: 12044984}
   - 114: {fileID: 11495132}
-  m_Layer: 0
+  - 114: {fileID: 11418132}
+  m_Layer: 8
   m_Name: TrajectoryVis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,6 +30,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &11418132
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 178748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9372ddefcd524957a6b8384098a921a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _projectile: {fileID: 134530, guid: 6a0532b0c4fdd4274948339cbc443532, type: 2}
 --- !u!114 &11495132
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -40,10 +53,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9e4d1938a36d4b05addac4156f2d638, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _endPoint: {fileID: 0}
   _power: 30
   _collisionMask:
     serializedVersion: 2
-    m_Bits: 4294967003
+    m_Bits: 4294967039
   _timeStep: 0.1
   _maxTime: 10
 --- !u!120 &12044984
