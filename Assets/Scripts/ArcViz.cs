@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
+using System.Security.Policy;
 using UnityEngine;
 
 [ExecuteInEditMode]
@@ -37,6 +38,7 @@ public class ArcViz : MonoBehaviour {
     private void PlotTrajectory(Vector3 start, Vector3 StartVelocity, float timeStep, float maxTime) {
         _arcPoints.Clear();
         _arcPoints.Add(start);
+        var prev = start;
         for (int i = 1;; i++) {
             float t = timeStep * i;
 
@@ -45,6 +47,9 @@ public class ArcViz : MonoBehaviour {
 
             var pos = PlotTrajectoryAtTime(start, StartVelocity, t);
             _arcPoints.Add(pos);
+            if (Physics.Linecast(prev, pos))
+                break;
+            prev = pos;
         }
     }
 
