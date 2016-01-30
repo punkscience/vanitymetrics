@@ -28,8 +28,8 @@ public class BoatTarget : MonoBehaviour {
 	}
 
 	void OnTriggerEnter (Collider other) {
-
-		if (other.gameObject.layer == 8) {
+		Debug.Log ("Collided!", gameObject);
+		if (other.gameObject.layer == 9) {
 			SinkShip ();
 		}
 	}
@@ -41,5 +41,6 @@ public class BoatTarget : MonoBehaviour {
 	void SinkShip () {
 		// stop the boat death timer so that a demon doesn't spawn
 		boatDeathTimer = 0;
+		Destroy (gameObject);
 	}
 }
