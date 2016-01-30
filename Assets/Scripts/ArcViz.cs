@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 [ExecuteInEditMode]
@@ -13,6 +13,8 @@ public class ArcViz : MonoBehaviour {
     [Range(0.01f, 1f)]
     [SerializeField] private float _timeStep = 0.5f;
     [SerializeField] private float _maxTime = 10f;
+
+    private List<Vector3> _arcPoints = new List<Vector3>(); 
 
     public float TimeStep {
         get { return _timeStep; }
@@ -33,20 +35,22 @@ public class ArcViz : MonoBehaviour {
     }
 
     private void PlotTrajectory(Vector3 start, Vector3 StartVelocity, float timeStep, float maxTime) {
-        var length = Mathf.RoundToInt(maxTime / timeStep);
-        _renderer.SetVertexCount(length + 1);
-
-        var prev = start;
-        _renderer.SetPosition(0, start);
+        _arcPoints.Clear();
+        _arcPoints.Add(start);
         for (int i = 1;; i++) {
             float t = timeStep * i;
+
             if (t > maxTime)
                 break;
+
             var pos = PlotTrajectoryAtTime(start, StartVelocity, t);
-            Debug.DrawLine(prev, pos, Color.red);
-            _renderer.SetPosition(i, pos);
-            prev = pos;
+            _arcPoints.Add(pos);
         }
+    }
+
+    private void LateUpdate() {
+        _renderer.SetVertexCount(_arcPoints.Count);
+        _renderer.SetPositions(_arcPoints.ToArray());
     }
 
     public void DrawTrajectory(Vector3 start, Vector3 startVelocity, float power) {
