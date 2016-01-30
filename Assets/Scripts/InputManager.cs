@@ -89,11 +89,13 @@ public class InputManager : MonoBehaviour {
 }
 
 
+[System.Serializable]
 public class ShowRange : UnityEvent<Vector2> {
 	
 }
 
 
+[System.Serializable]
 public class HideRange : UnityEvent {
 
 }
