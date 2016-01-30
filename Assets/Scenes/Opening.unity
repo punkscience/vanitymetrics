@@ -910,7 +910,7 @@ GameObject:
   - 222: {fileID: 1511261982}
   - 114: {fileID: 1511261981}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: panel_FadeScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
