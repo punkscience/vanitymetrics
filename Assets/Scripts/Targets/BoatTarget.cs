@@ -15,7 +15,9 @@ public class BoatTarget : MonoBehaviour {
 	[SerializeField]
 	protected ParticleSystem fireSystem;
 
-	public void Init (float angle, float speed) {
+	public void Init (float angle, float speed, float deathTimer) {
+
+		boatDeathTimer = deathTimer;
 		transform.localPosition = Vector3.zero;
 		transform.localEulerAngles = new Vector3 (0, angle, 0);
 		boatSpeed = speed;
@@ -27,16 +29,16 @@ public class BoatTarget : MonoBehaviour {
 		transform.position += transform.forward * (boatSpeed * Time.deltaTime);
 
 		// decrement the boat death timer
-		if (boatDeathTimer > 0) {
+		if (boatDeathTimer > 0.0F) {
 			boatDeathTimer -= Time.deltaTime;
 
-			if (boatDeathTimer <= 0) {
+			if (boatDeathTimer <= 0.0F) {
 				SpawnDemon ();
 			}
 		}
 
 		// decrement the sink timer
-		if (boatSinkTimer > 0) {
+		if (boatSinkTimer > 0.0F) {
 			boatSpeed -= boatInitSinkSpeed * Time.deltaTime / boatSinkDuration;
 			Vector3 height = transform.localPosition;
 			height.y -= boatHeight * Time.deltaTime / boatSinkDuration;
@@ -68,7 +70,7 @@ public class BoatTarget : MonoBehaviour {
 		}
 
 		// Did we collide with the boundary
-		if (boatDeathTimer > 0 && other.gameObject.layer == 10) {
+		if (boatDeathTimer > 0.0F && other.gameObject.layer == 10) {
 			SpawnDemon ();
 		}
 	}
