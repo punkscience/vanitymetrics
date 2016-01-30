@@ -31,18 +31,45 @@ public class InputManager : MonoBehaviour {
 
 			//Check if the phase of that touch equals Began
 			if (touch.phase == TouchPhase.Began) {
-				//If so, set touchOrigin to the position of that touch
-//				touchOrigin = touch.position;
-			} else {
+				origin = touch.position;
 				curPos = touch.position;
+
+				float diffx = curPos.x - origin.x;
+				float diffy = curPos.y - origin.y;
+
+				float xpos = (diffx - (screenMaxX/2f))/(screenMaxX/2);
+				float ypos = (diffy - (screenMaxY / 2f)) / (screenMaxY / 2);
+
+				showRange.Invoke( new Vector2( xpos, ypos ) );
+
+			} else if (touch.phase == TouchPhase.Moved) {
+				curPos = touch.position;
+
+				float diffx = curPos.x - origin.x;
+				float diffy = curPos.y - origin.y;
+
+				float xpos = (diffx - (screenMaxX/2f))/(screenMaxX/2);
+				float ypos = (diffy - (screenMaxY / 2f)) / (screenMaxY / 2);
+
+				showRange.Invoke( new Vector2( xpos, ypos ) );
+
+			} else if (touch.phase == TouchPhase.Ended) {
+				hideRange.Invoke ();
 			}
 		} else {
 			if (Input.GetButtonDown("Fire1")) {
 				origin = Input.mousePosition;
-				Debug.Log ( "Point: X:" + origin.x + " Y:" + origin.y );
-			}
+				curPos = Input.mousePosition;
+//				Debug.Log ( "Point: X:" + origin.x + " Y:" + origin.y );
 
-			if (Input.GetMouseButton (0)) {
+				float diffx = curPos.x - origin.x;
+				float diffy = curPos.y - origin.y;
+
+				float xpos = (diffx - (screenMaxX/2f))/(screenMaxX/2);
+				float ypos = (diffy - (screenMaxY / 2f)) / (screenMaxY / 2);
+
+				showRange.Invoke( new Vector2( xpos, ypos ) );
+			} else if (Input.GetMouseButton (0)) {
 				curPos = Input.mousePosition;
 
 				float diffx = curPos.x - origin.x;
@@ -62,11 +89,13 @@ public class InputManager : MonoBehaviour {
 }
 
 
+[System.Serializable]
 public class ShowRange : UnityEvent<Vector2> {
 	
 }
 
 
+[System.Serializable]
 public class HideRange : UnityEvent {
 
 }
