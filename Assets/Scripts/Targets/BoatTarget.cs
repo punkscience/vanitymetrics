@@ -82,8 +82,6 @@ public class BoatTarget : MonoBehaviour {
 			SinkShip ();
 		}
 
-		Debug.Log ("hit something. Death Timer: " + boatDeathTimer, gameObject);
-
 		// Did we collide with the boundary
 		if (boatDeathTimer > 0.0F && other.gameObject.layer == 10) {
 			SpawnDemon ();

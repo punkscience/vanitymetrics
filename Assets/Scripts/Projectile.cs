@@ -5,6 +5,7 @@ public class Projectile : MonoBehaviour {
     [SerializeField] private float _killY = -15f;
 
     private Rigidbody _rb;
+	public float damageValue = 1;
 
     private void Awake() {
         _rb = GetComponent<Rigidbody>();
