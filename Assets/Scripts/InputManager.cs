@@ -5,10 +5,10 @@ using UnityEngine.Events;
 public class InputManager : MonoBehaviour {
 
 	[SerializeField]
-	private ShowRange showRange;
+	private ShowRange showRange = new ShowRange();
 
 	[SerializeField]
-	private HideRange hideRange;
+	private HideRange hideRange = new HideRange();
 
 	private float screenMaxX = 300f;
 	private float screenMaxY = 225f;
@@ -50,6 +50,7 @@ public class InputManager : MonoBehaviour {
 
 				float xpos = (diffx - (screenMaxX/2f))/(screenMaxX/2);
 				float ypos = (diffy - (screenMaxY / 2f)) / (screenMaxY / 2);
+
 				showRange.Invoke( new Vector2( xpos, ypos ) );
 			}
 
@@ -64,6 +65,7 @@ public class InputManager : MonoBehaviour {
 public class ShowRange : UnityEvent<Vector2> {
 	
 }
+
 
 public class HideRange : UnityEvent {
 
