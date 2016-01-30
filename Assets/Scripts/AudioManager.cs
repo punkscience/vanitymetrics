@@ -3,49 +3,57 @@ using System.Collections;
 
 public class AudioManager : MonoBehaviour {
 
-
-	public int fadeTime = 3;
-
 	[SerializeField]
 	private AudioSource feMusic;
 
 	[SerializeField]
 	private AudioSource ambience;
 
-	public void PlayMainMenuMusic() {
-		FadeMusicTrack (feMusic, true);
-	}
-
 	// Use this for initialization
 	void Start () {
-		PlayMainMenuMusic ();
+		
 	}
 
 	// Update is called once per frame
 	void Update () {
-	
+
 	}
 
-	void FadeMusicTrack (AudioSource track, bool on) {
-	// dir 0 = fade out, dir 1 = fade up 
+	public void StartMainMenuMusic () {
+		StartCoroutine (FadeInAudio (feMusic));
+	}
+		
 
-		Debug.Log (track.volume);
-		if (!on) {
-			//if on is set to false 
-			while (track.volume > 0) {
-				// then we want to work towards zero
-				track.volume = track.volume - (Time.deltaTime / (fadeTime + 1));
+	public void TransitionToAmbient() {
+		StartCoroutine (FadeOutAudio (feMusic));
+		StartCoroutine (FadeInAudio (ambience));
+	}
+
+	public static IEnumerator FadeOutAudio (AudioSource audioSource) {
+
+		float startVolume = audioSource.volume;
+		float fadeTime = 0.1f;
+
+			//if we're fading out
+			while (audioSource.volume > 0) {
+				audioSource.volume -= startVolume * Time.deltaTime / fadeTime;
+				yield return null;
 			}
-			// and then stop the track entirely
-			track.Stop ();
-		} else {
-			//else start playing the track
-			track.Play ();
-			//and approach volume of one
-			while (track.volume < 1) {
-				track.volume = track.volume + (Time.deltaTime / (fadeTime + 1));
-			}
+			audioSource.Stop ();
+
+	}
+
+	public static IEnumerator FadeInAudio (AudioSource audioSource) {
+
+		float startVolume = audioSource.volume;
+		float fadeTime = 0.1f;
+
+		//if we're fading out
+		while (audioSource.volume < 1) {
+			audioSource.volume += startVolume * Time.deltaTime / fadeTime;
+			yield return null;
 		}
-	}
+		audioSource.Stop ();
 
+	}
 }
