@@ -35,8 +35,6 @@ public class EndGame : MonoBehaviour {
 		// Blood red screens!!
 		bloodRed.SetActive ( true );
 
-		var tween = Tween
-
 		// Make my own imobile demon.
 		demon = Instantiate (go);
 		holdDemon = true;
