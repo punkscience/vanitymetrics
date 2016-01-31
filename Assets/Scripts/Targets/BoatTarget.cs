@@ -20,7 +20,7 @@ public class BoatTarget : MonoBehaviour {
 	[SerializeField]
 	protected ParticleSystem[] fireSystems;
 	[SerializeField]
-	protected ParticleSystem blackFireSystem;
+	protected ParticleSystem[] blackFireSystems;
 	[SerializeField]
 	protected ParticleSystem wakeSystem;
 
@@ -118,10 +118,13 @@ public class BoatTarget : MonoBehaviour {
 	void IgniteBlackFlames () {
 
 		// start a fire
-		blackFireSystem.Play ();
+		foreach (ParticleSystem blackFireSystem in blackFireSystems) {
+			blackFireSystem.Play ();
+		}
 
 		// sink the ship
 //		boatDeathTimer = 0;
+		boatSinkDuration = 6.0F;
 		Sink ();
 
 		StartCoroutine (SpawnDemon ());
