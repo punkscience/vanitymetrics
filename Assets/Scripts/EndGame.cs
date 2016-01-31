@@ -62,6 +62,10 @@ public class EndGame : MonoBehaviour {
 		SceneManager.LoadScene( "FrontEnd" );
 	}
 
+//	public void WinGame() {
+//		SceneManager.LoadScene ("Closeing");
+//	}
+
 
 	void WinGame () {
 		// rm HUD
