@@ -53,8 +53,7 @@ public class DemonTarget : MonoBehaviour {
 
 		// set the transparency of the demon
 		fadeInTimer = 0.0F;
-		Color newColor = Color.black;
-		newColor.a = 0.0F;
+		Color newColor = demonRenderer.material.color;
 		newColor.a = fadeInTimer;
 		demonRenderer.material.color = newColor;
 	}
@@ -137,7 +136,7 @@ public class DemonTarget : MonoBehaviour {
 			transform.position -= deathPos;
 
 			// set the transparency of the demon
-			Color newColor = Color.black;
+			Color newColor = demonRenderer.material.color;
 			newColor.a = Mathf.Lerp (0.0F, 1.0F, (deathTimer / deathDuration));
 			demonRenderer.material.color = newColor;
 
