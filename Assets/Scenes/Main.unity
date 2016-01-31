@@ -226,7 +226,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11457130, guid: 667e52f3e33d0405aa88fd3809137573, type: 2}
       propertyPath: m_Text
-      value: YOU LOSE
+      value: YOU WIN
       objectReference: {fileID: 0}
     - target: {fileID: 11421136, guid: 667e52f3e33d0405aa88fd3809137573, type: 2}
       propertyPath: panelYouWin
