@@ -8,8 +8,6 @@ public class BoatTarget : MonoBehaviour {
 	protected float boatDeathTimer = 0;
 	protected float boatSinkTimer = 0;
 	protected float boatSinkDuration = 20.0F;
-	protected bool fireStarted = false;
-	protected float particleStopTime = 0.2F;
 	protected float boatInitSinkSpeed = 0;
 	protected float sinkRate = 0;
 
@@ -65,12 +63,6 @@ public class BoatTarget : MonoBehaviour {
 			wakeSystem.startSpeed = boatSpeed / 2;
 			wakeSystem.startLifetime = boatSpeed;
 
-			if (fireStarted && boatSinkTimer <= (boatSinkDuration * particleStopTime)) {
-				fireStarted = false;
-				fireSystem.Stop ();
-//				wakeSystem.Stop ();
-			}
-
 			if (boatSinkTimer <= 0) {
 				Destroy (gameObject);
 			}
@@ -84,7 +76,6 @@ public class BoatTarget : MonoBehaviour {
 		// Did we collide with an arrow
 		if (other.gameObject.layer == 9) {
 			// start a fire
-			fireStarted = true;
 			fireSystem.Play ();
 
 			// sink the ship
