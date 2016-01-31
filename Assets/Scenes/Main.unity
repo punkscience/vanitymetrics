@@ -182,7 +182,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22454250, guid: 667e52f3e33d0405aa88fd3809137573, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 22454250, guid: 667e52f3e33d0405aa88fd3809137573, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -224,23 +224,13 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 11484370, guid: 667e52f3e33d0405aa88fd3809137573, type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 79942141}
-    - target: {fileID: 11484370, guid: 667e52f3e33d0405aa88fd3809137573, type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ReturnToMain
+    - target: {fileID: 11457130, guid: 667e52f3e33d0405aa88fd3809137573, type: 2}
+      propertyPath: m_Text
+      value: YOU LOSE
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 667e52f3e33d0405aa88fd3809137573, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &79942141 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11448776, guid: 667e52f3e33d0405aa88fd3809137573,
-    type: 2}
-  m_PrefabInternal: {fileID: 79942140}
-  m_Script: {fileID: 11500000, guid: fb6b6b434ba9b4de2b14a76cb8f7e508, type: 3}
 --- !u!1001 &248075511
 Prefab:
   m_ObjectHideFlags: 0
