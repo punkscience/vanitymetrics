@@ -1,19 +1,29 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
 public class EndGame : MonoBehaviour {
 
 	public GameObject bloodRed;
-	public GameObject demonFace;
+	public GameObject demonFace = null;
 	private GameObject demon = null;
 
 	private bool holdDemon = false;
 	private GameObject HUD;
 
+	private GameObject GameOver;
+	private GameObject TryAgain;
+	private GameObject AdmitDefeat;
+
 	// Use this for initialization
 	void Start () {
 		HUD = GameObject.Find ("panel_HUD");
+
+		GameOver = GameObject.Find ("txt_GameOver"); 
+		TryAgain = GameObject.Find ("btn_TryAgain");
+		AdmitDefeat = GameObject.Find ("btn_AdmitDefeat");
+			
 	}
 	
 	// Update is called once per frame
@@ -33,11 +43,12 @@ public class EndGame : MonoBehaviour {
 
 	void DoEndGame( GameObject go ) {
 		// rm HUD
-		HUD.SetActive (false);
+		if (HUD.activeSelf) {	HUD.SetActive (false); }
 		// Blood red screens!!
 		bloodRed.SetActive ( true );
 		AudioSource screams = GetComponent<AudioSource> ();
 		screams.Play ();
+		Invoke ("FillInScreenContent", 1f);
 
 		// Make my own imobile demon.
 		demon = Instantiate (go);
@@ -49,9 +60,14 @@ public class EndGame : MonoBehaviour {
 		DemonTarget.OnEndGame -= DoEndGame;
 	}
 
+	public void FillInScreenContent() {
+		GameOver.SetActive (true);
+	    TryAgain.SetActive (true);
+		AdmitDefeat.SetActive (true);
+	}
 
 	public void ExitGame() {
-		SceneManager.LoadScene( "FrontEnd", LoadSceneMode.Single );
+		SceneManager.LoadScene( "FrontEnd" );
 	}
 
 }
