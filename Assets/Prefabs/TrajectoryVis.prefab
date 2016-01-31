@@ -257,7 +257,7 @@ LineRenderer:
     endWidth: 0.1
     m_StartColor:
       serializedVersion: 2
-      rgba: 4294967295
+      rgba: 1778384895
     m_EndColor:
       serializedVersion: 2
       rgba: 16777215
