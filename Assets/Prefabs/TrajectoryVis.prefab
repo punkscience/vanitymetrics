@@ -135,9 +135,9 @@ MonoBehaviour:
   _collisionMask:
     serializedVersion: 2
     m_Bits: 4294967039
-  _timeStep: 0.1
+  _timeStep: 0.05
   _maxTime: 10
-  _fireCoolDown: 0
+  _coolDown: 0.5
 --- !u!120 &12044984
 LineRenderer:
   m_ObjectHideFlags: 1

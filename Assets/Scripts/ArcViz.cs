@@ -90,7 +90,6 @@ public class ArcViz : MonoBehaviour {
 
     public void DrawTrajectory(Vector2 value) {
         _animator.SetFloat("Blend", -value.y);
-
         DrawTrajectory(transform.position, transform.forward, _power);
     }
 
