@@ -146,7 +146,7 @@
 		//lighting
 		half3 matCap = tex2D (_MatCap, viewNormals.xy *0.5 +0.5);
 
-		return half4(color *matCap,0.5);
+		return half4(color *matCap,0.5) * i.color;
 	}
 		ENDCG
 	}
