@@ -43,8 +43,8 @@ public class HUDManager : MonoBehaviour {
 	public void LoseGame() {
 		isPaused = false;
 		Time.timeScale = 1f;
-		SceneManager.LoadScene ("FrontEnd");
-//		SceneManager.LoadScene ("Lose");
+//		SceneManager.LoadScene ("FrontEnd");
+		SceneManager.LoadScene ("Lose");
 	}
 
 	public void ReloadGame() {
