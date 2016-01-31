@@ -5,6 +5,7 @@ Shader "AO-MatCap-Blender" {
 		_MainTex ("Diffuse", 2D) = "white" {}
 		_MatCapBlend0 ("MatCap0", 2D) = "black" {}
 		_MatCapBlend1 ("MatCap1", 2D) = "black" {}
+		_MatCapBlend2 ("MatCap1", 2D) = "black" {}
 		_Blender("Blender", Range(0, 1.0)) = 0
 
 	}
@@ -25,6 +26,7 @@ Shader "AO-MatCap-Blender" {
 			uniform sampler2D _MainTex;
 			uniform sampler2D _MatCapBlend0;
 			uniform sampler2D _MatCapBlend1;
+			uniform sampler2D _MatCapBlend2;
 			uniform half _Blender;
 
 				
@@ -84,7 +86,11 @@ Shader "AO-MatCap-Blender" {
 				//lighting
 				half3 matCap0 = tex2D (_MatCapBlend0, viewNormals.xy *0.5 +0.5);
 				half3 matCap1 = tex2D (_MatCapBlend1, viewNormals.xy *0.5 +0.5);
-				half3 matCapResult = (matCap0 * (-_Blender + 1)) + (matCap1 * _Blender);
+				half3 matCap2 = tex2D (_MatCapBlend2, viewNormals.xy *0.5 +0.5);
+				half3 matCapResult = 	(matCap0 * clamp((_Blender * -2 +1) , 0 , 1))  +
+										(matCap1 * (1 - abs((_Blender -0.5) * 2) ))+ 
+										(matCap2 * clamp( ((_Blender -0.5) * 2) , 0 , 1) );
+
 
 				return half4(color * matCapResult,0.5);
 
