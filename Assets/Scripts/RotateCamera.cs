@@ -8,6 +8,9 @@ public class RotateCamera : MonoBehaviour {
 
     [SerializeField] private float _lerpTime = 0.6f;
 
+    [SerializeField] private Vector3 _bowOnScreen;
+    [SerializeField] private Vector3 _bowOffScreen;
+
     private void Awake() {
         _startRotation = transform.rotation;
     }
