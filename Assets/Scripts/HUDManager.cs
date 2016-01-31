@@ -11,10 +11,11 @@ public class HUDManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		
 		pauseMenu = GameObject.Find ("panel_PauseMenu");
 		HUD = GameObject.Find ("panel_HUD");
 
-		pauseMenu.SetActive (false);
+		if (pauseMenu.activeSelf) { pauseMenu.SetActive (false); }
 	}
 	
 	// Update is called once per frame
@@ -37,5 +38,9 @@ public class HUDManager : MonoBehaviour {
 
 	public void ReturnToMain() {
 		SceneManager.LoadScene ("FrontEnd");
+	}
+
+	public void ReloadGame() {
+		SceneManager.LoadScene("Main");
 	}
 }
