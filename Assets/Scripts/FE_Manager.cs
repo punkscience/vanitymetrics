@@ -3,7 +3,6 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
 
-
 public class FE_Manager : MonoBehaviour {
 
 	public static bool isPaused = false;
