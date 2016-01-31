@@ -83,7 +83,7 @@ public class DemonTarget : MonoBehaviour {
 			// death timer
 			deathTimer -= Time.deltaTime;
 			Vector3 deathPos = (Random.insideUnitSphere * 0.2F);
-			deathPos.y += 2.0F * Time.deltaTime;
+			deathPos.y = 2.0F * Time.deltaTime;
 			transform.position -= deathPos;
 
 			if (deathTimer <= 0.0F) {
