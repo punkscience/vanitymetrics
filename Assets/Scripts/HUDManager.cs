@@ -8,12 +8,15 @@ public class HUDManager : MonoBehaviour {
 
 	private GameObject pauseMenu;
 	private GameObject HUD;
+	private GameObject youWin;
 
 	// Use this for initialization
 	void Start () {
 		
 		pauseMenu = GameObject.Find ("panel_PauseMenu");
 		HUD = GameObject.Find ("panel_HUD");
+		youWin = GameObject.Find ("panel_YouWin");
+
 
 		if (pauseMenu.activeSelf) { pauseMenu.SetActive (false); }
 	}
