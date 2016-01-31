@@ -20,11 +20,6 @@ public class HUDManager : MonoBehaviour {
 
 		if (pauseMenu.activeSelf) { pauseMenu.SetActive (false); }
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
 	public void SetPause(bool isPaused) {
 		if (isPaused) {
@@ -41,11 +36,13 @@ public class HUDManager : MonoBehaviour {
 
 	public void ReturnToMain() {
 		isPaused = false;
+		Time.timeScale = 1f;
 		SceneManager.LoadScene ("FrontEnd");
 	}
 
 	public void ReloadGame() {
 		isPaused = false;
+		Time.timeScale = 1f;
 		SceneManager.LoadScene("Main");
 	}
 }

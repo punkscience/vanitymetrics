@@ -333,6 +333,7 @@ PlayerSettings:
   psmSplashimage: {fileID: 0}
   spritePackerPolicy: 
   scriptingDefineSymbols:
+    1: panel_FadeOutScreen
     2: 
   metroPackageName: vanitymetrics
   metroPackageVersion: 
