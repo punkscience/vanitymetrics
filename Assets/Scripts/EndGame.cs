@@ -20,7 +20,7 @@ public class EndGame : MonoBehaviour {
 	void Start () {
 		HUD = GameObject.Find ("panel_HUD");
 
-		GameOver = GameObject.Find ("txt_GameOver"); 
+		GameOver = GameObject.Find ("txt_YouLose"); 
 		TryAgain = GameObject.Find ("btn_TryAgain");
 		AdmitDefeat = GameObject.Find ("btn_AdmitDefeat");
 			
@@ -48,7 +48,7 @@ public class EndGame : MonoBehaviour {
 		bloodRed.SetActive ( true );
 		AudioSource screams = GetComponent<AudioSource> ();
 		screams.Play ();
-		Invoke ("FillInScreenContent", 1f);
+		Invoke ("FillInScreenContent", 2f);
 
 		// Make my own imobile demon.
 		demon = Instantiate (go);
