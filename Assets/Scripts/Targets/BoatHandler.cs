@@ -38,7 +38,10 @@ public class BoatHandler : MonoBehaviour {
 				// create a boat
 				BoatTarget newBoat = (BoatTarget) Instantiate (boatPrefab);
 				newBoat.transform.SetParent (boatParent);
-				newBoat.Init (this, waveData[currentBoatIndex].angle, waveData[currentBoatIndex].speed);
+				newBoat.Init (this, 
+					waveData[currentBoatIndex].angle, 
+					waveData[currentBoatIndex].speed, 
+					waveData[currentBoatIndex].boatTypeIndex);
 
 				// increment intervals
 				currentBoatIndex++;

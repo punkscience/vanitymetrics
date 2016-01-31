@@ -16,19 +16,25 @@ public class BoatTarget : MonoBehaviour {
 	[SerializeField]
 	protected float boatHeight = 0;
 	[SerializeField]
+	protected Renderer sailRenderer;
+	[SerializeField]
 	protected ParticleSystem[] fireSystems;
 	[SerializeField]
 	protected ParticleSystem blackFireSystem;
 	[SerializeField]
 	protected ParticleSystem wakeSystem;
 
-	public void Init (BoatHandler handler, float angle, float speed) {
+	public void Init (BoatHandler handler, float angle, float speed, float sailColorIndex) {
 
+		// set boat stats
 		boatHandler = handler;
-		transform.localPosition = Vector3.zero;
-		transform.localEulerAngles = new Vector3 (0, angle, 0);
 		boatSpeed = speed;
 		boatDeathTimer = 0;
+//		sailRenderer.material.SetFloat ("_Blender", sailColorIndex);
+
+		// set location
+		transform.localPosition = Vector3.zero;
+		transform.localEulerAngles = new Vector3 (0, angle, 0);
 
 		// wake system settings
 		wakeSystem.startSpeed = boatSpeed / 2;

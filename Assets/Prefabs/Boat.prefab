@@ -569,6 +569,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boatHeight: 3
+  sailRenderer: {fileID: 13726288}
   fireSystems:
   - {fileID: 19816242}
   - {fileID: 19896694}
