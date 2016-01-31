@@ -544,7 +544,7 @@ ParticleSystem:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 171426}
   serializedVersion: 2
-  lengthInSec: 4
+  lengthInSec: 15
   startDelay:
     scalar: 0
     maxCurve:
@@ -932,7 +932,7 @@ ParticleSystem:
           inSlope: 0
           outSlope: 0
           tangentMode: 0
-        - time: 0.5038662
+        - time: 0.22644684
           value: 1
           inSlope: 0.01686853
           outSlope: 0.01686853
@@ -3666,7 +3666,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: EmissionModule.rate.maxCurve.m_Curve.Array.data[1].time
-      value: 0.5038662
+      value: 0.22644684
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: EmissionModule.rate.maxCurve.m_Curve.Array.data[1].value
@@ -3687,6 +3687,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: EmissionModule.rate.maxCurve.m_Curve.Array.data[2].outSlope
       value: 0.021367867
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: lengthInSec
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

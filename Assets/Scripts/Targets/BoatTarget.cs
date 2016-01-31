@@ -10,6 +10,7 @@ public class BoatTarget : MonoBehaviour {
 	protected float boatSinkDuration = 20.0F;
 	protected float boatInitSinkSpeed = 0;
 	protected float sinkRate = 0;
+	protected bool boatSank = false;
 
 	// Attached objects
 	[SerializeField]
@@ -83,7 +84,7 @@ public class BoatTarget : MonoBehaviour {
 		}
 
 		// Did we collide with the boundary
-		if (other.gameObject.layer == 10) {
+		if (!boatSank && other.gameObject.layer == 10) {
 			SpawnDemon ();
 		}
 	}
@@ -102,6 +103,7 @@ public class BoatTarget : MonoBehaviour {
 		
 		// stop the boat death timer so that a demon doesn't spawn
 //		boatDeathTimer = 0;
+		boatSank = true;
 		boatInitSinkSpeed = boatSpeed;
 		boatSinkTimer = boatSinkDuration;
 

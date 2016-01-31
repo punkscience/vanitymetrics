@@ -76,7 +76,7 @@ public class BoatHandler : MonoBehaviour {
 				isCurrentWave = false;
 			}
 
-			Destroy (gameObject);
+//			Destroy (gameObject);
 		}
 	}
 }
