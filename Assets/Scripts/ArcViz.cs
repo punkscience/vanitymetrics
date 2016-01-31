@@ -59,8 +59,10 @@ public class ArcViz : MonoBehaviour {
                 var ray = new Ray(prev, pos - prev);
                 var hit = new RaycastHit();
                 if (Physics.Raycast(ray, out hit)) {
-                    if (_marker != null)
-                        _marker.transform.position = hit.point;
+                    if (_marker != null) {
+                        var loc = hit.point;
+                        _marker.transform.position = new Vector3(loc.x, loc.y + 0.01f, loc.z);
+                    }
                 }
                 break;
             }
