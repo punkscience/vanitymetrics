@@ -50,13 +50,16 @@ public class FE_Manager : MonoBehaviour {
 	}
 
 	public void TogglePause() {
+		Debug.Log ("paused");
 		if (isPaused) { 
 			ToggleMenuPanel (Pause, true);
 			ToggleMenuPanel (HUD, false);
+			isPaused = false;
 
 		} else {
 			ToggleMenuPanel (Pause, false);
 			ToggleMenuPanel (HUD, true);
+			isPaused = true;
 		}
 	}
 	public void EnterGame() {
