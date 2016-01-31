@@ -177,6 +177,7 @@ public class GameHandler : MonoBehaviour {
 
 	public void EndGame () {
 
+
 	}
 
 	public void Reset () {

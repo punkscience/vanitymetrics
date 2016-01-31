@@ -16,7 +16,7 @@ public class BoatTarget : MonoBehaviour {
 	[SerializeField]
 	protected float boatHeight = 0;
 	[SerializeField]
-	protected ParticleSystem fireSystem;
+	protected ParticleSystem[] fireSystems;
 	[SerializeField]
 	protected ParticleSystem blackFireSystem;
 	[SerializeField]
@@ -101,7 +101,9 @@ public class BoatTarget : MonoBehaviour {
 		boatHandler.DestroyedBoat ();
 		
 		// start a fire
-		fireSystem.Play ();
+		foreach (ParticleSystem fireSystem in fireSystems) {
+			fireSystem.Play ();
+		}
 
 		// sink the ship
 		Sink ();

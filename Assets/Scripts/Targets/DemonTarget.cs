@@ -10,6 +10,8 @@ public class DemonTarget : MonoBehaviour {
 	protected float demonBaseSpeed = 1;
 	[SerializeField]
 	protected Renderer demonRenderer;
+	[SerializeField]
+	protected ParticleSystem[] particles;
 
 	// Shit's going down.
 	public delegate void EndGame( GameObject go );
@@ -81,6 +83,11 @@ public class DemonTarget : MonoBehaviour {
 
 			// disable the collider so arrows don't collide with it anymore
 			gameObject.GetComponent<Collider> ().enabled = false;
+
+			// stop the particles
+			foreach (ParticleSystem ps in particles) {
+				ps.Stop ();
+			}
 
 			// tell the boat handler the demon is dead
 			boatHandler.DestroyedBoat ();
