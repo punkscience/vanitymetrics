@@ -38,6 +38,13 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
+          name: _MatCap
+        second:
+          m_Texture: {fileID: 2800000, guid: ae6ab5271f59142f1a6c999b62514e11, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
           name: _ParallaxMap
         second:
           m_Texture: {fileID: 0}
@@ -76,13 +83,6 @@ Material:
           name: _MetallicGlossMap
         second:
           m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _MatCap
-        second:
-          m_Texture: {fileID: 2800000, guid: 94d7bd04d93b74893a462d600bf8a883, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
     m_Floats:
