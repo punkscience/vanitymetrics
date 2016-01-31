@@ -315,6 +315,10 @@ Prefab:
       propertyPath: m_Layer
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 19816284, guid: 7761e9b9903984586bc1567414901b6d, type: 2}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.99
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7761e9b9903984586bc1567414901b6d, type: 2}
   m_IsPrefabParent: 0

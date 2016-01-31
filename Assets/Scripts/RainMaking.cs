@@ -3,10 +3,11 @@ using System.Collections;
 
 public class RainMaking : MonoBehaviour {
 
-    
-    float heaviness = 5;
-    [SerializeField]
-    GameObject drop;
+	[SerializeField]
+    private float heaviness = 5;
+
+	[SerializeField]
+    private GameObject drop;
 
 
 	// Use this for initialization
