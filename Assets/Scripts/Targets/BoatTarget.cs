@@ -52,7 +52,7 @@ public class BoatTarget : MonoBehaviour {
 		if (boatSinkTimer > 0.0F) {
 
 			if (boatSinkTimer > (boatSinkDuration * 0.75F)) {
-				boatSpeed -= boatInitSinkSpeed * (Time.deltaTime / boatSinkDuration);
+				boatSpeed -= boatInitSinkSpeed * (Time.deltaTime / boatSinkDuration / 4);
 			} else {
 				sinkRate += (Time.deltaTime / boatSinkDuration) * (0.2F / boatSinkDuration);
 				newPosition.y -= sinkRate;
@@ -79,6 +79,9 @@ public class BoatTarget : MonoBehaviour {
 
 			if (!boatSank) {
 				Destroy (other.gameObject);
+
+				// tell boat handler the boat is sinking
+				boatHandler.DestroyedBoat ();
 				
 				// start a fire
 				fireSystem.Play ();
@@ -101,7 +104,7 @@ public class BoatTarget : MonoBehaviour {
 		Sink ();
 
 		// spawn a demon
-		GameHandler.Instance.SpawnDemon (transform);
+		GameHandler.Instance.SpawnDemon (transform, boatHandler);
 	}
 
 	void Sink () {
@@ -112,9 +115,6 @@ public class BoatTarget : MonoBehaviour {
 			boatSank = true;
 			boatInitSinkSpeed = boatSpeed;
 			boatSinkTimer = boatSinkDuration;
-
-			// tell boat handler the boat is sinking
-			boatHandler.BoatSinked ();
 		}
 	}
 }

@@ -164,9 +164,9 @@ public class GameHandler : MonoBehaviour {
 		waveIntervalStart = true;
 	}
 
-	public void SpawnDemon (Transform startPosition) {
+	public void SpawnDemon (Transform startPosition, BoatHandler handler) {
 
-		demonHandler.SpawnDemon (startPosition);
+		demonHandler.SpawnDemon (startPosition, handler);
 	}
 
 	public void Reset () {

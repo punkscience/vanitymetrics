@@ -21,7 +21,7 @@ public class DemonHandler : MonoBehaviour {
 		demonSpeedMultiplier = speed;
 	}
 
-	public void SpawnDemon (Transform boatStartPoint) {
+	public void SpawnDemon (Transform boatStartPoint, BoatHandler handler) {
 
 		// choose a demon
 		int demonIndex = Random.Range (0, demonPrefabs.Length);
@@ -32,6 +32,7 @@ public class DemonHandler : MonoBehaviour {
 
 		// initialize the demon
 		newDemon.Init (
+			handler, 
 			demonHealthMultiplier,
 			demonSpeedMultiplier,
 			boatStartPoint.position, 
