@@ -519,24 +519,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!1 &886932792 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 190668, guid: 18367096ef150464a9845586ba6d32bd, type: 2}
-  m_PrefabInternal: {fileID: 1354139025}
---- !u!114 &886932793
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 886932792}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 063468af29bda4bbe8af19a3453e3eca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _offScreenCoord: {x: 0.283, y: -0.26, z: 0}
-  _onScreenCoord: {x: 0, y: 0, z: 0}
-  _duration: 0.6
 --- !u!1001 &1022986912
 Prefab:
   m_ObjectHideFlags: 0
@@ -702,15 +684,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 459270, guid: 05ca14c2fb040475797d4c0d25579f9c, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.1826
       objectReference: {fileID: 0}
     - target: {fileID: 459270, guid: 05ca14c2fb040475797d4c0d25579f9c, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.1653
       objectReference: {fileID: 0}
     - target: {fileID: 459270, guid: 05ca14c2fb040475797d4c0d25579f9c, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.1926
       objectReference: {fileID: 0}
     - target: {fileID: 459270, guid: 05ca14c2fb040475797d4c0d25579f9c, type: 2}
       propertyPath: m_LocalRotation.x
@@ -763,6 +745,14 @@ Prefab:
     - target: {fileID: 8256842, guid: 05ca14c2fb040475797d4c0d25579f9c, type: 2}
       propertyPath: m_PlayOnAwake
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 12044984, guid: 05ca14c2fb040475797d4c0d25579f9c, type: 2}
+      propertyPath: m_Parameters.startWidth
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 12044984, guid: 05ca14c2fb040475797d4c0d25579f9c, type: 2}
+      propertyPath: m_Parameters.endWidth
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11418132, guid: 05ca14c2fb040475797d4c0d25579f9c, type: 2}
@@ -865,50 +855,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 151120, guid: 18367096ef150464a9845586ba6d32bd, type: 2}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 19844970, guid: 18367096ef150464a9845586ba6d32bd, type: 2}
-      propertyPath: VelocityModule.inWorldSpace
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 19844970, guid: 18367096ef150464a9845586ba6d32bd, type: 2}
-      propertyPath: VelocityModule.x.scalar
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 19844970, guid: 18367096ef150464a9845586ba6d32bd, type: 2}
-      propertyPath: VelocityModule.y.scalar
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 19844970, guid: 18367096ef150464a9845586ba6d32bd, type: 2}
-      propertyPath: ShapeModule.radius
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 19844970, guid: 18367096ef150464a9845586ba6d32bd, type: 2}
-      propertyPath: ShapeModule.angle
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 19844970, guid: 18367096ef150464a9845586ba6d32bd, type: 2}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 19844970, guid: 18367096ef150464a9845586ba6d32bd, type: 2}
-      propertyPath: EmissionModule.rate.scalar
-      value: 75
-      objectReference: {fileID: 0}
-    - target: {fileID: 13769834, guid: 18367096ef150464a9845586ba6d32bd, type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: c4d5bc1cba6ef403b937eb85b3207b5d, type: 2}
-    - target: {fileID: 13761234, guid: 18367096ef150464a9845586ba6d32bd, type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: c4d5bc1cba6ef403b937eb85b3207b5d, type: 2}
-    - target: {fileID: 13720910, guid: 18367096ef150464a9845586ba6d32bd, type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: fc73b4bfd497f46fda65f16fdfa91673, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 18367096ef150464a9845586ba6d32bd, type: 2}
   m_IsPrefabParent: 0

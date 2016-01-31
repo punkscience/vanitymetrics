@@ -1035,7 +1035,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 447722}
   - 95: {fileID: 9515478}
-  - 114: {fileID: 11480668}
+  - 114: {fileID: 11499784}
   m_Layer: 11
   m_Name: FirstPerson
   m_TagString: Untagged
@@ -1991,7 +1991,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11480668
+--- !u!114 &11499784
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -2002,7 +2002,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 063468af29bda4bbe8af19a3453e3eca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _offScreenCoord: {x: 0, y: 0, z: 0}
+  _offScreenCoord: {x: 0.283, y: -0.26, z: 0}
   _onScreenCoord: {x: 0, y: 0, z: 0}
   _duration: 0.6
 --- !u!137 &13720910
