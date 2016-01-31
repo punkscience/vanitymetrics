@@ -37,6 +37,9 @@ public class DemonTarget : MonoBehaviour {
 
 	public void Init (BoatHandler handler, float healthMultiplier, float speedMultiplier, Vector3 startPosition, Vector3 endPosition) {
 
+		// make the demon move up
+		startPosition.y += 5.0F;
+
 		// set demon variables
 		boatHandler = handler;
 		demonStartPoint = startPosition;
@@ -45,7 +48,6 @@ public class DemonTarget : MonoBehaviour {
 		demonSpeed = demonBaseSpeed * speedMultiplier;
 
 		// set the demon's position
-		startPosition.y += 3.0F;
 		transform.position = startPosition;
 		transform.LookAt (endPosition);
 
