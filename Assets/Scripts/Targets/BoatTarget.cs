@@ -20,9 +20,11 @@ public class BoatTarget : MonoBehaviour {
 	[SerializeField]
 	protected ParticleSystem[] fireSystems;
 	[SerializeField]
-	protected ParticleSystem blackFireSystem;
+	protected ParticleSystem[] blackFireSystems;
 	[SerializeField]
 	protected ParticleSystem wakeSystem;
+
+
 
 	public void Init (BoatHandler handler, float angle, float speed, float sailColorIndex) {
 
@@ -70,7 +72,7 @@ public class BoatTarget : MonoBehaviour {
 
 			// wake system settings
 			wakeSystem.startSpeed = boatSpeed / 2;
-			wakeSystem.startLifetime = boatSpeed;
+			wakeSystem.startLifetime = boatSpeed * 4;
 
 			if (boatSinkTimer <= 0) {
 				Destroy (gameObject);
@@ -118,10 +120,13 @@ public class BoatTarget : MonoBehaviour {
 	void IgniteBlackFlames () {
 
 		// start a fire
-		blackFireSystem.Play ();
+		foreach (ParticleSystem blackFireSystem in blackFireSystems) {
+			blackFireSystem.Play ();
+		}
 
 		// sink the ship
 //		boatDeathTimer = 0;
+		boatSinkDuration = 6.0F;
 		Sink ();
 
 		StartCoroutine (SpawnDemon ());
@@ -129,10 +134,14 @@ public class BoatTarget : MonoBehaviour {
 
 	IEnumerator SpawnDemon () {
 		
-		yield return new WaitForSeconds (2.0F);
+		yield return new WaitForSeconds (3.0F);
 
 		// spawn a demon
 		GameHandler.Instance.SpawnDemon (transform, boatHandler);
+
+		// Play the RAWR!!
+		AudioSource rawr = GetComponent<AudioSource>();
+		rawr.Play ();
 	}
 
 	void Sink () {

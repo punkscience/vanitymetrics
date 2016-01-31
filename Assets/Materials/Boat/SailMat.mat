@@ -89,21 +89,21 @@ Material:
         first:
           name: _MatCapBlend0
         second:
-          m_Texture: {fileID: 2800000, guid: c50fafd8c10e9406e843c9fb3ceac36a, type: 3}
+          m_Texture: {fileID: 2800000, guid: dccdc255026e5470e81838d656048ca2, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
           name: _MatCapBlend1
         second:
-          m_Texture: {fileID: 2800000, guid: 74efc68496f7246cabaf63c5acf2867c, type: 3}
+          m_Texture: {fileID: 2800000, guid: c468b35064eb44ccb8c91f3f8100252c, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
           name: _MatCapBlend2
         second:
-          m_Texture: {fileID: 2800000, guid: 63bfa1a2d6173435886df813b4691a8e, type: 3}
+          m_Texture: {fileID: 2800000, guid: 8ebda48b0f5d94533bb0e9759f47e14f, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
     m_Floats:

@@ -151,7 +151,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 195408}
-  m_Mesh: {fileID: 4300000, guid: 5bf2057d88df94dc6a8cd924bcaf6cfc, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 6088781a65d694d7f8ba0deb152c993d, type: 3}
 --- !u!65 &6597768
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -567,7 +567,7 @@ ParticleSystem:
     serializedVersion: 2
     m_Type: 0
     rate:
-      scalar: 100
+      scalar: 50
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -2061,7 +2061,7 @@ ParticleSystem:
     serializedVersion: 2
     m_Type: 0
     rate:
-      scalar: 100
+      scalar: 50
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -3294,6 +3294,14 @@ Prefab:
       propertyPath: demonRenderer
       value: 
       objectReference: {fileID: 2375724}
+    - target: {fileID: 0}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: 6088781a65d694d7f8ba0deb152c993d, type: 3}
+    - target: {fileID: 0}
+      propertyPath: EmissionModule.rate.scalar
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 178524}
