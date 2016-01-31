@@ -22,7 +22,8 @@ public class ArcViz : MonoBehaviour {
     [SerializeField] private float _timeStep = 0.5f;
     [SerializeField] private float _maxTime = 10f;
 
-    private List<Vector3> _arcPoints = new List<Vector3>(); 
+    private List<Vector3> _arcPoints = new List<Vector3>();
+    private GameObject _marker;
 
     public float TimeStep {
         get { return _timeStep; }
@@ -58,8 +59,8 @@ public class ArcViz : MonoBehaviour {
                 var ray = new Ray(prev, pos - prev);
                 var hit = new RaycastHit();
                 if (Physics.Raycast(ray, out hit)) {
-                    if (_endPoint != null)
-                        _endPoint.transform.position = hit.point;
+                    if (_marker != null)
+                        _marker.transform.position = hit.point;
                 }
                 break;
             }
@@ -86,14 +87,17 @@ public class ArcViz : MonoBehaviour {
     public void ClearTrajectory() {
         _renderer.enabled = false;
         _renderer.SetVertexCount(0);
+        Destroy(_marker);
 
         // fire
         GetComponent<ProjectileLauncher>().Fire(_power);
         _animator.SetTrigger("Release");
         _particles.SetActive(false);
+
     }
 
     public void OnPull(Vector2 value) {
+        _marker = Instantiate(_endPoint);
         _animator.SetTrigger("Touch");
         _particles.SetActive(true);
     }

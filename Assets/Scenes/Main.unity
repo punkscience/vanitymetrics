@@ -722,6 +722,14 @@ Prefab:
       propertyPath: _animator
       value: 
       objectReference: {fileID: 91604413}
+    - target: {fileID: 12044984, guid: 05ca14c2fb040475797d4c0d25579f9c, type: 2}
+      propertyPath: m_Parameters.m_EndColor.rgba
+      value: 16777215
+      objectReference: {fileID: 0}
+    - target: {fileID: 12044984, guid: 05ca14c2fb040475797d4c0d25579f9c, type: 2}
+      propertyPath: m_Parameters.m_StartColor.rgba
+      value: 1224736767
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 05ca14c2fb040475797d4c0d25579f9c, type: 2}
   m_IsPrefabParent: 0
