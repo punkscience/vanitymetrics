@@ -15,7 +15,7 @@ public class InputManager : MonoBehaviour {
     private Vector3 _orgLoc;
 
 	private void Update () {
-	    if (FE_Manager.isPaused)
+		if (HUDManager.isPaused)
 	        return;
 
 	    if (Input.GetMouseButtonDown(0)) {
