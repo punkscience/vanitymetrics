@@ -81,7 +81,6 @@ public class GameHandler : MonoBehaviour {
 		boatsCount += 1.5F;
 		boatSpeedMod += 0.25F;
 		demonSpeedMod += 0.125F;
-		demonHealthMod += 0.08F;
 
 		// set the wave interval
 		waveIntervalTimer = 60.0F;

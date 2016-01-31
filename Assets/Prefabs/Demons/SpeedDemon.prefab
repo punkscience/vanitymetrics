@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ee06f514d777418dab9f86a0e412285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  demonBaseHealth: 2
+  demonBaseHealth: 1
   demonBaseSpeed: 4
 --- !u!1001 &100100000
 Prefab:
@@ -139,6 +139,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_LocalRotation.w
       value: 0.70722896
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: demonBaseHealth
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: demonBaseSpeed
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
