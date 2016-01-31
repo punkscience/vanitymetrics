@@ -9,9 +9,7 @@ public class EndGame : MonoBehaviour {
 //	public GameObject demonFace = null;
 //	private GameObject demon = null;
 
-	private bool holdDemon = false;
 	private GameObject HUD;
-
 	private GameObject panelYouWin;
 
 

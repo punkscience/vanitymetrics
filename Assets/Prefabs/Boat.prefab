@@ -227,7 +227,7 @@ GameObject:
   - 114: {fileID: 11478752}
   - 65: {fileID: 6577552}
   - 65: {fileID: 6536068}
-  - 82: {fileID: 8276370}
+  - 82: {fileID: 8282712}
   m_Layer: 0
   m_Name: Boat
   m_TagString: Untagged
@@ -601,7 +601,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5, z: 2}
   m_Center: {x: 0, y: 0.25, z: 0}
---- !u!82 &8276370
+--- !u!82 &8282712
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -610,9 +610,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 853e66dc19fdc4f1197db9c20d46319e, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 0fd42a8adfec8450cb82cd7000267d5e, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 0.38
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -5479,7 +5479,7 @@ ParticleSystem:
         rgba: 4294967295
       maxColor:
         serializedVersion: 2
-        rgba: 4279673313
+        rgba: 2216075745
       minMaxState: 0
     startSize:
       scalar: 10
@@ -10109,14 +10109,22 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 853e66dc19fdc4f1197db9c20d46319e, type: 3}
+      objectReference: {fileID: 8300000, guid: 0fd42a8adfec8450cb82cd7000267d5e, type: 3}
     - target: {fileID: 0}
       propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Volume
-      value: 0.5
+      value: 0.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: InitialModule.startColor.maxColor.rgba
+      value: 2216075745
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Loop
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

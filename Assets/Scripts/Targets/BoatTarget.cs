@@ -113,6 +113,10 @@ public class BoatTarget : MonoBehaviour {
 			fireSystem.Play ();
 		}
 
+		AudioSource fire = GetComponent<AudioSource> ();
+		fire.Play ();
+
+
 		// sink the ship
 		Sink ();
 	}
@@ -139,11 +143,6 @@ public class BoatTarget : MonoBehaviour {
 		// spawn a demon
 		GameHandler.Instance.SpawnDemon (transform, boatHandler);
 
-		// Play the RAWR!!
-		AudioSource rawr = GetComponent<AudioSource>();
-		if (rawr != null) {
-			rawr.Play ();
-		}
 	}
 
 	void Sink () {
