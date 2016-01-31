@@ -18,14 +18,8 @@ public class InputManager : MonoBehaviour {
 	    if (Input.GetMouseButtonDown(0)) {
 	        _orgLoc.x = Input.mousePosition.x / (Screen.width / _inputScaling);
 	        _orgLoc.y = Input.mousePosition.y / (Screen.height / _inputScaling);
-	        var pos = Input.mousePosition;
-	        pos.x /= Screen.width * _inputScaling;
-	        pos.y /= Screen.height * _inputScaling;
-            var diff = pos - _orgLoc;
-            diff.x = Mathf.Clamp(diff.x, -1f, 1f);
-            diff.y = Mathf.Clamp(diff.y, -1f, 1f);
-            showRange.Invoke(diff);
-            onTouch.Invoke(diff);
+            showRange.Invoke(Vector2.zero);
+            onTouch.Invoke(Vector2.zero);
 	    }
         else if (Input.GetMouseButton(0)) {
 	        var pos = Input.mousePosition;
