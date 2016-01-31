@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Land
+  m_Name: BG-Ground
   m_Shader: {fileID: 4800000, guid: 684967ff439d247be8b55df6acce20eb, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
@@ -82,7 +82,7 @@ Material:
         first:
           name: _MatCap
         second:
-          m_Texture: {fileID: 2800000, guid: 5a1ae786444384d63a6f0abf72dde8b1, type: 3}
+          m_Texture: {fileID: 2800000, guid: c18801bce8c0b48b1ad9629fa40a5e7f, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -142,4 +142,4 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: 0, g: 0, b: 0, a: 1}
+        second: {r: 1, g: 1, b: 1, a: 1}

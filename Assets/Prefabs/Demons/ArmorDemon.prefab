@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ee06f514d777418dab9f86a0e412285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  demonBaseHealth: 4
+  demonBaseHealth: 3
   demonBaseSpeed: 0.5
   demonRenderer: {fileID: 2328588}
 --- !u!1001 &100100000
@@ -127,7 +127,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: demonBaseHealth
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Materials.Array.data[0]
