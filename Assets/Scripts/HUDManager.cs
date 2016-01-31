@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEditor.SceneManagement;
 
 public class HUDManager : MonoBehaviour {
 
@@ -34,7 +35,6 @@ public class HUDManager : MonoBehaviour {
 			HUD.SetActive (true);
 		}
 	}
-<<<<<<< HEAD
 
 	public void ReturnToMain() {
 		SceneManager.LoadScene ("FrontEnd");
@@ -43,6 +43,4 @@ public class HUDManager : MonoBehaviour {
 	public void ReloadGame() {
 		SceneManager.LoadScene("Main");
 	}
-=======
->>>>>>> origin/master
 }
