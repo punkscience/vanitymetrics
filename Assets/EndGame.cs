@@ -34,6 +34,8 @@ public class EndGame : MonoBehaviour {
 		
 		// Blood red screens!!
 		bloodRed.SetActive ( true );
+		AudioSource screams = GetComponent<AudioSource> ();
+		screams.Play ();
 
 		// Make my own imobile demon.
 		demon = Instantiate (go);
