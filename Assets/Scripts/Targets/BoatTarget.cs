@@ -24,6 +24,8 @@ public class BoatTarget : MonoBehaviour {
 	[SerializeField]
 	protected ParticleSystem wakeSystem;
 
+
+
 	public void Init (BoatHandler handler, float angle, float speed, float sailColorIndex) {
 
 		// set boat stats
@@ -136,6 +138,10 @@ public class BoatTarget : MonoBehaviour {
 
 		// spawn a demon
 		GameHandler.Instance.SpawnDemon (transform, boatHandler);
+
+		// Play the RAWR!!
+		AudioSource rawr = GetComponent<AudioSource>();
+		rawr.Play ();
 	}
 
 	void Sink () {
