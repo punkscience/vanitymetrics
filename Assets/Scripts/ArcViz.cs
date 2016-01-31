@@ -40,6 +40,10 @@ public class ArcViz : MonoBehaviour {
         _renderer = GetComponent<LineRenderer>();
     }
 
+    private void Start() {
+        _marker = (GameObject) Instantiate(_endPoint, Vector3.zero, Quaternion.identity);
+    }
+
     private Vector3 PlotTrajectoryAtTime(Vector3 start, Vector3 startVelocity, float time) {
         return start + startVelocity * time + Physics.gravity * time * time * 0.5f;
     }
@@ -90,7 +94,7 @@ public class ArcViz : MonoBehaviour {
     public void ClearTrajectory() {
         _renderer.enabled = false;
         _renderer.SetVertexCount(0);
-        Destroy(_marker);
+        _marker.SetActive(false);
 
         // fire
         GetComponent<ProjectileLauncher>().Fire(_power);
@@ -99,7 +103,7 @@ public class ArcViz : MonoBehaviour {
     }
 
     public void OnPull(Vector2 value) {
-        _marker = Instantiate(_endPoint);
+        _marker.SetActive(true);
         _animator.SetTrigger("Touch");
         _particles.SetActive(true);
     }
