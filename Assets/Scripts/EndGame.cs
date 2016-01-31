@@ -44,6 +44,7 @@ public class EndGame : MonoBehaviour {
 	void DoEndGame( GameObject go ) {
 		// rm HUD
 		if (HUD.activeSelf) {	HUD.SetActive (false); }
+		HUDManager.isPaused = true;
 		// Blood red screens!!
 		bloodRed.SetActive ( true );
 		AudioSource screams = GetComponent<AudioSource> ();
