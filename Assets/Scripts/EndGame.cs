@@ -10,6 +10,7 @@ public class EndGame : MonoBehaviour {
 //	private GameObject demon = null;
 
 	private GameObject HUD;
+	[SerializeField]
 	private GameObject panelYouWin;
 
 

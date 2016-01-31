@@ -228,9 +228,17 @@ Prefab:
       propertyPath: m_Text
       value: YOU LOSE
       objectReference: {fileID: 0}
+    - target: {fileID: 11421136, guid: 667e52f3e33d0405aa88fd3809137573, type: 2}
+      propertyPath: panelYouWin
+      value: 
+      objectReference: {fileID: 79942141}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 667e52f3e33d0405aa88fd3809137573, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &79942141 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 108210, guid: 667e52f3e33d0405aa88fd3809137573, type: 2}
+  m_PrefabInternal: {fileID: 79942140}
 --- !u!1001 &248075511
 Prefab:
   m_ObjectHideFlags: 0
