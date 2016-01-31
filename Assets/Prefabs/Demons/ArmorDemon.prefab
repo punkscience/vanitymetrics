@@ -69,7 +69,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: e1acc90b31ddb4b0f917fac8ea980cf3, type: 2}
+  - {fileID: 2100000, guid: 81b2a549f36a9423cad2ba414864161b, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -116,7 +116,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   demonBaseHealth: 4
-  demonBaseSpeed: 1
+  demonBaseSpeed: 0.5
+  demonRenderer: {fileID: 2328588}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -128,6 +129,22 @@ Prefab:
       propertyPath: demonBaseHealth
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 81b2a549f36a9423cad2ba414864161b, type: 2}
+    - target: {fileID: 0}
+      propertyPath: demonBaseSpeed
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: renderer
+      value: 
+      objectReference: {fileID: 2328588}
+    - target: {fileID: 0}
+      propertyPath: demonRenderer
+      value: 
+      objectReference: {fileID: 2328588}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 181368}

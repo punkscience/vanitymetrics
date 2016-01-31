@@ -8,6 +8,8 @@ public class DemonTarget : MonoBehaviour {
 	protected float demonBaseHealth = 3;
 	[SerializeField]
 	protected float demonBaseSpeed = 1;
+	[SerializeField]
+	protected Renderer demonRenderer;
 
 	// demon statistics
 	protected float demonHealth;
@@ -80,12 +82,20 @@ public class DemonTarget : MonoBehaviour {
 
 		} else if (deathTimer > 0.0F) {
 
-			// death timer
+			// death timer decrement
 			deathTimer -= Time.deltaTime;
+
+			// shake and lower the demon
 			Vector3 deathPos = (Random.insideUnitSphere * 0.2F);
 			deathPos.y = 2.0F * Time.deltaTime;
 			transform.position -= deathPos;
 
+			// set the transparency of the demon
+			Color newColor = Color.black;
+			newColor.a = Mathf.Lerp (0.0F, 1.0F, deathTimer);
+			demonRenderer.material.color = newColor;
+
+			// destroy the demon once the timer is out
 			if (deathTimer <= 0.0F) {
 				Destroy (gameObject);
 			}
