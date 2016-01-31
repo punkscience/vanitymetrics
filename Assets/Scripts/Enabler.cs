@@ -18,4 +18,8 @@ public class Enabler : MonoBehaviour {
 	void Awake() {
 		panel.SetActive(true);
 	}
+
+	public void TurnOff() {
+		panel.SetActive (false);
+	}
 }
