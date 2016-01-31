@@ -2062,7 +2062,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _offScreenCoord: {x: 0.283, y: -0.26, z: 0}
   _onScreenCoord: {x: 0, y: 0, z: 0}
-  _duration: 0.6
+  _duration: 0.3
 --- !u!137 &13719862
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
