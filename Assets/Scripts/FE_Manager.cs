@@ -83,10 +83,6 @@ public class FE_Manager : MonoBehaviour {
 	}
 
 	void ToggleMenuPanel (GameObject panel, bool active) {
-		if (active) {
-			panel.SetActive (true);
-		} else {
-			panel.SetActive (false);
-		}
+			panel.SetActive (active);
 	}
 }
