@@ -11,6 +11,10 @@ public class DemonTarget : MonoBehaviour {
 	[SerializeField]
 	protected Renderer demonRenderer;
 
+	// Shit's going down.
+	public delegate void EndGame( GameObject go );
+	public static event EndGame OnEndGame;
+
 	// demon statistics
 	protected float demonHealth;
 	protected float demonSpeed;
@@ -47,6 +51,11 @@ public class DemonTarget : MonoBehaviour {
 
 			// destroy the arrow
 			Destroy (other.gameObject);
+		}
+
+		// Did we collide with the home base?
+		if (other.gameObject.layer == 12 ) {
+			OnEndGame ( other.gameObject );
 		}
 	}
 

@@ -244,6 +244,7 @@ GameObject:
   - 114: {fileID: 657253463}
   - 114: {fileID: 657253462}
   - 114: {fileID: 657253466}
+  - 114: {fileID: 657253467}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -317,6 +318,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1962542688}
+  - {fileID: 1743854168}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_AnchorMin: {x: 0, y: 0}
@@ -336,6 +338,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 1962542687}
+--- !u!114 &657253467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 657253461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d60463e08482f446f99eff91b5b0f4f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bloodRed: {fileID: 1743854167}
+  demonFace: {fileID: 1154446948}
 --- !u!1 &687226197
 GameObject:
   m_ObjectHideFlags: 0
@@ -640,7 +655,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 459270, guid: 05ca14c2fb040475797d4c0d25579f9c, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11495132, guid: 05ca14c2fb040475797d4c0d25579f9c, type: 2}
       propertyPath: _collisionMask.m_Bits
@@ -662,6 +677,33 @@ Prefab:
     - {fileID: 11418132, guid: 05ca14c2fb040475797d4c0d25579f9c, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 05ca14c2fb040475797d4c0d25579f9c, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1154446948
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1154446949}
+  m_Layer: 8
+  m_Name: DemonFace
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1154446949
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1154446948}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.17, z: 5.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1600137751}
+  m_RootOrder: 1
 --- !u!1 &1196761908
 GameObject:
   m_ObjectHideFlags: 0
@@ -787,7 +829,9 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1525463722}
-  m_Layer: 0
+  - 65: {fileID: 1525463724}
+  - 54: {fileID: 1525463723}
+  m_Layer: 12
   m_Name: Demon Target
   m_TagString: Untagged
   m_Icon: {fileID: -4453645107408684167, guid: 0000000000000000d000000000000000, type: 0}
@@ -806,6 +850,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1656972048}
   m_RootOrder: 1
+--- !u!54 &1525463723
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1525463721}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &1525463724
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1525463721}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1580836015
 GameObject:
   m_ObjectHideFlags: 0
@@ -922,6 +993,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1731272132}
+  - {fileID: 1154446949}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!114 &1600137752
@@ -951,7 +1023,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d693dd459ac8c463ea820b85a3e2700d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _inputScaling: 2
+  _inputScaling: 4
   onTouch:
     m_PersistentCalls:
       m_Calls:
@@ -1211,6 +1283,115 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1580836016}
   m_RootOrder: 1
+--- !u!1 &1743854167
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 1743854168}
+  - 222: {fileID: 1743854170}
+  - 114: {fileID: 1743854169}
+  - 114: {fileID: 1743854171}
+  m_Layer: 5
+  m_Name: panel_BloodRed
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1743854168
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1743854167}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 657253465}
+  m_RootOrder: 1
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1743854169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1743854167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.7647059, g: 0, b: 0, a: 0.578}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &1743854170
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1743854167}
+--- !u!114 &1743854171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1743854167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1a86ec76a7a4014a85faf236c3b267e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnFinished:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  fromOffset: 0
+  toOffset: 0
+  method: 1
+  functionCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  style: 0
+  ignoreTimeScale: 1
+  delay: 0
+  duration: 1
+  from: 0
+  to: 0.75
 --- !u!1 &1749088705
 GameObject:
   m_ObjectHideFlags: 0
