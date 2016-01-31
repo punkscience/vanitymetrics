@@ -24,8 +24,7 @@ public class DemonHandler : MonoBehaviour {
 	public void SpawnDemon (Transform boatStartPoint, BoatHandler handler) {
 
 		// choose a demon
-		int demonIndex = 0;
-//		int demonIndex = Random.Range (0, demonPrefabs.Length);
+		int demonIndex = Random.Range (0, demonPrefabs.Length);
 
 		// create a demon
 		DemonTarget newDemon = Instantiate (demonPrefabs [demonIndex]);
