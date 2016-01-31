@@ -104,16 +104,16 @@ public class GameHandler : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-//	void Update () {
-//
-//		if (waveIntervalStart) {
-//			waveIntervalTimer -= Time.deltaTime;
-//
-//			if (waveIntervalTimer <= 0.0F) {
-//				StartWave ();
-//			}
-//		}
-//	}
+	void Update () {
+
+		if (waveIntervalStart) {
+			waveIntervalTimer -= Time.deltaTime;
+
+			if (waveIntervalTimer <= 0.0F) {
+				StartWave ();
+			}
+		}
+	}
 
 	public void StartWave () {
 
@@ -152,17 +152,17 @@ public class GameHandler : MonoBehaviour {
 		demonSpeedMod += 0.125F;
 //
 //		// set the wave interval
-//		waveIntervalTimer = 60.0F;
-//		waveIntervalStart = false;
+		waveIntervalTimer = 3.0F;
+		waveIntervalStart = false;
 
 		// increment the wave
 		waveCount++;
 	}
 
-//	public void FinishedSendingWave () {
-//		
-//		waveIntervalStart = true;
-//	}
+	public void FinishedWave () {
+		
+		waveIntervalStart = true;
+	}
 
 	public void SpawnDemon (Transform startPosition) {
 

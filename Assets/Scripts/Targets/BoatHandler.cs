@@ -84,7 +84,7 @@ public class BoatHandler : MonoBehaviour {
 
 			// if it's the most recent wave, tell GameHandler to start a new wave
 			if (isCurrentWave) {
-				GameHandler.Instance.StartWave ();
+				GameHandler.Instance.FinishedWave ();
 				isCurrentWave = false;
 			}
 
