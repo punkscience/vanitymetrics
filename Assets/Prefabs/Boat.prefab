@@ -495,7 +495,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b995d739b58742cd8f81237a0935d73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boatIndex: 0
   boatHeight: 3
   fireSystem: {fileID: 19828718}
   wakeSystem: {fileID: 19883622}
@@ -933,10 +932,15 @@ ParticleSystem:
           inSlope: 0
           outSlope: 0
           tangentMode: 0
+        - time: 0.5038662
+          value: 1
+          inSlope: 0.01686853
+          outSlope: 0.01686853
+          tangentMode: 0
         - time: 1
           value: 1
-          inSlope: 2
-          outSlope: 2
+          inSlope: 0.021367867
+          outSlope: 0.021367867
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
@@ -3601,6 +3605,10 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 0}
+      propertyPath: EmissionModule.rate.maxCurve.m_Curve.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
       propertyPath: InitialModule.startSpeed.scalar
       value: 1
       objectReference: {fileID: 0}
@@ -3655,6 +3663,30 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_LocalScale.z
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: EmissionModule.rate.maxCurve.m_Curve.Array.data[1].time
+      value: 0.5038662
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: EmissionModule.rate.maxCurve.m_Curve.Array.data[1].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: EmissionModule.rate.maxCurve.m_Curve.Array.data[1].inSlope
+      value: 0.01686853
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: EmissionModule.rate.maxCurve.m_Curve.Array.data[1].outSlope
+      value: 0.01686853
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: EmissionModule.rate.maxCurve.m_Curve.Array.data[2].inSlope
+      value: 0.021367867
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: EmissionModule.rate.maxCurve.m_Curve.Array.data[2].outSlope
+      value: 0.021367867
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
