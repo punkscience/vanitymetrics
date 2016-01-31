@@ -63,7 +63,7 @@ public class FE_Manager : MonoBehaviour {
 		feCam.enabled = false;
 		ToggleMenuPanel (MainMenu, false);
 		ToggleMenuPanel (HUD, true);
-		SceneManager.LoadScene ("Main", LoadSceneMode.Additive);
+		SceneManager.LoadScene ("Main");
 		isPaused = false;
 	}
 		
