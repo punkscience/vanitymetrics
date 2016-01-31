@@ -10,12 +10,13 @@ public class BoatHandler : MonoBehaviour {
 
 	// wave variables
 	public bool isCurrentWave;
+	protected List<BoatWaveData> waveData;
 	protected int boatsToRelease = 0;
 	protected int releasedBoatsCounter = 0;
 	protected Vector2 boatReleaseTimerRange;
 	protected float boatReleaseTimer;
-	protected float boatSpeed = 0;
-	protected float lastAngle = 0;
+//	protected float boatSpeed = 0;
+//	protected float lastAngle = 0;
 	protected int currentBoatIndex = 0;
 	protected int destroyedBoatCount;
 
@@ -28,39 +29,50 @@ public class BoatHandler : MonoBehaviour {
 			if (boatReleaseTimer <= 0.0F) {
 
 				// choose an angle
-				float angle = 0.0F;
-				do {
-					angle = -10.0F * Random.Range (-2, 3);
-				} while (angle == lastAngle);
-				lastAngle = angle;
+//				float angle = 0.0F;
+//				do {
+//					angle = -10.0F * Random.Range (-2, 3);
+//				} while (angle == lastAngle);
+//				lastAngle = angle;
 
 				// create a boat
 				BoatTarget newBoat = (BoatTarget) Instantiate (boatPrefab);
 				newBoat.transform.SetParent (boatParent);
-				newBoat.Init (this, angle, boatSpeed);
+				newBoat.Init (this, waveData[currentBoatIndex].angle, waveData[currentBoatIndex].speed);
 
-				// start a new release interval
-				boatReleaseTimer = Random.Range (boatReleaseTimerRange.x, boatReleaseTimerRange.y);
-
-				// increment the released boats counter
+				// increment intervals
+				currentBoatIndex++;
 				releasedBoatsCounter++;
 
-				if (isCurrentWave && releasedBoatsCounter >= boatsToRelease) {
-					GameHandler.Instance.FinishedSendingWave ();
+				// release timer
+				if (currentBoatIndex < waveData.Count) {
+					boatReleaseTimer = waveData [currentBoatIndex].releaseInterval;
 				}
+
+//				boatReleaseTimer = Random.Range (boatReleaseTimerRange.x, boatReleaseTimerRange.y);
+
+				// increment the released boats counter
+
+//				if (isCurrentWave && releasedBoatsCounter >= boatsToRelease) {
+//					GameHandler.Instance.FinishedSendingWave ();
+//				}
 
 			}
 		}
 	}
 	
-	public void StartWave (Transform boatStartLoc, int boatCount, float speed) {
+	public void StartWave (Transform boatStartLoc, List<BoatWaveData> boatWaveData) {
 
 		boatParent = boatStartLoc;
-		boatsToRelease = boatCount;
-		boatSpeed = speed;
-		float intervalSpeed = 1 / speed;
-		boatReleaseTimerRange = new Vector2 (intervalSpeed + 2.5F, (intervalSpeed * 10.5F) + 2.5F);
+		waveData = boatWaveData;
+		boatsToRelease = boatWaveData.Count;
+//		boatSpeed = speed;
+//		float intervalSpeed = 1 / speed;
+//		boatReleaseTimerRange = new Vector2 (intervalSpeed + 2.5F, (intervalSpeed * 10.5F) + 2.5F);
 		boatReleaseTimer = 0;
+		currentBoatIndex = 0;
+		releasedBoatsCounter = 0;
+		destroyedBoatCount = 0;
 	}
 
 	public void BoatSinked () {

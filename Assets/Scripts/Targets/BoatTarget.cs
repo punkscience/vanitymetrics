@@ -30,7 +30,7 @@ public class BoatTarget : MonoBehaviour {
 
 		// wake system settings
 		wakeSystem.startSpeed = boatSpeed / 2;
-		wakeSystem.startLifetime = boatSpeed * 4;
+		wakeSystem.startLifetime = boatSpeed;
 	}
 	
 	// Update is called once per frame
@@ -103,11 +103,13 @@ public class BoatTarget : MonoBehaviour {
 		
 		// stop the boat death timer so that a demon doesn't spawn
 //		boatDeathTimer = 0;
-		boatSank = true;
-		boatInitSinkSpeed = boatSpeed;
-		boatSinkTimer = boatSinkDuration;
+		if (!boatSank) {
+			boatSank = true;
+			boatInitSinkSpeed = boatSpeed;
+			boatSinkTimer = boatSinkDuration;
 
-		// tell boat handler the boat is sinking
-		boatHandler.BoatSinked ();
+			// tell boat handler the boat is sinking
+			boatHandler.BoatSinked ();
+		}
 	}
 }

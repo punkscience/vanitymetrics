@@ -17,9 +17,76 @@ public class GameHandler : MonoBehaviour {
 	protected float waveIntervalTimer = 0;
 	protected bool waveIntervalStart;
 
+	// Wave Data
+	protected List<List<BoatWaveData>> waveData = new List<List<BoatWaveData>> () {
+		new List<BoatWaveData> () {
+			new BoatWaveData (0, 2, 0)
+		}, 
+		new List<BoatWaveData> () {
+			new BoatWaveData (0, 1, 0),
+			new BoatWaveData (0, 3, 2)
+		},
+		new List <BoatWaveData> () {
+			new BoatWaveData (0, 4, 0),
+			new BoatWaveData (1, 1, 2)
+		},
+		new List <BoatWaveData> () {
+			new BoatWaveData (0, 0, 0),
+			new BoatWaveData (1, 3, 2)
+		},
+		new List <BoatWaveData> () {
+			new BoatWaveData (0, 1, 0),
+			new BoatWaveData (0, 3, 0),
+			new BoatWaveData (1, 2, 3)
+		},
+		new List <BoatWaveData> () {
+			new BoatWaveData (1, 0, 0),
+			new BoatWaveData (1, 4, 0),
+			new BoatWaveData (0, 2, 4),
+			new BoatWaveData (1, 1, 4),
+			new BoatWaveData (1, 3, 0)
+		},
+		new List <BoatWaveData> () {
+			new BoatWaveData (0, 4, 0),
+			new BoatWaveData (0, 3, 1),
+			new BoatWaveData (0, 2, 1),
+			new BoatWaveData (0, 1, 1),
+			new BoatWaveData (0, 0, 1)
+		},
+		new List <BoatWaveData> () {
+			new BoatWaveData (2, 2, 0)
+		},
+		new List <BoatWaveData> () {
+			new BoatWaveData (0, 1, 0),
+			new BoatWaveData (0, 3, 0),
+			new BoatWaveData (1, 2, 3),
+			new BoatWaveData (1, 0, 0),
+			new BoatWaveData (1, 4, 0)
+		},
+		new List <BoatWaveData> () {
+			new BoatWaveData (0, 0, 0),
+			new BoatWaveData (1, 4, 0),
+			new BoatWaveData (2, 2, 0)
+		},
+		new List <BoatWaveData> () {
+			new BoatWaveData (1, 0, 0),
+			new BoatWaveData (1, 1, 1),
+			new BoatWaveData (1, 2, 1),
+			new BoatWaveData (1, 3, 1),
+			new BoatWaveData (1, 4, 1)
+		},
+		new List <BoatWaveData> () {
+			new BoatWaveData (2, 0, 0),
+			new BoatWaveData (2, 4, 0),
+			new BoatWaveData (1, 1, 0),
+			new BoatWaveData (1, 3, 0),
+			new BoatWaveData (0, 2, 0)
+		}
+	};
+
 	// wave effects
-	protected float boatsCount;
-	protected float boatSpeedMod;
+//	protected float boatsCount;
+//	protected float boatSpeedMod;
 	protected float demonSpeedMod;
 	protected float demonHealthMod;
 
@@ -33,27 +100,24 @@ public class GameHandler : MonoBehaviour {
 			Destroy (gameObject);
 		}
 		Instance = this;
-
 		Reset ();
 	}
 	
 	// Update is called once per frame
-	void Update () {
-
-		if (waveIntervalStart) {
-			waveIntervalTimer -= Time.deltaTime;
-
-			if (waveIntervalTimer <= 0.0F) {
-				StartWave ();
-			}
-		}
-	}
+//	void Update () {
+//
+//		if (waveIntervalStart) {
+//			waveIntervalTimer -= Time.deltaTime;
+//
+//			if (waveIntervalTimer <= 0.0F) {
+//				StartWave ();
+//			}
+//		}
+//	}
 
 	public void StartWave () {
 
 		Debug.Log ("Starting Wave " + waveCount);
-
-		waveCount++;
 
 		// remove the current wave
 		if (currentWave != null) {
@@ -66,31 +130,39 @@ public class GameHandler : MonoBehaviour {
 		currentWave.transform.SetParent (transform);
 		currentWave.isCurrentWave = true;
 
+		// Start a new Wave
+		if (waveCount < waveData.Count) {
+			currentWave.StartWave (boatParent, waveData [waveCount]);
+		}
+
 		// wave mods
-		float boatCountPercentage = Random.Range (0, 1);
-		float boatSpeedPercentage = 1.0F - boatCountPercentage;
-		currentWave.StartWave (
-			boatParent, 
-			((int)Mathf.Floor (boatsCount * (boatCountPercentage + 0.5F))), 
-			(boatSpeedMod * (boatSpeedPercentage + 0.5F)));
+//		float boatCountPercentage = Random.Range (0, 1);
+//		float boatSpeedPercentage = 1.0F - boatCountPercentage;
+//		currentWave.StartWave (
+//			boatParent, 
+//			((int)Mathf.Floor (boatsCount * (boatCountPercentage + 0.5F))), 
+//			(boatSpeedMod * (boatSpeedPercentage + 0.5F)));
 
 		// demon waves
 		demonHandler.StartWave (demonHealthMod, demonSpeedMod);
 
-		// increment wave stats
-		boatsCount += 1.5F;
-		boatSpeedMod += 0.25F;
+//		// increment wave stats
+//		boatsCount += 1.5F;
+//		boatSpeedMod += 0.25F;
 		demonSpeedMod += 0.125F;
+//
+//		// set the wave interval
+//		waveIntervalTimer = 60.0F;
+//		waveIntervalStart = false;
 
-		// set the wave interval
-		waveIntervalTimer = 60.0F;
-		waveIntervalStart = false;
+		// increment the wave
+		waveCount++;
 	}
 
-	public void FinishedSendingWave () {
-		
-		waveIntervalStart = true;
-	}
+//	public void FinishedSendingWave () {
+//		
+//		waveIntervalStart = true;
+//	}
 
 	public void SpawnDemon (Transform startPosition) {
 
@@ -101,8 +173,8 @@ public class GameHandler : MonoBehaviour {
 
 		// wave stats
 		waveCount = 0;
-		boatsCount = 5.0F;
-		boatSpeedMod = 2.0F;
+//		boatsCount = 5.0F;
+//		boatSpeedMod = 2.0F;
 		demonSpeedMod = 1.0F;
 		demonHealthMod = 1.0F;
 
