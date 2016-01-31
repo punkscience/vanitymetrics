@@ -10,6 +10,8 @@ public class DemonTarget : MonoBehaviour {
 	protected float demonBaseSpeed = 1;
 	[SerializeField]
 	protected Renderer demonRenderer;
+	[SerializeField]
+	protected ParticleSystem[] particles;
 
 	// Shit's going down.
 	public delegate void EndGame( GameObject go );
@@ -30,9 +32,13 @@ public class DemonTarget : MonoBehaviour {
 
 	// demon death variables
 	protected float deathTimer;
+	protected float deathDuration = 2.0F;
 	protected BoatHandler boatHandler;
 
 	public void Init (BoatHandler handler, float healthMultiplier, float speedMultiplier, Vector3 startPosition, Vector3 endPosition) {
+
+		// make the demon move up
+		startPosition.y += 5.0F;
 
 		// set demon variables
 		boatHandler = handler;
@@ -42,7 +48,6 @@ public class DemonTarget : MonoBehaviour {
 		demonSpeed = demonBaseSpeed * speedMultiplier;
 
 		// set the demon's position
-		startPosition.y += 3.0F;
 		transform.position = startPosition;
 		transform.LookAt (endPosition);
 
@@ -77,10 +82,15 @@ public class DemonTarget : MonoBehaviour {
 
 		if (demonHealth <= 0.0F) {
 			// demon is dead
-			deathTimer = 1.0F;
+			deathTimer = deathDuration;
 
 			// disable the collider so arrows don't collide with it anymore
 			gameObject.GetComponent<Collider> ().enabled = false;
+
+			// stop the particles
+			foreach (ParticleSystem ps in particles) {
+				ps.Stop ();
+			}
 
 			// tell the boat handler the demon is dead
 			boatHandler.DestroyedBoat ();
@@ -128,7 +138,7 @@ public class DemonTarget : MonoBehaviour {
 
 			// set the transparency of the demon
 			Color newColor = Color.black;
-			newColor.a = Mathf.Lerp (0.0F, 1.0F, deathTimer);
+			newColor.a = Mathf.Lerp (0.0F, 1.0F, (deathTimer / deathDuration));
 			demonRenderer.material.color = newColor;
 
 			// destroy the demon once the timer is out
