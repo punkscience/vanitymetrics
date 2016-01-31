@@ -15,6 +15,9 @@ public class InputManager : MonoBehaviour {
     private Vector3 _orgLoc;
 
 	private void Update () {
+	    if (FE_Manager.isPaused)
+	        return;
+
 	    if (Input.GetMouseButtonDown(0)) {
 	        _orgLoc.x = Input.mousePosition.x / (Screen.width / _inputScaling);
 	        _orgLoc.y = Input.mousePosition.y / (Screen.height / _inputScaling);
