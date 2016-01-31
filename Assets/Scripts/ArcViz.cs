@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
-using System.Security.Policy;
+using System.Collections;
+using UnityEditor;
 using UnityEngine;
 
 [RequireComponent(typeof(LineRenderer))]
@@ -24,6 +25,9 @@ public class ArcViz : MonoBehaviour {
 
     private List<Vector3> _arcPoints = new List<Vector3>();
     private GameObject _marker;
+
+    [SerializeField] private float _coolDown = 1f;
+    private float _nextAttack;
 
     public float TimeStep {
         get { return _timeStep; }
@@ -71,17 +75,22 @@ public class ArcViz : MonoBehaviour {
     }
 
     private void LateUpdate() {
-        _renderer.SetVertexCount(_arcPoints.Count);
-        _renderer.SetPositions(_arcPoints.ToArray());
+        if (Time.time > _nextAttack) {
+            _renderer.SetVertexCount(_arcPoints.Count);
+            _renderer.SetPositions(_arcPoints.ToArray());
+        }
     }
 
     public void DrawTrajectory(Vector3 start, Vector3 startVelocity, float power) {
-        _renderer.enabled = true;
-        PlotTrajectory(start, startVelocity * power, TimeStep, MaxTime);
+        if (Time.time > _nextAttack) {
+            _renderer.enabled = true;
+            PlotTrajectory(start, startVelocity * power, TimeStep, MaxTime);
+        }
     }
 
     public void DrawTrajectory(Vector2 value) {
         _animator.SetFloat("Blend", -value.y);
+
         DrawTrajectory(transform.position, transform.forward, _power);
     }
 
@@ -91,16 +100,20 @@ public class ArcViz : MonoBehaviour {
         _renderer.SetVertexCount(0);
         Destroy(_marker);
 
-        // fire
-        GetComponent<ProjectileLauncher>().Fire(_power);
-        _animator.SetTrigger("Release");
-        _particles.SetActive(false);
-
+        if (Time.time > _nextAttack) {
+            // fire
+            _nextAttack = Time.time + _coolDown;
+            GetComponent<ProjectileLauncher>().Fire(_power);
+            _animator.SetTrigger("Release");
+            _particles.SetActive(false);
+        }
     }
 
     public void OnPull(Vector2 value) {
-        _marker = Instantiate(_endPoint);
-        _animator.SetTrigger("Touch");
-        _particles.SetActive(true);
+        if (Time.time > _nextAttack) {
+            _marker = Instantiate(_endPoint);
+            _animator.SetTrigger("Touch");
+            _particles.SetActive(true);
+        }
     }
 }
