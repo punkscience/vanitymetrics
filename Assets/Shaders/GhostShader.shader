@@ -1,7 +1,8 @@
 ﻿Shader "Ghost" {
 	Properties{
 		_MainTex("Diffuse", 2D) = "white" {}
-	_ShakeDisplacement("Displacement", Range(0, 1.0)) = 1.0
+		_MatCap("MatCap", 2D) = "black" {}
+		_ShakeDisplacement("Displacement", Range(0, 1.0)) = 1.0
 		_ShakeTime("Shake Time", Range(0, 1.0)) = 1.0
 		_ShakeWindspeed("Shake Windspeed", Range(0, 1.0)) = 1.0
 		_ShakeBending("Shake Bending", Range(0, 1.0)) = 1.0
@@ -21,11 +22,32 @@
 #pragma target 2.0
 #include "UnityCG.cginc"
 
-		sampler2D _MainTex;
+	uniform sampler2D _MainTex;
+	uniform sampler2D _MatCap;
+
 	float _ShakeDisplacement;
 	float _ShakeTime;
 	float _ShakeWindspeed;
 	float _ShakeBending;
+
+	struct vertexInput {
+		half4 vertex : POSITION;
+		half3 normal : NORMAL;
+		half4 texcoord : TEXCOORD0;
+		half4 tangent : TANGENT;
+		fixed4 color : COLOR;
+	};
+
+	struct vertexOutput {
+		half4 vertex : SV_POSITION;
+		half4 uv : TEXCOORD0;
+		half4 posWorld : TEXCOORD1;
+		half3 normalWorld : TEXCOORD2;
+		half3 tangentWorld : TEXCOORD3;
+		half3 binormalWorld : TEXCOORD4;
+		half4 screenPos : TEXCOORD5;
+		fixed4 color : COLOR;
+	};
 
 	struct v2f {
 		float4 vertex : SV_POSITION;
@@ -48,9 +70,9 @@
 		c = 1 + r5 * cos8.x + r6 * cos8.y + r7 * cos8.z + r8 * cos8.w;
 	}
 
-	v2f vert(appdata_full v)
+	vertexOutput vert(vertexInput v)
 	{
-		v2f o;
+		vertexOutput o;
 		o.vertex = mul(UNITY_MATRIX_MVP, v.vertex);
 		o.uv = v.texcoord;
 		o.color = v.color;
@@ -89,12 +111,41 @@
 		waveMove.x = dot(s, _waveXmove);
 		waveMove.z = dot(s, _waveZmove);
 		o.vertex.xz -= mul((float3x3)_World2Object, waveMove).xz;
+
+		o.normalWorld = normalize ( mul( half4( v.normal, 0.0 ), _World2Object ).xyz );
+		o.tangentWorld = normalize ( mul( _Object2World, v.tangent).xyz );
+		o.binormalWorld = normalize ( cross (o.normalWorld, o.tangentWorld) * v.tangent.w);
+		
+		o.posWorld = mul(_Object2World, v.vertex);
+		o.vertex = mul( UNITY_MATRIX_MVP, v.vertex);
+		o.screenPos = ComputeScreenPos(o.vertex);
+		o.uv = v.texcoord;
+
 		return o;
 	}
 
-	fixed4 frag(v2f i) : SV_Target{
-		fixed4 mainTex = tex2D(_MainTex, i.uv);
-	return mainTex;
+	fixed4 frag(vertexOutput i) : COLOR{
+		half3 viewDirection = normalize ( _WorldSpaceCameraPos.xyz - i.posWorld.xyz );
+		
+		//UnpackNormal function
+		half3 localCoords = half3(1- half2(1.0,1.0), 0.0);
+		localCoords.z = 2;
+		
+		//Convert Normals to ViewSpace
+		half3x3 local2WorldTranspose = half3x3(
+			i.normalWorld,
+			i.binormalWorld,
+			i.normalWorld
+		);
+
+		half4 color = tex2D( _MainTex, i.uv.xy);
+		half3 normalDirection = normalize( mul(localCoords, local2WorldTranspose));
+		half3 viewNormals= normalize(mul((half3x3)UNITY_MATRIX_V, normalDirection));
+
+		//lighting
+		half3 matCap = tex2D (_MatCap, viewNormals.xy *0.5 +0.5);
+
+		return half4(color *matCap,0.5);
 	}
 		ENDCG
 	}
