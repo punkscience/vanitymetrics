@@ -12,6 +12,8 @@ public class EndGame : MonoBehaviour {
 	private GameObject HUD;
 	[SerializeField]
 	private GameObject panelYouWin;
+	[SerializeField]
+	private GameObject fadeImage;
 
 
 
@@ -62,21 +64,22 @@ public class EndGame : MonoBehaviour {
 		SceneManager.LoadScene( "FrontEnd" );
 	}
 
-//	public void WinGame() {
-//		SceneManager.LoadScene ("Closeing");
-//	}
-
-
-	void WinGame () {
-		// rm HUD
-		if (HUD.activeSelf) {	HUD.SetActive (false); }
-
-		HUDManager.isPaused = true;
-
-		// Blood red screens!!
-		panelYouWin.SetActive ( true );
-
+	public void WinGame() {
+		fadeImage.SetActive (true);
+		TweenAlpha.Tween (fadeImage, 2.0F, 1.0F, () => {SceneManager.LoadScene ("Closeing");});
 	}
+
+
+//	void WinGame () {
+//		// rm HUD
+//		if (HUD.activeSelf) {	HUD.SetActive (false); }
+//
+//		HUDManager.isPaused = true;
+//
+//		// Blood red screens!!
+//		panelYouWin.SetActive ( true );
+//
+//	}
 		
 
 }
