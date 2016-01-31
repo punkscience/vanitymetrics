@@ -5103,9 +5103,9 @@ ParticleSystem:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 145426}
   serializedVersion: 2
-  lengthInSec: 15
+  lengthInSec: 17
   startDelay:
-    scalar: 3
+    scalar: 1
     maxCurve:
       serializedVersion: 2
       m_Curve:
@@ -6857,7 +6857,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: lengthInSec
-      value: 3
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: EmissionModule.rate.scalar
@@ -6865,7 +6865,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: startDelay.scalar
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: ShapeModule.radius

@@ -9,10 +9,10 @@ public class BoatWaveData {
 	public float speed;
 	public float angle;
 	public float releaseInterval;
-	public int boatTypeIndex;
+	public float boatColorIndex;
 
 	public BoatWaveData (int speedIndex, int rowIndex, float boatReleaseInterval) {
-		boatTypeIndex = speedIndex;
+		boatColorIndex = speedIndex * 0.5F;
 		speed = speeds [speedIndex];
 		angle = angles [rowIndex];
 		releaseInterval = boatReleaseInterval;
