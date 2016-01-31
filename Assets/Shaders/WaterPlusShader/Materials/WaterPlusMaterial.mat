@@ -19,7 +19,7 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: de527d256fa4d99418decabbb2c956a5, type: 3}
+          m_Texture: {fileID: 2800000, guid: 2ad2591a7016f4b8a9870f1d99cc4446, type: 3}
           m_Scale: {x: 64, y: 64}
           m_Offset: {x: 0, y: 0}
       data:
@@ -35,6 +35,13 @@ Material:
           name: _NormalMap
         second:
           m_Texture: {fileID: 2800000, guid: 7a4853d07939e9c4891e5663dfc43df2, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _ParallaxMap
+        second:
+          m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -95,13 +102,6 @@ Material:
           m_Offset: {x: -605.61536, y: -985.1767}
       data:
         first:
-          name: _ParallaxMap
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
           name: _Depthmap
         second:
           m_Texture: {fileID: 2800000, guid: 59738541cb29b9545984ffdb2aa848de, type: 3}
@@ -147,6 +147,10 @@ Material:
         first:
           name: _Shininess
         second: 0.9
+      data:
+        first:
+          name: _Parallax
+        second: 0.02
       data:
         first:
           name: _Reflectivity
@@ -199,10 +203,6 @@ Material:
         first:
           name: halfCycle
         second: 1
-      data:
-        first:
-          name: _Parallax
-        second: 0.02
       data:
         first:
           name: _DeepWaterCoefficient

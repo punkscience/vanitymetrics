@@ -30,7 +30,7 @@ public class BoatTarget : MonoBehaviour {
 
 		// wake system settings
 		wakeSystem.startSpeed = boatSpeed / 2;
-		wakeSystem.startLifetime = boatSpeed;
+		wakeSystem.startLifetime = boatSpeed * 4;
 	}
 	
 	// Update is called once per frame
@@ -76,11 +76,16 @@ public class BoatTarget : MonoBehaviour {
 		
 		// Did we collide with an arrow
 		if (other.gameObject.layer == 9) {
-			// start a fire
-			fireSystem.Play ();
 
-			// sink the ship
-			Sink ();
+			if (!boatSank) {
+				Destroy (other.gameObject);
+				
+				// start a fire
+				fireSystem.Play ();
+
+				// sink the ship
+				Sink ();
+			}
 		}
 
 		// Did we collide with the boundary
