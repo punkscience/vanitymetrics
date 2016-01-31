@@ -40,10 +40,12 @@ public class HUDManager : MonoBehaviour {
 	}
 
 	public void ReturnToMain() {
+		isPaused = false;
 		SceneManager.LoadScene ("FrontEnd");
 	}
 
 	public void ReloadGame() {
+		isPaused = false;
 		SceneManager.LoadScene("Main");
 	}
 }
