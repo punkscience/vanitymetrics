@@ -5,7 +5,7 @@ public class DemonTarget : MonoBehaviour {
 
 	// demon Base Statistics
 	[SerializeField]
-	protected float demonBaseHealth = 1;
+	protected float demonBaseHealth = 3;
 	[SerializeField]
 	protected float demonBaseSpeed = 1;
 

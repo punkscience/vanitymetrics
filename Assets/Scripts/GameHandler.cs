@@ -18,6 +18,10 @@ public class GameHandler : MonoBehaviour {
 	protected bool waveIntervalStart;
 
 	// wave effects
+	protected float boatsCount;
+	protected float boatSpeedMod;
+	protected float demonSpeedMod;
+	protected float demonHealthMod;
 
 	// Instance
 	public static GameHandler Instance;
@@ -60,12 +64,27 @@ public class GameHandler : MonoBehaviour {
 		currentWave = null;
 		currentWave = Instantiate (boatHandlerPrefab);
 		currentWave.transform.SetParent (transform);
-		currentWave.StartWave (boatParent, 5, 2);
 		currentWave.isCurrentWave = true;
-		demonHandler.StartWave (new Vector2 (1.0F, 4.0F), new Vector2 (0.5F, 1.0F));
+
+		// wave mods
+		float boatCountPercentage = Random.Range (0, 1);
+		float boatSpeedPercentage = 1.0F - boatCountPercentage;
+		currentWave.StartWave (
+			boatParent, 
+			((int)Mathf.Floor (boatsCount * (boatCountPercentage + 0.5F))), 
+			(boatSpeedMod * (boatSpeedPercentage + 0.5F)));
+
+		// demon waves
+		demonHandler.StartWave (demonHealthMod, demonSpeedMod);
+
+		// increment wave stats
+		boatsCount += 1.5F;
+		boatSpeedMod += 0.25F;
+		demonSpeedMod += 0.125F;
+		demonHealthMod += 0.08F;
 
 		// set the wave interval
-		waveIntervalTimer = 20.0F;
+		waveIntervalTimer = 60.0F;
 		waveIntervalStart = false;
 	}
 
@@ -81,8 +100,14 @@ public class GameHandler : MonoBehaviour {
 
 	public void Reset () {
 
+		// wave stats
 		waveCount = 0;
+		boatsCount = 5.0F;
+		boatSpeedMod = 2.0F;
+		demonSpeedMod = 1.0F;
+		demonHealthMod = 1.0F;
 
+		// destroy all current wave objects
 		foreach (Transform child in boatParent) {
 			Destroy (child.gameObject);
 		}
@@ -90,6 +115,7 @@ public class GameHandler : MonoBehaviour {
 			Destroy (child.gameObject);
 		}
 
+		// start the wave
 		StartWave ();
 	}
 }

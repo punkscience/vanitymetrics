@@ -11,14 +11,14 @@ public class DemonHandler : MonoBehaviour {
 	protected Transform demonParent;
 
 	// demon statistics
-	protected Vector2 demonHealthMultiplierRange;
-	protected Vector2 demonSpeedMultiplierRange;
+	protected float demonHealthMultiplier;
+	protected float demonSpeedMultiplier;
 
 
-	public void StartWave (Vector2 health, Vector2 speed) {
+	public void StartWave (float health, float speed) {
 		
-		demonHealthMultiplierRange = health;
-		demonSpeedMultiplierRange = speed;
+		demonHealthMultiplier = health;
+		demonSpeedMultiplier = speed;
 	}
 
 	public void SpawnDemon (Transform boatStartPoint) {
@@ -32,8 +32,8 @@ public class DemonHandler : MonoBehaviour {
 
 		// initialize the demon
 		newDemon.Init (
-			Random.Range (demonHealthMultiplierRange.x, demonHealthMultiplierRange.y),
-			Random.Range (demonSpeedMultiplierRange.x, demonSpeedMultiplierRange.y),
+			demonHealthMultiplier,
+			demonSpeedMultiplier,
 			boatStartPoint.position, 
 			demonTarget.position);
 	}
