@@ -32,6 +32,7 @@ public class DemonTarget : MonoBehaviour {
 
 	// demon death variables
 	protected float deathTimer;
+	protected float deathDuration = 2.0F;
 	protected BoatHandler boatHandler;
 
 	public void Init (BoatHandler handler, float healthMultiplier, float speedMultiplier, Vector3 startPosition, Vector3 endPosition) {
@@ -79,7 +80,7 @@ public class DemonTarget : MonoBehaviour {
 
 		if (demonHealth <= 0.0F) {
 			// demon is dead
-			deathTimer = 1.0F;
+			deathTimer = deathDuration;
 
 			// disable the collider so arrows don't collide with it anymore
 			gameObject.GetComponent<Collider> ().enabled = false;
@@ -135,7 +136,7 @@ public class DemonTarget : MonoBehaviour {
 
 			// set the transparency of the demon
 			Color newColor = Color.black;
-			newColor.a = Mathf.Lerp (0.0F, 1.0F, deathTimer);
+			newColor.a = Mathf.Lerp (0.0F, 1.0F, (deathTimer / deathDuration));
 			demonRenderer.material.color = newColor;
 
 			// destroy the demon once the timer is out
