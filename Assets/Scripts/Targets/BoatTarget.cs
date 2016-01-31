@@ -18,6 +18,8 @@ public class BoatTarget : MonoBehaviour {
 	[SerializeField]
 	protected ParticleSystem fireSystem;
 	[SerializeField]
+	protected ParticleSystem blackFireSystem;
+	[SerializeField]
 	protected ParticleSystem wakeSystem;
 
 	public void Init (BoatHandler handler, float angle, float speed) {
@@ -80,28 +82,46 @@ public class BoatTarget : MonoBehaviour {
 			if (!boatSank) {
 				Destroy (other.gameObject);
 
-				// tell boat handler the boat is sinking
-				boatHandler.DestroyedBoat ();
-				
-				// start a fire
-				fireSystem.Play ();
-
-				// sink the ship
-				Sink ();
+				// ignite Flames
+				IgniteFlames ();
 			}
 		}
 
 		// Did we collide with the boundary
 		if (!boatSank && other.gameObject.layer == 10) {
-			SpawnDemon ();
+
+			// Spawn the demon
+			IgniteBlackFlames ();
 		}
 	}
 
-	void SpawnDemon () {
+	void IgniteFlames () {
+
+		// tell boat handler the boat is sinking
+		boatHandler.DestroyedBoat ();
+		
+		// start a fire
+		fireSystem.Play ();
+
+		// sink the ship
+		Sink ();
+	}
+
+	void IgniteBlackFlames () {
+
+		// start a fire
+		blackFireSystem.Play ();
 
 		// sink the ship
 //		boatDeathTimer = 0;
 		Sink ();
+
+		StartCoroutine (SpawnDemon ());
+	}
+
+	IEnumerator SpawnDemon () {
+		
+		yield return new WaitForSeconds (2.0F);
 
 		// spawn a demon
 		GameHandler.Instance.SpawnDemon (transform, boatHandler);

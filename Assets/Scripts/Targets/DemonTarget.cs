@@ -25,15 +25,14 @@ public class DemonTarget : MonoBehaviour {
 	protected Vector3 demonStartPoint;
 	protected Vector3 demonEndPoint;
 
+	// demon init
+	protected float fadeInTimer;
+
 	// demon death variables
 	protected float deathTimer;
 	protected BoatHandler boatHandler;
 
 	public void Init (BoatHandler handler, float healthMultiplier, float speedMultiplier, Vector3 startPosition, Vector3 endPosition) {
-
-		// set the demon's position
-		transform.position = startPosition;
-		transform.LookAt (endPosition);
 
 		// set demon variables
 		boatHandler = handler;
@@ -41,6 +40,18 @@ public class DemonTarget : MonoBehaviour {
 		demonEndPoint = endPosition;
 		demonHealth = demonBaseHealth * healthMultiplier;
 		demonSpeed = demonBaseSpeed * speedMultiplier;
+
+		// set the demon's position
+		startPosition.y += 3.0F;
+		transform.position = startPosition;
+		transform.LookAt (endPosition);
+
+		// set the transparency of the demon
+		Color newColor = Color.black;
+		newColor.a = 0.0F;
+		newColor.a = Mathf.Lerp (0.0F, 1.0F, fadeInTimer);
+		demonRenderer.material.color = newColor;
+		fadeInTimer = 0.0F;
 	}
 
 	void OnTriggerEnter (Collider other) {
@@ -86,6 +97,17 @@ public class DemonTarget : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+		// fade in the game
+		if (fadeInTimer < 1.0F) {
+			fadeInTimer += Time.deltaTime * 2.0F;
+
+			// set the transparency of the demon
+			Color newColor = Color.black;
+			newColor.a = Mathf.Lerp (0.0F, 1.0F, fadeInTimer);
+			demonRenderer.material.color = newColor;
+		}
+
+		// Is the demon stunned
 		if (stunTimer > 0) {
 			stunTimer -= Time.deltaTime;
 			if (stunTimer > 1.0F) {
