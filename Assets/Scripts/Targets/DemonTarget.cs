@@ -52,11 +52,11 @@ public class DemonTarget : MonoBehaviour {
 		transform.LookAt (endPosition);
 
 		// set the transparency of the demon
+		fadeInTimer = 0.0F;
 		Color newColor = Color.black;
 		newColor.a = 0.0F;
-		newColor.a = Mathf.Lerp (0.0F, 1.0F, fadeInTimer);
+		newColor.a = fadeInTimer;
 		demonRenderer.material.color = newColor;
-		fadeInTimer = 0.0F;
 	}
 
 	void OnTriggerEnter (Collider other) {
@@ -112,8 +112,8 @@ public class DemonTarget : MonoBehaviour {
 			fadeInTimer += Time.deltaTime * 2.0F;
 
 			// set the transparency of the demon
-			Color newColor = Color.black;
-			newColor.a = Mathf.Lerp (0.0F, 1.0F, fadeInTimer);
+			Color newColor = demonRenderer.material.color;
+			newColor.a = fadeInTimer;
 			demonRenderer.material.color = newColor;
 		}
 
