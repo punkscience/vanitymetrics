@@ -12,7 +12,8 @@ public class Projectile : MonoBehaviour {
     }
 
     private void Update() {
-        transform.forward = _rb.velocity.normalized;
+        if (_rb.velocity.normalized != Vector3.zero)
+            transform.forward = _rb.velocity.normalized;
 
         if (transform.position.y <= _killY) {
             Destroy(gameObject);

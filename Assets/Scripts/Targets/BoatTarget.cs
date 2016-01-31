@@ -141,7 +141,9 @@ public class BoatTarget : MonoBehaviour {
 
 		// Play the RAWR!!
 		AudioSource rawr = GetComponent<AudioSource>();
-		rawr.Play ();
+		if (rawr != null) {
+			rawr.Play ();
+		}
 	}
 
 	void Sink () {
