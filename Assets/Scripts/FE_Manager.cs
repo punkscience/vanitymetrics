@@ -44,16 +44,17 @@ public class FE_Manager : MonoBehaviour {
 	}
 
 	public void TogglePause() {
+		Debug.Log ("FE Manager isPaused: " + isPaused);
 		if (!isPaused) { 
 			ToggleMenuPanel (Pause, true);
 			ToggleMenuPanel (HUD, false);
-			isPaused = false;
+			isPaused = true;
 			Time.timeScale = 0f;
 
 		} else {
 			ToggleMenuPanel (Pause, false);
 			ToggleMenuPanel (HUD, true);
-			isPaused = true;
+			isPaused = false;
 			Time.timeScale = 1f;
 		}
 	}
