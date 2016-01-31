@@ -9,10 +9,11 @@ public class EndGame : MonoBehaviour {
 	private GameObject demon = null;
 
 	private bool holdDemon = false;
+	private GameObject HUD;
 
 	// Use this for initialization
 	void Start () {
-	
+		HUD = GameObject.Find ("panel_HUD");
 	}
 	
 	// Update is called once per frame
@@ -31,7 +32,8 @@ public class EndGame : MonoBehaviour {
 
 
 	void DoEndGame( GameObject go ) {
-		
+		// rm HUD
+		HUD.SetActive (false);
 		// Blood red screens!!
 		bloodRed.SetActive ( true );
 		AudioSource screams = GetComponent<AudioSource> ();
