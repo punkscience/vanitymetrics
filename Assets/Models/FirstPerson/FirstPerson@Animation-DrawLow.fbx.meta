@@ -68,6 +68,12 @@ ModelImporter:
     100120: R_Wrist_jnt
     100122: ROOT_jnt
     100124: StringMount_jnt
+    100126: Arms_GEO
+    100128: Arrow_GEO
+    100130: Bow_GEO
+    100132: GEO_GRP
+    100134: Plate_GEO
+    100136: Straps_GEO
     400000: Arrow_Jnt
     400002: Bow_jnt
     400004: //RootNode
@@ -131,8 +137,24 @@ ModelImporter:
     400120: R_Wrist_jnt
     400122: ROOT_jnt
     400124: StringMount_jnt
+    400126: Arms_GEO
+    400128: Arrow_GEO
+    400130: Bow_GEO
+    400132: GEO_GRP
+    400134: Plate_GEO
+    400136: Straps_GEO
+    4300000: Straps_GEO
+    4300002: Plate_GEO
+    4300004: Bow_GEO
+    4300006: Arrow_GEO
+    4300008: Arms_GEO
     7400000: Take 001
     9500000: //RootNode
+    13700000: Arms_GEO
+    13700002: Arrow_GEO
+    13700004: Bow_GEO
+    13700006: Plate_GEO
+    13700008: Straps_GEO
   materials:
     importMaterials: 1
     materialName: 0
