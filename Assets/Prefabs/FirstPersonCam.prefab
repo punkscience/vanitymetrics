@@ -581,7 +581,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400896}
   - 20: {fileID: 2011820}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: FirstPersonCam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1035,6 +1035,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 447722}
   - 95: {fileID: 9515478}
+  - 114: {fileID: 11480668}
   m_Layer: 11
   m_Name: FirstPerson
   m_TagString: Untagged
@@ -1062,7 +1063,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 151120}
   m_LocalRotation: {x: 0.25881907, y: 0, z: 0, w: 0.9659258}
-  m_LocalPosition: {x: 0, y: 0.043138385, z: -7.428059}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 447722}
@@ -1990,6 +1991,20 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11480668
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 190668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 063468af29bda4bbe8af19a3453e3eca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _offScreenCoord: {x: 0, y: 0, z: 0}
+  _onScreenCoord: {x: 0, y: 0, z: 0}
+  _duration: 0.6
 --- !u!137 &13720910
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -2000,7 +2015,7 @@ SkinnedMeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: dcb4402b11fdb4d2593416253de7d417, type: 2}
+  - {fileID: 2100000, guid: fc73b4bfd497f46fda65f16fdfa91673, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -2092,7 +2107,7 @@ SkinnedMeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: dcb4402b11fdb4d2593416253de7d417, type: 2}
+  - {fileID: 2100000, guid: c4d5bc1cba6ef403b937eb85b3207b5d, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -2130,7 +2145,7 @@ SkinnedMeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: dcb4402b11fdb4d2593416253de7d417, type: 2}
+  - {fileID: 2100000, guid: c4d5bc1cba6ef403b937eb85b3207b5d, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -2217,7 +2232,7 @@ ParticleSystem:
     serializedVersion: 2
     enabled: 1
     startLifetime:
-      scalar: 2
+      scalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -2528,7 +2543,7 @@ ParticleSystem:
     serializedVersion: 2
     enabled: 1
     type: 4
-    radius: 0.64839524
+    radius: 0.1
     angle: 0
     length: 5
     boxX: 1
@@ -2549,7 +2564,7 @@ ParticleSystem:
     serializedVersion: 2
     m_Type: 0
     rate:
-      scalar: 200
+      scalar: 75
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -2883,7 +2898,7 @@ ParticleSystem:
   VelocityModule:
     enabled: 1
     x:
-      scalar: -1
+      scalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -2918,7 +2933,7 @@ ParticleSystem:
         m_RotationOrder: 4
       minMaxState: 0
     y:
-      scalar: 0
+      scalar: 0.1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -2987,7 +3002,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
       minMaxState: 0
-    inWorldSpace: 0
+    inWorldSpace: 1
   InheritVelocityModule:
     enabled: 1
     m_Mode: 0
