@@ -10,11 +10,11 @@
 	}
 
 		SubShader{
-		Tags{ "Queue" = "Transparent" "IgnoreProjector" = "True" "RenderType" = "Transparent" }
+			ZTest LEqual
+		Tags{ "Lightmode" = "ForwardBase" }
 		LOD 200
 		Pass{
 		ZWrite On
-		Blend SrcAlpha OneMinusSrcAlpha
 
 		CGPROGRAM
 #pragma vertex vert
@@ -112,12 +112,13 @@
 		waveMove.z = dot(s, _waveZmove);
 		o.vertex.xz -= mul((float3x3)_World2Object, waveMove).xz;
 
+		//matcap stuff
 		o.normalWorld = normalize ( mul( half4( v.normal, 0.0 ), _World2Object ).xyz );
 		o.tangentWorld = normalize ( mul( _Object2World, v.tangent).xyz );
 		o.binormalWorld = normalize ( cross (o.normalWorld, o.tangentWorld) * v.tangent.w);
 		
-		o.posWorld = mul(_Object2World, v.vertex);
-		o.vertex = mul( UNITY_MATRIX_MVP, v.vertex);
+		//o.posWorld = mul(_Object2World, v.vertex);
+		//o.vertex = mul( UNITY_MATRIX_MVP, v.vertex);
 		o.screenPos = ComputeScreenPos(o.vertex);
 		o.uv = v.texcoord;
 
