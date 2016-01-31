@@ -18,7 +18,7 @@ public class GameHandler : MonoBehaviour {
 	protected bool waveIntervalStart;
 
 	// Wave Data
-	protected List<List<BoatWaveData>> waveData = new List<List<BoatWaveData>> () {
+	protected List<List<BoatWaveData>> tutorialWaveData = new List<List<BoatWaveData>> () {
 		new List<BoatWaveData> () {
 			new BoatWaveData (0, 2, 0)
 		}, 
@@ -131,8 +131,8 @@ public class GameHandler : MonoBehaviour {
 		currentWave.isCurrentWave = true;
 
 		// Start a new Wave
-		if (waveCount < waveData.Count) {
-			currentWave.StartWave (boatParent, waveData [waveCount]);
+		if (waveCount < tutorialWaveData.Count) {
+			currentWave.StartWave (boatParent, tutorialWaveData [waveCount]);
 		}
 
 		// wave mods
@@ -164,9 +164,9 @@ public class GameHandler : MonoBehaviour {
 		waveIntervalStart = true;
 	}
 
-	public void SpawnDemon (Transform startPosition) {
+	public void SpawnDemon (Transform startPosition, BoatHandler handler) {
 
-		demonHandler.SpawnDemon (startPosition);
+		demonHandler.SpawnDemon (startPosition, handler);
 	}
 
 	public void Reset () {

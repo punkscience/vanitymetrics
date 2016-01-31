@@ -27,14 +27,16 @@ public class DemonTarget : MonoBehaviour {
 
 	// demon death variables
 	protected float deathTimer;
+	protected BoatHandler boatHandler;
 
-	public void Init (float healthMultiplier, float speedMultiplier, Vector3 startPosition, Vector3 endPosition) {
+	public void Init (BoatHandler handler, float healthMultiplier, float speedMultiplier, Vector3 startPosition, Vector3 endPosition) {
 
 		// set the demon's position
 		transform.position = startPosition;
 		transform.LookAt (endPosition);
 
 		// set demon variables
+		boatHandler = handler;
 		demonStartPoint = startPosition;
 		demonEndPoint = endPosition;
 		demonHealth = demonBaseHealth * healthMultiplier;
@@ -68,6 +70,9 @@ public class DemonTarget : MonoBehaviour {
 
 			// disable the collider so arrows don't collide with it anymore
 			gameObject.GetComponent<Collider> ().enabled = false;
+
+			// tell the boat handler the demon is dead
+			boatHandler.DestroyedBoat ();
 
 		} else {
 

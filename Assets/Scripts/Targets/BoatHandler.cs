@@ -75,7 +75,7 @@ public class BoatHandler : MonoBehaviour {
 		destroyedBoatCount = 0;
 	}
 
-	public void BoatSinked () {
+	public void DestroyedBoat () {
 		
 		// increment the destroyed boat counter
 		destroyedBoatCount++;
@@ -88,7 +88,7 @@ public class BoatHandler : MonoBehaviour {
 				isCurrentWave = false;
 			}
 
-//			Destroy (gameObject);
+			Destroy (gameObject);
 		}
 	}
 }
