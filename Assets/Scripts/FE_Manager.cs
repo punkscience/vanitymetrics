@@ -28,6 +28,7 @@ public class FE_Manager : MonoBehaviour {
 
 		ToggleMenuPanel (MainMenu, true);
 		ToggleMenuPanel (Credits, false);
+		ToggleMenuPanel (HowToPlay, false);
 
 		am.StartMainMenuMusic ();
 
