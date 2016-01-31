@@ -129,7 +129,7 @@ public class BoatTarget : MonoBehaviour {
 
 	IEnumerator SpawnDemon () {
 		
-		yield return new WaitForSeconds (2.0F);
+		yield return new WaitForSeconds (3.5F);
 
 		// spawn a demon
 		GameHandler.Instance.SpawnDemon (transform, boatHandler);
