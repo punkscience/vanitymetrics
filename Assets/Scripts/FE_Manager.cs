@@ -9,7 +9,9 @@ public class FE_Manager : MonoBehaviour {
 	private GameObject MainMenu;
 	private GameObject Credits;
 	private GameObject Pause;
+	private GameObject HowToPlay;
 	private AudioListener feCam;
+	private GameObject feFire;
 
 	private AudioManager am;
 
@@ -18,9 +20,11 @@ public class FE_Manager : MonoBehaviour {
 
 		am = GameObject.Find ("AudioManager").GetComponent<AudioManager> ();
 		feCam = GameObject.Find ("FECamera").GetComponent<AudioListener>();
+		feFire = GameObject.Find ("FE_Fire");
 
 		MainMenu = GameObject.Find ("panel_MainMenu");
 		Credits = GameObject.Find ("panel_Credits");
+		HowToPlay = GameObject.Find ("panel_HowToPlay");
 
 		ToggleMenuPanel (MainMenu, true);
 		ToggleMenuPanel (Credits, false);
@@ -32,7 +36,7 @@ public class FE_Manager : MonoBehaviour {
 	}
 	
 	void TurnOnFire () {
-		GameObject.Find ("FE_Fire").GetComponent<ParticleSystem> ().Play ();
+		feFire.GetComponent<ParticleSystem> ().Play ();
 	}
 	// Update is called once per frame
 	void Update () {
@@ -71,9 +75,15 @@ public class FE_Manager : MonoBehaviour {
 	public void ShowMainMenu() {
 		ToggleMenuPanel (MainMenu, true);
 		ToggleMenuPanel (Credits, false);
+		ToggleMenuPanel (HowToPlay, false);
 	}
 
 	void ToggleMenuPanel (GameObject panel, bool active) {
 			panel.SetActive (active);
+	}
+
+	public void ShowHowToPlay() {
+		ToggleMenuPanel (MainMenu, false);
+		ToggleMenuPanel (HowToPlay, true);
 	}
 }
