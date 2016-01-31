@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class HUDManager : MonoBehaviour {
@@ -32,5 +33,9 @@ public class HUDManager : MonoBehaviour {
 			pauseMenu.SetActive (false);
 			HUD.SetActive (true);
 		}
+	}
+
+	public void ReturnToMain() {
+		SceneManager.LoadScene ("FrontEnd");
 	}
 }
