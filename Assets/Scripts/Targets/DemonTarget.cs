@@ -32,7 +32,7 @@ public class DemonTarget : MonoBehaviour {
 
 	// demon death variables
 	protected float deathTimer;
-	protected float deathDuration = 2.0F;
+	protected float deathDuration = 3.0F;
 	protected BoatHandler boatHandler;
 
 	public void Init (BoatHandler handler, float healthMultiplier, float speedMultiplier, Vector3 startPosition, Vector3 endPosition) {

@@ -70,7 +70,7 @@ public class BoatTarget : MonoBehaviour {
 
 			// wake system settings
 			wakeSystem.startSpeed = boatSpeed / 2;
-			wakeSystem.startLifetime = boatSpeed;
+			wakeSystem.startLifetime = boatSpeed * 4;
 
 			if (boatSinkTimer <= 0) {
 				Destroy (gameObject);
