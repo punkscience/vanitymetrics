@@ -126,7 +126,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   demonPrefabs:
-  - {fileID: 11433064, guid: e8236b5dae0da41e382a59804e65b256, type: 2}
+  - {fileID: 11490252, guid: 86556c5d1b18044c081fde60d3f811a1, type: 2}
+  - {fileID: 11405694, guid: b09d674f9791045e385121c9e2b70cee, type: 2}
+  - {fileID: 11451698, guid: 7a5de70e81f3141d9bf87176b1ef82d7, type: 2}
   demonTarget: {fileID: 1525463722}
   demonParent: {fileID: 1196761909}
 --- !u!114 &30715928
@@ -910,6 +912,8 @@ MonoBehaviour:
   _maxAngleX: 20
   _maxAngleY: 30
   _lerpTime: 0.6
+  _bowOnScreen: {x: 0, y: 0, z: 0}
+  _bowOffScreen: {x: 0, y: 0, z: 0}
 --- !u!114 &1600137753
 MonoBehaviour:
   m_ObjectHideFlags: 0
