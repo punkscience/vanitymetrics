@@ -9,7 +9,6 @@ public class FE_Manager : MonoBehaviour {
 	private GameObject MainMenu;
 	private GameObject Credits;
 	private GameObject Pause;
-	private GameObject HUD;
 	private AudioListener feCam;
 
 	private AudioManager am;
@@ -22,11 +21,9 @@ public class FE_Manager : MonoBehaviour {
 
 		MainMenu = GameObject.Find ("panel_MainMenu");
 		Credits = GameObject.Find ("panel_Credits");
-		Pause = GameObject.Find ("panel_PauseMenu");
 
 		ToggleMenuPanel (MainMenu, true);
 		ToggleMenuPanel (Credits, false);
-		ToggleMenuPanel (Pause, false);
 
 		am.StartMainMenuMusic ();
 
@@ -44,12 +41,10 @@ public class FE_Manager : MonoBehaviour {
 	public void TogglePause() {
 		Debug.Log ("FE Manager isPaused: " + isPaused);
 		if (!isPaused) { 
-			ToggleMenuPanel (Pause, true);
 			isPaused = true;
 			Time.timeScale = 0f;
 
 		} else {
-			ToggleMenuPanel (Pause, false);
 			isPaused = false;
 			Time.timeScale = 1f;
 		}
