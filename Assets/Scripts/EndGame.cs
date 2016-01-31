@@ -33,6 +33,7 @@ public class EndGame : MonoBehaviour {
 
 	void OnEnable() {
 		DemonTarget.OnEndGame += DoEndGame;
+		GameHandler.OnWinGame += WinGame;
 	}
 
 
@@ -53,6 +54,7 @@ public class EndGame : MonoBehaviour {
 
 	void OnDisable() {
 		DemonTarget.OnEndGame -= DoEndGame;
+		GameHandler.OnWinGame -= WinGame;
 	}
 		
 	public void ExitGame() {
@@ -60,7 +62,7 @@ public class EndGame : MonoBehaviour {
 	}
 
 
-	void WinGame(  ) {
+	void WinGame () {
 		// rm HUD
 		if (HUD.activeSelf) {	HUD.SetActive (false); }
 

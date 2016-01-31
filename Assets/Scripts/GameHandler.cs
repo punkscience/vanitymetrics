@@ -11,6 +11,9 @@ public class GameHandler : MonoBehaviour {
 	[SerializeField]
 	protected DemonHandler demonHandler;
 
+	public delegate void EndGame();
+	public static event EndGame OnWinGame;
+
 	// Waves
 	protected int waveCount = 0;
 	protected BoatHandler currentWave;
@@ -163,7 +166,7 @@ public class GameHandler : MonoBehaviour {
 
 		// Check if the game is finished
 		if (waveCount >= waveData.Count) {
-			EndGame ();
+			OnWinGame ();
 			return;
 		}
 
@@ -173,11 +176,6 @@ public class GameHandler : MonoBehaviour {
 	public void SpawnDemon (Transform startPosition, BoatHandler handler) {
 
 		demonHandler.SpawnDemon (startPosition, handler);
-	}
-
-	public void EndGame () {
-
-
 	}
 
 	public void Reset () {
