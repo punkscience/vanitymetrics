@@ -30,7 +30,7 @@ public class BoatTarget : MonoBehaviour {
 		boatHandler = handler;
 		boatSpeed = speed;
 		boatDeathTimer = 0;
-//		sailRenderer.material.SetFloat ("_Blender", sailColorIndex);
+//		sailRenderer.material.SetFloat ("Blender", sailColorIndex);
 
 		// set location
 		transform.localPosition = Vector3.zero;

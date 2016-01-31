@@ -41,7 +41,7 @@ public class BoatHandler : MonoBehaviour {
 				newBoat.Init (this, 
 					waveData[currentBoatIndex].angle, 
 					waveData[currentBoatIndex].speed, 
-					waveData[currentBoatIndex].boatTypeIndex);
+					waveData[currentBoatIndex].boatColorIndex);
 
 				// increment intervals
 				currentBoatIndex++;
