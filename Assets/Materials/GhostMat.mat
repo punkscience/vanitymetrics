@@ -78,6 +78,13 @@ Material:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _MatCap
+        second:
+          m_Texture: {fileID: 2800000, guid: f3bb90262c78a43429f4cd2ff40f781a, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
     m_Floats:
       data:
         first:
@@ -130,15 +137,15 @@ Material:
       data:
         first:
           name: _ShakeDisplacement
-        second: 0
+        second: 0.522
       data:
         first:
           name: _ShakeTime
-        second: 0.847
+        second: 1
       data:
         first:
           name: _ShakeWindspeed
-        second: 0.749
+        second: 0.623
       data:
         first:
           name: _ShakeBending
