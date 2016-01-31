@@ -65,7 +65,7 @@ GameObject:
   - 65: {fileID: 6564122}
   - 114: {fileID: 11433064}
   m_Layer: 0
-  m_Name: Demon
+  m_Name: BestDemon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -244,8 +244,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ee06f514d777418dab9f86a0e412285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  demonBaseHealth: 1
-  demonBaseSpeed: 1
+  demonBaseHealth: 5
+  demonBaseSpeed: 5
 --- !u!136 &13661442
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -291,7 +291,15 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: demonBaseHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: demonBaseSpeed
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 199716}
