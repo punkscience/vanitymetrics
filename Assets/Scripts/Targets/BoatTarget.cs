@@ -7,9 +7,9 @@ public class BoatTarget : MonoBehaviour {
 	protected float boatSpeed = 0;
 	protected float boatDeathTimer = 0;
 	protected float boatSinkTimer = 0;
-	protected float boatSinkDuration = 10.0F;
+	protected float boatSinkDuration = 20.0F;
 	protected bool fireStarted = false;
-	protected float particleStopTime = 6.0F;
+	protected float particleStopTime = 0.2F;
 	protected float boatInitSinkSpeed = 0;
 	protected float sinkRate = 0;
 
@@ -52,8 +52,9 @@ public class BoatTarget : MonoBehaviour {
 		// decrement the sink timer
 		if (boatSinkTimer > 0.0F) {
 
-			boatSpeed -= boatInitSinkSpeed * (Time.deltaTime / boatSinkDuration);
-			if (boatSinkTimer < (boatSinkDuration * 0.75F)) {
+			if (boatSinkTimer > (boatSinkDuration * 0.75F)) {
+				boatSpeed -= boatInitSinkSpeed * (Time.deltaTime / boatSinkDuration);
+			} else {
 				sinkRate += (Time.deltaTime / boatSinkDuration) * (0.2F / boatSinkDuration);
 				newPosition.y -= sinkRate;
 			}
@@ -64,7 +65,7 @@ public class BoatTarget : MonoBehaviour {
 			wakeSystem.startSpeed = boatSpeed / 2;
 			wakeSystem.startLifetime = boatSpeed;
 
-			if (fireStarted && boatSinkTimer <= particleStopTime) {
+			if (fireStarted && boatSinkTimer <= (boatSinkDuration * particleStopTime)) {
 				fireStarted = false;
 				fireSystem.Stop ();
 //				wakeSystem.Stop ();
