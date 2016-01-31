@@ -16,9 +16,8 @@ public class RotateCamera : MonoBehaviour {
     }
 
     public void Rotate(Vector2 value) {
-        var angles = transform.eulerAngles;
         transform.eulerAngles = new Vector3(_startRotation.eulerAngles.x + (value.y * _maxAngleY),
-            value.x * _maxAngleX, angles.z);
+            value.x * _maxAngleX, transform.eulerAngles.z);
     }
 
     public void Release() {

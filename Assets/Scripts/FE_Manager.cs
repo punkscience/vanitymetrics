@@ -41,25 +41,20 @@ public class FE_Manager : MonoBehaviour {
 	}
 	// Update is called once per frame
 	void Update () {
-
-		if (isPaused) {
-			Time.timeScale = 0f;
-		} else {
-			Time.timeScale = 1f;
-		}
 	}
 
 	public void TogglePause() {
-		Debug.Log ("paused");
-		if (isPaused) { 
+		if (!isPaused) { 
 			ToggleMenuPanel (Pause, true);
 			ToggleMenuPanel (HUD, false);
 			isPaused = false;
+			Time.timeScale = 0f;
 
 		} else {
 			ToggleMenuPanel (Pause, false);
 			ToggleMenuPanel (HUD, true);
 			isPaused = true;
+			Time.timeScale = 1f;
 		}
 	}
 	public void EnterGame() {
@@ -68,6 +63,7 @@ public class FE_Manager : MonoBehaviour {
 		ToggleMenuPanel (MainMenu, false);
 		ToggleMenuPanel (HUD, true);
 		SceneManager.LoadScene ("Main", LoadSceneMode.Additive);
+		isPaused = false;
 	}
 		
 	public void ShowCredits() {
@@ -87,10 +83,6 @@ public class FE_Manager : MonoBehaviour {
 	}
 
 	void ToggleMenuPanel (GameObject panel, bool active) {
-		if (active) {
-			panel.SetActive (true);
-		} else {
-			panel.SetActive (false);
-		}
+			panel.SetActive (active);
 	}
 }
