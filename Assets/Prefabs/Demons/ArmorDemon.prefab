@@ -151,7 +151,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 181636}
-  m_Mesh: {fileID: 4300000, guid: 9984b038cd18949d8abe89064ec9b38e, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 1316475f5bf5a4a74a9758299fa7566f, type: 3}
 --- !u!65 &6500134
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -3288,6 +3288,10 @@ Prefab:
       propertyPath: InitialModule.startLifetime.scalar
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: 1316475f5bf5a4a74a9758299fa7566f, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 181368}
