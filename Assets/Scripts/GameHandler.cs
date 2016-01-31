@@ -152,7 +152,7 @@ public class GameHandler : MonoBehaviour {
 		demonSpeedMod += 0.125F;
 //
 //		// set the wave interval
-		waveIntervalTimer = 3.0F;
+		waveIntervalTimer = 2.0F;
 		waveIntervalStart = false;
 
 		// increment the wave
