@@ -50,4 +50,9 @@ public class TitleCards : MonoBehaviour {
 		tween.delay = 2.0f;
 	}
 
+	public void SkipCards() {
+		SceneManager.LoadScene ("FrontEnd", LoadSceneMode.Single);
+	}
+
+
 }

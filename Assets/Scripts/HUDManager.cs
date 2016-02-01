@@ -15,7 +15,7 @@ public class HUDManager : MonoBehaviour {
 		
 		pauseMenu = GameObject.Find ("panel_PauseMenu");
 		HUD = GameObject.Find ("panel_HUD");
-		youWin = GameObject.Find ("panel_YouWin");
+		//youWin = GameObject.Find ("panel_YouWin");
 
 
 		if (pauseMenu.activeSelf) { pauseMenu.SetActive (false); }
