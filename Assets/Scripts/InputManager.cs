@@ -21,27 +21,33 @@ public class InputManager : MonoBehaviour {
 	    if (Input.GetMouseButtonDown(0)) {
 	        _orgLoc.x = Input.mousePosition.x / (Screen.width / _inputScaling);
 	        _orgLoc.y = Input.mousePosition.y / (Screen.height / _inputScaling);
-            showRange.Invoke(Vector2.zero);
-            onTouch.Invoke(Vector2.zero);
+			if (_orgLoc.y < 3.5F && Time.deltaTime > 0) {
+				showRange.Invoke (Vector2.zero);
+				onTouch.Invoke (Vector2.zero);
+			}
 	    }
         else if (Input.GetMouseButton(0)) {
 	        var pos = Input.mousePosition;
             pos.x /= Screen.width / _inputScaling;
 	        pos.y /= Screen.height / _inputScaling;
-            var diff = pos - _orgLoc;
-            diff.x = Mathf.Clamp(diff.x, -1f, 1f);
-            diff.y = Mathf.Clamp(diff.y, -1f, 1f);
-            showRange.Invoke(diff);
+			if (pos.y < 3.5F && Time.deltaTime > 0) {
+				var diff = pos - _orgLoc;
+				diff.x = Mathf.Clamp (diff.x, -1f, 1f);
+				diff.y = Mathf.Clamp (diff.y, -1f, 1f);
+				showRange.Invoke (diff);
+			}
         }
         else if (Input.GetMouseButtonUp(0)) {
 	        var pos = Input.mousePosition;
 	        pos.x /= Screen.width / _inputScaling;
 	        pos.y /= Screen.height / _inputScaling;
-            var diff = pos - _orgLoc;
-            diff.x = Mathf.Clamp(diff.x, -1f, 1f);
-            diff.y = Mathf.Clamp(diff.y, -1f, 1f);
-            showRange.Invoke(diff);
-            hideRange.Invoke();
+			if (pos.y < 3.5F && Time.deltaTime > 0) {
+				var diff = pos - _orgLoc;
+				diff.x = Mathf.Clamp (diff.x, -1f, 1f);
+				diff.y = Mathf.Clamp (diff.y, -1f, 1f);
+				showRange.Invoke (diff);
+				hideRange.Invoke ();
+			}
         }
 	}
 }
