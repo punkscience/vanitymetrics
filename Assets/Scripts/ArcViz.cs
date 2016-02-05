@@ -10,7 +10,7 @@ public class ArcViz : MonoBehaviour {
     [SerializeField]
     private Animator _animator;
 
-    [SerializeField] private GameObject _endPoint;
+	[SerializeField] private GameObject _endPoint;
 
     [Range(0f, 100f)] 
     [SerializeField] private float _power = 30f;
@@ -66,6 +66,10 @@ public class ArcViz : MonoBehaviour {
                     if (_marker != null) {
                         var loc = hit.point;
                         _marker.transform.position = new Vector3(loc.x, loc.y + 0.01f, loc.z);
+
+						// TODO: Chris, I hacked this. There is probably a better way. - DGW
+						Vector3 newRot = new Vector3 (90f, 0f, 0f);
+						_marker.transform.eulerAngles += newRot;
                     }
                 }
                 break;
