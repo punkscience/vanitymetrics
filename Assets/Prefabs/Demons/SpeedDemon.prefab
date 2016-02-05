@@ -256,6 +256,7 @@ MonoBehaviour:
   particles:
   - {fileID: 19899486}
   - {fileID: 19814118}
+  scream: {fileID: 8234712}
 --- !u!198 &19814118
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -3397,6 +3398,10 @@ Prefab:
       propertyPath: m_Volume
       value: 0.33
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: scream
+      value: 
+      objectReference: {fileID: 8234712}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 178524}

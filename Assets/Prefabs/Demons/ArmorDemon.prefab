@@ -254,6 +254,7 @@ MonoBehaviour:
   demonBaseSpeed: 2
   demonRenderer: {fileID: 2328588}
   particles: []
+  scream: {fileID: 8229816}
 --- !u!198 &19823630
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -3387,6 +3388,14 @@ Prefab:
       propertyPath: m_Volume
       value: 0.38
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Pitch
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: scream
+      value: 
+      objectReference: {fileID: 8229816}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 181368}
