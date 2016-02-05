@@ -49,15 +49,6 @@ public class BoatTarget : MonoBehaviour {
 		Vector3 newPosition = transform.position;
 		newPosition += transform.forward * (boatSpeed * Time.deltaTime);
 
-		// decrement the boat death timer
-//		if (boatDeathTimer > 0.0F) {
-//			boatDeathTimer -= Time.deltaTime;
-//
-//			if (boatDeathTimer <= 0.0F) {
-//				SpawnDemon ();
-//			}
-//		}
-
 		// decrement the sink timer
 		if (boatSinkTimer > 0.0F) {
 

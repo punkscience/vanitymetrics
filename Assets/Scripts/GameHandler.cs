@@ -88,8 +88,6 @@ public class GameHandler : MonoBehaviour {
 	};
 
 	// wave effects
-//	protected float boatsCount;
-//	protected float boatSpeedMod;
 	protected float demonSpeedMod;
 	protected float demonHealthMod;
 
@@ -138,22 +136,12 @@ public class GameHandler : MonoBehaviour {
 			currentWave.StartWave (boatParent, waveData [waveCount]);
 		}
 
-		// wave mods
-//		float boatCountPercentage = Random.Range (0, 1);
-//		float boatSpeedPercentage = 1.0F - boatCountPercentage;
-//		currentWave.StartWave (
-//			boatParent, 
-//			((int)Mathf.Floor (boatsCount * (boatCountPercentage + 0.5F))), 
-//			(boatSpeedMod * (boatSpeedPercentage + 0.5F)));
-
 		// demon waves
 		demonHandler.StartWave (demonHealthMod, demonSpeedMod);
 
 //		// increment wave stats
-//		boatsCount += 1.5F;
-//		boatSpeedMod += 0.25F;
 		demonSpeedMod += 0.125F;
-//
+
 //		// set the wave interval
 		waveIntervalTimer = 2.0F;
 		waveIntervalStart = false;
@@ -182,8 +170,6 @@ public class GameHandler : MonoBehaviour {
 
 		// wave stats
 		waveCount = 0;
-//		boatsCount = 5.0F;
-//		boatSpeedMod = 2.0F;
 		demonSpeedMod = 1.0F;
 		demonHealthMod = 1.0F;
 

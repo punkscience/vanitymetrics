@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
 public class HUDManager : MonoBehaviour {
 
 	public static bool isPaused = false;
+	public static bool invertXAxis = false;
 
 	private GameObject pauseMenu;
 	private GameObject HUD;
@@ -15,10 +17,12 @@ public class HUDManager : MonoBehaviour {
 		
 		pauseMenu = GameObject.Find ("panel_PauseMenu");
 		HUD = GameObject.Find ("panel_HUD");
-		//youWin = GameObject.Find ("panel_YouWin");
-
 
 		if (pauseMenu.activeSelf) { pauseMenu.SetActive (false); }
+	}
+
+	public void InverseXAxis () {
+		invertXAxis = !invertXAxis;
 	}
 
 	public void SetPause(bool isPaused) {
@@ -43,7 +47,6 @@ public class HUDManager : MonoBehaviour {
 	public void LoseGame() {
 		isPaused = false;
 		Time.timeScale = 1f;
-//		SceneManager.LoadScene ("FrontEnd");
 		SceneManager.LoadScene ("Lose");
 	}
 
