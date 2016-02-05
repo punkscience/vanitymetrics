@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 
@@ -40,7 +40,8 @@ public class ArcViz : MonoBehaviour {
     }
 
     private void Start() {
-        _marker = (GameObject) Instantiate(_endPoint, Vector3.zero, Quaternion.identity);
+        _marker = (GameObject) Instantiate(_endPoint, Vector3.zero, Quaternion.Euler(90f, 0f, 0f));
+        _marker.GetComponent<Renderer>().sharedMaterial.renderQueue = 5001;
     }
 
     private Vector3 PlotTrajectoryAtTime(Vector3 start, Vector3 startVelocity, float time) {
@@ -65,11 +66,7 @@ public class ArcViz : MonoBehaviour {
                 if (Physics.Raycast(ray, out hit)) {
                     if (_marker != null) {
                         var loc = hit.point;
-                        _marker.transform.position = new Vector3(loc.x, loc.y + 0.01f, loc.z);
-
-						// TODO: Chris, I hacked this. There is probably a better way. - DGW
-						Vector3 newRot = new Vector3 (90f, 0f, 0f);
-						_marker.transform.eulerAngles += newRot;
+                        _marker.transform.position = new Vector3(loc.x, loc.y + 0.1f, loc.z);
                     }
                 }
                 break;

@@ -7,10 +7,10 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: TargetMat
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 10750, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _ALPHABLEND_ON _EMISSION
   m_LightmapFlags: 1
-  m_CustomRenderQueue: 3000
+  m_CustomRenderQueue: 5001
   stringTagMap:
     RenderType: Transparent
   m_SavedProperties:
@@ -94,6 +94,10 @@ Material:
         second: 0.5
       data:
         first:
+          name: PixelSnap
+        second: 0
+      data:
+        first:
           name: _Parallax
         second: 0.02
       data:
@@ -128,6 +132,10 @@ Material:
         first:
           name: _Metallic
         second: 1
+      data:
+        first:
+          name: _InvFade
+        second: 3
     m_Colors:
       data:
         first:
@@ -137,3 +145,7 @@ Material:
         first:
           name: _Color
         second: {r: 1, g: 1, b: 1, a: 0.459}
+      data:
+        first:
+          name: _TintColor
+        second: {r: 1, g: 1, b: 1, a: 1}
