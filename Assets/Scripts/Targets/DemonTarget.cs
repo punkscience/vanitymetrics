@@ -12,6 +12,8 @@ public class DemonTarget : MonoBehaviour {
 	protected Renderer demonRenderer;
 	[SerializeField]
 	protected ParticleSystem[] particles;
+	[SerializeField]
+	protected AudioSource scream;
 
 	// Shit's going down.
 	public delegate void EndGame( GameObject go );
@@ -32,7 +34,7 @@ public class DemonTarget : MonoBehaviour {
 
 	// demon death variables
 	protected float deathTimer;
-	protected float deathDuration = 2.0F;
+	protected float deathDuration = 2.5F;
 	protected BoatHandler boatHandler;
 
 	public void Init (BoatHandler handler, float healthMultiplier, float speedMultiplier, Vector3 startPosition, Vector3 endPosition) {
@@ -91,6 +93,11 @@ public class DemonTarget : MonoBehaviour {
 				ps.Stop ();
 			}
 
+			// make it scream
+			scream.pitch = 1.2F;
+			scream.volume = 0.5F;
+			scream.Play ();
+
 			// tell the boat handler the demon is dead
 			boatHandler.DestroyedBoat ();
 
@@ -99,6 +106,10 @@ public class DemonTarget : MonoBehaviour {
 			// stun the demon
 			stunTimer = 1.5F;
 			stunPos = transform.position;
+
+			// make it scream
+			scream.pitch = 1.5F;
+			scream.Play ();
 		}
 	}
 
@@ -119,9 +130,12 @@ public class DemonTarget : MonoBehaviour {
 		// Is the demon stunned
 		if (stunTimer > 0) {
 			stunTimer -= Time.deltaTime;
-			if (stunTimer > 1.0F) {
+			if (stunTimer > 0.65F) {
 				transform.position = (stunPos + Random.insideUnitSphere * 0.1F);
 			} else {
+				if (scream.isPlaying) {
+					scream.Stop ();
+				}
 				transform.position = stunPos;
 			}
 
