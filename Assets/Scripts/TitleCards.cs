@@ -70,13 +70,6 @@ public class TitleCards : MonoBehaviour {
 		while (timer < delay) {
 			timer += Time.deltaTime;
 			if (canceledFade) {
-
-				// if the user cancelled during the fade in only cancel the fade in
-				if (!fadeOut) {
-					img.color = new Color (1, 1, 1, 1.0F);
-					cancelFadeIn = true;
-					canceledFade = false;
-				}
 				break;
 			}
 			yield return null;
@@ -88,6 +81,13 @@ public class TitleCards : MonoBehaviour {
 				img.color = new Color (1, 1, 1, (fadeOut ? (1.0F - timer) : timer));
 
 				if (canceledFade) {
+
+					// if the user cancelled during the fade in only cancel the fade in
+					if (!fadeOut) {
+						img.color = new Color (1, 1, 1, 1.0F);
+						cancelFadeIn = true;
+						canceledFade = false;
+					}
 					break;
 				}
 
