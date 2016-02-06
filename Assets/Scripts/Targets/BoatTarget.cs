@@ -66,6 +66,12 @@ public class BoatTarget : MonoBehaviour {
 			wakeSystem.startLifetime = boatSpeed * 4;
 
 			if (boatSinkTimer <= 0) {
+
+				// un hook the wake system
+				wakeSystem.Stop ();
+				wakeSystem.transform.SetParent (transform.parent);
+
+				// destroy the boat
 				Destroy (gameObject);
 			}
 		}
