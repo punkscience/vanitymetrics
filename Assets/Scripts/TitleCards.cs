@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -49,19 +49,19 @@ public class TitleCards : MonoBehaviour {
 	void StartTween (bool fadeOut) {
 		
 		float delay = cardDelays [currentTitleCard];
-		Graphic img = titleCards [currentTitleCard].GetComponent<Graphic> ();
-
-		if (fadeOut) {
-			img.color = new Color (1, 1, 1, 1.0F);
-		} else {
-			img.color = new Color (1, 1, 1, 0.0F);
-		}
-
-		StartCoroutine (Tween (img, delay, fadeOut));
+	    if (titleCards[currentTitleCard].GetComponent<Graphic>() != null) {
+	        Graphic img = titleCards[currentTitleCard].GetComponent<Graphic>();
+	        img.color = fadeOut ? new Color(1f, 1f, 1f, 1f) : new Color(1f, 1f, 1f, 0f); 
+            StartCoroutine(Tween(img, delay, fadeOut));
+	    }
+	    else {
+	        CanvasGroup img = titleCards[currentTitleCard].GetComponent<CanvasGroup>();
+	        img.alpha = fadeOut ? 1f : 0f;
+            StartCoroutine(Tween(img, delay, fadeOut));
+	    }
 	}
 
 	IEnumerator Tween (Graphic img, float delay, bool fadeOut) {
-
 		// increment the delay timer
 		float timer = 0.0F;
 		bool cancelFadeIn = false;
@@ -99,6 +99,53 @@ public class TitleCards : MonoBehaviour {
 		// if the player canceled skip to the next card
 		if (canceledFade) {
 			img.color = new Color (1, 1, 1, 0.0F);
+			canceledFade = false;
+			IncrementCard ();
+			DisplayCard ();
+		} else if (fadeOut) {
+			NextCard ();
+		} else {
+			DisplayCard ();
+		}
+	}
+
+	IEnumerator Tween (CanvasGroup img, float delay, bool fadeOut) {
+		// increment the delay timer
+		float timer = 0.0F;
+		bool cancelFadeIn = false;
+
+		// wait for the delay
+		while (timer < delay) {
+			timer += Time.deltaTime;
+			if (canceledFade) {
+				break;
+			}
+			yield return null;
+		}
+
+		if (!cancelFadeIn) {
+			timer = 0.0F;
+			while (timer < 1.0F) {
+			    img.alpha = fadeOut ? 1.0f - timer : timer;
+
+				if (canceledFade) {
+					// if the user cancelled during the fade in only cancel the fade in
+					if (!fadeOut) {
+					    img.alpha = 1f;
+						cancelFadeIn = true;
+						canceledFade = false;
+					}
+					break;
+				}
+
+				timer += Time.deltaTime / 2.0F;
+				yield return null;
+			}
+		}
+
+		// if the player canceled skip to the next card
+		if (canceledFade) {
+		    img.alpha = 0f;
 			canceledFade = false;
 			IncrementCard ();
 			DisplayCard ();
