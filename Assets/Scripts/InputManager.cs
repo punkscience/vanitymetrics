@@ -23,11 +23,11 @@ public class InputManager : MonoBehaviour {
 			if (HUDManager.invertXAxis) {
 				_orgLoc.x = 4 - _orgLoc.x;
 			}
-			if (!HUDManager.invertYAxis) {
-				_orgLoc.y = 4 - _orgLoc.y;
-			}
 			_orgLoc.y = Input.mousePosition.y / (Screen.height / _inputScaling);
 			if (_orgLoc.y < 3.5F && Time.deltaTime > 0) {
+				if (!HUDManager.invertYAxis) {
+					_orgLoc.y = 4 - _orgLoc.y;
+				}
 				showRange.Invoke (Vector2.zero);
 				onTouch.Invoke (Vector2.zero);
 			}
@@ -38,11 +38,11 @@ public class InputManager : MonoBehaviour {
 			if (HUDManager.invertXAxis) {
 				pos.x = 4 - pos.x;
 			}
-			if (!HUDManager.invertYAxis) {
-				_orgLoc.y = 4 - _orgLoc.y;
-			}
 	        pos.y /= Screen.height / _inputScaling;
 			if (pos.y < 3.5F && Time.deltaTime > 0) {
+				if (!HUDManager.invertYAxis) {
+					pos.y = 4 - pos.y;
+				}
 				var diff = pos - _orgLoc;
 				diff.x = Mathf.Clamp (diff.x, -1f, 1f);
 				diff.y = Mathf.Clamp (diff.y, -1f, 1f);
@@ -55,11 +55,11 @@ public class InputManager : MonoBehaviour {
 			if (HUDManager.invertXAxis) {
 				pos.x = 4 - pos.x;
 			}
-			if (!HUDManager.invertYAxis) {
-				_orgLoc.y = 4 - _orgLoc.y;
-			}
 	        pos.y /= Screen.height / _inputScaling;
 			if (pos.y < 3.5F && Time.deltaTime > 0) {
+				if (!HUDManager.invertYAxis) {
+					pos.y = 4 - pos.y;
+				}
 				var diff = pos - _orgLoc;
 				diff.x = Mathf.Clamp (diff.x, -1f, 1f);
 				diff.y = Mathf.Clamp (diff.y, -1f, 1f);
