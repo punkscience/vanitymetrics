@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.Events;
 
 public class InputManager : MonoBehaviour {
@@ -20,8 +20,11 @@ public class InputManager : MonoBehaviour {
 
 	    if (Input.GetMouseButtonDown(0)) {
 	        _orgLoc.x = Input.mousePosition.x / (Screen.width / _inputScaling);
-			if (!HUDManager.invertXAxis) {
+			if (HUDManager.invertXAxis) {
 				_orgLoc.x = 4 - _orgLoc.x;
+			}
+			if (!HUDManager.invertYAxis) {
+				_orgLoc.y = 4 - _orgLoc.y;
 			}
 			_orgLoc.y = Input.mousePosition.y / (Screen.height / _inputScaling);
 			if (_orgLoc.y < 3.5F && Time.deltaTime > 0) {
@@ -32,8 +35,11 @@ public class InputManager : MonoBehaviour {
         else if (Input.GetMouseButton(0)) {
 	        var pos = Input.mousePosition;
 			pos.x /= Screen.width / _inputScaling;
-			if (!HUDManager.invertXAxis) {
+			if (HUDManager.invertXAxis) {
 				pos.x = 4 - pos.x;
+			}
+			if (!HUDManager.invertYAxis) {
+				_orgLoc.y = 4 - _orgLoc.y;
 			}
 	        pos.y /= Screen.height / _inputScaling;
 			if (pos.y < 3.5F && Time.deltaTime > 0) {
@@ -46,8 +52,11 @@ public class InputManager : MonoBehaviour {
         else if (Input.GetMouseButtonUp(0)) {
 	        var pos = Input.mousePosition;
 			pos.x /= Screen.width / _inputScaling;
-			if (!HUDManager.invertXAxis) {
+			if (HUDManager.invertXAxis) {
 				pos.x = 4 - pos.x;
+			}
+			if (!HUDManager.invertYAxis) {
+				_orgLoc.y = 4 - _orgLoc.y;
 			}
 	        pos.y /= Screen.height / _inputScaling;
 			if (pos.y < 3.5F && Time.deltaTime > 0) {
