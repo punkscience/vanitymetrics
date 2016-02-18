@@ -15,7 +15,6 @@ Vanity Metrics is:
     Vincent Fellows
     Frank Forrestall
     Miriam Gibson
-    AJ Morales
     Mark Podrouzek
     Darryl Wright
 
