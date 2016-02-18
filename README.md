@@ -6,5 +6,7 @@ Your army has won the day, but now the dead must be honoured. Stand upon the cra
 But be forewarned! Those warriors not granted their rite by fire will fester and erupt in necromantic fury, seeking the one who has wronged them. (Hint: It's you.)
 
 [Google Play](https://play.google.com/store/apps/details?id=com.vanitymetrics.mournfulhorn&hl=en)
+
 [Apple App Store](https://itunes.apple.com/us/app/mournful-horn/id1080336764?mt=8)
+
 [Global Game Jam Entry](http://globalgamejam.org/2016/games/mournful-horn)
