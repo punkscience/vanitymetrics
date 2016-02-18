@@ -1,6 +1,3 @@
-﻿using UnityEngine;
-using System.Collections;
-
 public class BoatWaveData {
 
 	protected float[] speeds = new float[3] {2.0F, 5.0F, 8.0F};
