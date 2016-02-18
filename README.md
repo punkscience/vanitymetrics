@@ -8,8 +8,6 @@ But be forewarned! Those warriors not granted their rite by fire will fester and
 Credits: 
 With Special Thanks to Volta Labs.
 Vanity Metrics is:
-(In alphabetical order)
-
     Liam Broughm
     Chris Cunningham
     Adam Dionne
